@@ -63,12 +63,13 @@ INSERT INTO `configuration` (`key`, `description`, `value`, `type`) VALUES
 ('authy-api-key', 'Authy API Key', NULL, 'string'),
 ('authy-endpoint', 'Authy Endpoint', 'http://sandbox-api.authy.com', 'list'),
 ('irc-port', 'Main Server Port', '6667', 'number'),
-('irc-server', 'Main Server IP', NULL, 'lookup'),
+('irc-server', 'Main Server', NULL, 'lookup'),
 ('mibbit-password', 'Mibbit Password', NULL, 'string'),
 ('ops-channel', 'Opers Channel', '#opers', 'string'),
 ('persona-audience', 'Persona Audience', NULL, 'string'),
 ('persona-endpoint', 'Persona Endpoint', 'none', 'list'),
 ('rehash-pass', 'RehashServ Password', NULL, 'string'),
+('rehash-host', 'RehashServ Host', NULL, 'string'),
 ('server-pass', 'Server-to-Server Password', NULL, 'string'),
 ('services-server', 'Services Server', NULL, 'lookup'),
 ('stats-server', 'Stats Server', NULL, 'lookup'),
@@ -448,7 +449,7 @@ INSERT INTO `user_role_types` (`id`, `name`, `description`, `flags`) VALUES
 --
 DROP TABLE IF EXISTS `children_v`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`eeems`@`localhost` SQL SECURITY DEFINER VIEW `children_v` AS select `p`.`user_id` AS `user_id`,`p`.`id` AS `parent_id`,`c`.`id` AS `child_id` from (`servers` `c` left join `servers` `p` on((`p`.`id` = `c`.`parent_id`))) where ((`p`.`user_id` is not null) and (`c`.`user_id` is not null) and (`c`.`parent_id` is not null) and (`c`.`uline` = 0));
+CREATE ALGORITHM=UNDEFINED DEFINER=`ircd`@`localhost` SQL SECURITY DEFINER VIEW `children_v` AS select `p`.`user_id` AS `user_id`,`p`.`id` AS `parent_id`,`c`.`id` AS `child_id` from (`servers` `c` left join `servers` `p` on((`p`.`id` = `c`.`parent_id`))) where ((`p`.`user_id` is not null) and (`c`.`user_id` is not null) and (`c`.`parent_id` is not null) and (`c`.`uline` = 0));
 
 -- --------------------------------------------------------
 
@@ -457,7 +458,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`eeems`@`localhost` SQL SECURITY DEFINER VIEW
 --
 DROP TABLE IF EXISTS `opers_v`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`eeems`@`localhost` SQL SECURITY DEFINER VIEW `opers_v` AS select `o`.`id` AS `id`,`o`.`user_id` AS `user_id`,`o`.`manager_id` AS `manager_id`,`o`.`server_id` AS `server_id`,`o`.`nick` AS `nick`,`o`.`password` AS `password`,`p`.`name` AS `password_type`,`o`.`swhois` AS `swhois`,`r`.`flags` AS `flags`,`r`.`name` AS `role` from ((`opers` `o` join `oper_roles` `r` on((`r`.`id` = `o`.`role_id`))) join `password_type` `p` on((`p`.`id` = `o`.`password_type_id`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`ircd`@`localhost` SQL SECURITY DEFINER VIEW `opers_v` AS select `o`.`id` AS `id`,`o`.`user_id` AS `user_id`,`o`.`manager_id` AS `manager_id`,`o`.`server_id` AS `server_id`,`o`.`nick` AS `nick`,`o`.`password` AS `password`,`p`.`name` AS `password_type`,`o`.`swhois` AS `swhois`,`r`.`flags` AS `flags`,`r`.`name` AS `role` from ((`opers` `o` join `oper_roles` `r` on((`r`.`id` = `o`.`role_id`))) join `password_type` `p` on((`p`.`id` = `o`.`password_type_id`)));
 
 -- --------------------------------------------------------
 
@@ -466,7 +467,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`eeems`@`localhost` SQL SECURITY DEFINER VIEW
 --
 DROP TABLE IF EXISTS `ulines_v`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`eeems`@`localhost` SQL SECURITY DEFINER VIEW `ulines_v` AS select `s`.`id` AS `id`,`s`.`host` AS `host` from `servers` `s` where (`s`.`uline` = 1);
+CREATE ALGORITHM=UNDEFINED DEFINER=`ircd`@`localhost` SQL SECURITY DEFINER VIEW `ulines_v` AS select `s`.`id` AS `id`,`s`.`host` AS `host` from `servers` `s` where (`s`.`uline` = 1);
 
 --
 -- Constraints for dumped tables
