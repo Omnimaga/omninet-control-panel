@@ -62,20 +62,20 @@
 				echo "});</script>";
 				if(has_flag($user,'u')){ ?>
 					<script id="template-memos" type="text/x-handlebars-template">
-						<button class="button" value="Refresh" onclick="window.FetchMemos(true);">
-							Refresh
+						<button class="button" value="<?php echo _('Refresh'); ?>" onclick="window.FetchMemos(true);">
+							<?php echo _('Refresh'); ?>
 						</button>
-						<button style="background-color:green;background-image:none;" class="button" value="New Memo" id="send-memo" onclick="$('#memo-diag').dialog('open');">
-							New Memo
+						<button style="background-color:green;background-image:none;" class="button" value="<?php echo _('New Memo'); ?>" id="send-memo" onclick="$('#memo-diag').dialog('open');">
+							<?php echo _('New Memo'); ?>
 						</button>
-						<button class="button" style="background-color:red;background-image:none;" value="Delete All" onclick="return window.DeleteMemos();">
-							Delete All
+						<button class="button" style="background-color:red;background-image:none;" value="<?php echo _('Delete All'); ?>" onclick="return window.DeleteMemos();">
+							<?php echo _('Delete All'); ?>
 						</button>
 						{{#each memos}}
 							<div style="padding: 5px;" class="ui-widget ui-state-default ui-corner-all" id="memo-{{this.id}}">
 								<div>
 									<span>
-										From:
+										<?php echo _('From'); ?>:
 									</span>
 									<span style="font-weight:normal;" class='memo-from'>
 										{{this.from}}
@@ -83,7 +83,7 @@
 								</div>
 								<div>
 									<span>
-										Sent:
+										<?php echo _('Sent'); ?>:
 									</span>
 									<span style="font-weight:normal;" class='memo-date'>
 										{{this.date}}
@@ -91,24 +91,24 @@
 								</div>
 								<div>
 									<span>
-										Body:
+										<?php echo _('Body'); ?>:
 									</span>
 									<span style="font-weight:normal;" class="memo-body">
 										{{html this.body}}
 									</span>
 								</div>
-								<button class="button" value="Reply" onclick="return window.ReplyToMemoFromButton.call(this);">
-									Reply
+								<button class="button" value="<?php echo _('Reply'); ?>" onclick="return window.ReplyToMemoFromButton.call(this);">
+									<?php echo _('Reply'); ?>
 								</button>
-								<button style="background-color:red;background-image:none;" class="button" value="Delete" onclick="return window.DeleteMemoFromButton.call(this);">
-									Delete
+								<button style="background-color:red;background-image:none;" class="button" value="<?php echo _('Delete'); ?>" onclick="return window.DeleteMemoFromButton.call(this);">
+									<?php echo _('Delete'); ?>
 								</button>
 							</div>
 						{{/each}}
 					</script>
 					<script id="template-news" type="text/x-handlebars-template">
-						<button value="Refresh" onclick="window.FetchNews(true);">
-							Refresh
+						<button value="<?php echo _('Refresh'); ?>" onclick="window.FetchNews(true);">
+							<?php echo _('Refresh'); ?>
 						</button>
 						{{#each news}}
 							<div id="news-{{this.id}}" class="ui-widget ui-state-default ui-corner-all" style="padding:5px;">
@@ -117,7 +117,7 @@
 								</h2>
 								<div>
 									<span>
-										From:
+										<?php echo _('From'); ?>:
 									</span>
 									<span style="font-weight:normal;">
 										{{this.from}}
@@ -125,7 +125,7 @@
 								</div>
 								<div>
 									<span>
-										Sent:
+										<?php echo _('Sent'); ?>:
 									</span>
 									<span style="font-weight:normal;">
 										{{this.date}}
@@ -138,24 +138,24 @@
 						{{/each}}
 					</script>
 					<script id="template-channels" type="text/x-handlebars-template">
-						<button value="Refresh" onclick="window.FetchChannels(true);">
-							Refresh
+						<button value="<?php echo _('Refresh'); ?>" onclick="window.FetchChannels(true);">
+							<?php echo _('Refresh'); ?>
 						</button>
-						<button value="New Channel" style="background-color:green;background-image:none;" onclick="">
-							New Channel
+						<button value="<?php echo _('New Channel'); ?>" style="background-color:green;background-image:none;" onclick="">
+							<?php echo _('New Channel'); ?>
 						</button>
 						{{#each channels}}
 							<div id="channel-{{this.name}}" class="ui-widget ui-state-default ui-corner-all" style="padding:5px;">
 								{{this.name}}
 								<br/>
-								Flags:
+								<?php echo _('Flags:'); ?>
 								<ul>
 									{{#each this.flags}}
 										<li>{{this.name}}</li>
 									{{/each}}
 								</ul>
-								<button value="Delete" style="background-color:red;background-image:none;" onclick="">
-									Delete
+								<button value="<?php echo _('Delete'); ?>" style="background-color:red;background-image:none;" onclick="">
+									<?php echo _('Delete'); ?>
 								</button>
 							</div>
 						{{/each}}
@@ -173,15 +173,15 @@
 				<ul>
 					<?php
 						if(has_flag($user,'u')){ ?>
-							<li><a href="#news">News</a></li>
-							<li><a href="#memos">Memos</a></li>
-							<li><a href="#channels">Channels</a></li>
+							<li><a href="#news"><?php echo _('News'); ?></a></li>
+							<li><a href="#memos"><?php echo _('Memos'); ?></a></li>
+							<li><a href="#channels"><?php echo _('Channels'); ?></a></li>
 						<?php }
-						echo has_flag($user,'n')?'<li><a href="#servers">Servers</a></li>':'';
-						echo has_flag($user,'o')?'<li><a href="#opers">Opers</a></li>':'';
-						echo has_flag($user,'a')?'<li><a href="#config">Configuration</a></li>':'';
+						echo has_flag($user,'n')?'<li><a href="#servers">'._('Servers').'</a></li>':'';
+						echo has_flag($user,'o')?'<li><a href="#opers">'._('Opers').'</a></li>':'';
+						echo has_flag($user,'a')?'<li><a href="#config">'._('Configuration').'</a></li>':'';
 					?>
-					<li><a href="#profile">Profile</a></li>
+					<li><a href="#profile"><?php echo _('Profile'); ?></a></li>
 					<div id="user-menu-button" class="right button">
 						<?php echo $user['nick']; ?>
 					</div>
@@ -216,13 +216,13 @@
 						'form_fields'=>array(
 							array(
 								'name'=>'to',
-								'label'=>'To',
+								'label'=>_('To'),
 								'type'=>'string',
 								'value'=>''
 							),
 							array(
 								'name'=>'message',
-								'label'=>'Message',
+								'label'=>_('Message'),
 								'type'=>'string',
 								'value'=>''
 							),
@@ -244,7 +244,7 @@
 										echo '<div class="login-form">Enable 2-factor Authentication'.get_form_html('2-factor',array(
 											array(
 												'name'=>'country-code',
-												'label'=>'Country',
+												'label'=>_('Country'),
 												'type'=>'text',
 												'attributes'=>array(
 													'id'=>'authy-countries'
@@ -252,7 +252,7 @@
 											),
 											array(
 												'name'=>'cellphone',
-												'label'=>'Cell #',
+												'label'=>_('Cell #'),
 												'type'=>'text',
 												'attributes'=>array(
 													'id'=>'authy-cellphone'
@@ -275,7 +275,7 @@
 											),
 											array(
 												'name'=>'token',
-												'label'=>'Token',
+												'label'=>_('Token'),
 												'type'=>'text'
 											),
 											array(
@@ -290,16 +290,16 @@
 							}else{
 								switch(get_conf('2-factor-method')){
 									case 'authy':case 'google-authenticator':
-										echo "<button id='2-factor-disable' value='Disable 2-factor'>Disable 2-factor</button>";
+										echo "<button id='2-factor-disable' value='".('Disable 2-factor')."'>"._('Disable 2-factor')."</button>";
 									break;
 									default:
 								}
 							}
 							if(get_conf('persona-endpoint') != 'none'){
-								echo "<div><span id='persona-register' class='ui-button ui-widget ui-state-default ui-corner-all' style='overflow:hidden;height:42px;padding:0px 20px 0px 0px;vertical-align:middle;'><img style='height:100%;float:left;' src='img/persona-logo.png'/><span style='display:inline-block;line-height:42px;'>Link Persona</span></span></div>";
+								echo "<div><span id='persona-register' class='ui-button ui-widget ui-state-default ui-corner-all' style='overflow:hidden;height:42px;padding:0px 20px 0px 0px;vertical-align:middle;'><img style='height:100%;float:left;' src='img/persona-logo.png'/><span style='display:inline-block;line-height:42px;'>"._('Link Persona')."</span></span></div>";
 								$emails = get_emails($user['id'],true);
 								foreach($emails as $k => $email){
-									echo "<div><button id='persona-remove-{$email['id']}' value='Remove'>Remove</button>{$email['email']}</div>";
+									echo "<div><button id='persona-remove-{$email['id']}' value='"._('Remove')."'>"._('Remove')."</button>{$email['email']}</div>";
 								}
 							}
 						}
@@ -307,32 +307,32 @@
 				</div>
 			</div>
 			<ul class="menu" id="user-menu">
-				<li><a id="roles-button">Switch Role</a></li>
+				<li><a id="roles-button"><?php echo _('Switch Role'); ?></a></li>
 				<?php if(has_flag($user,'n')||has_flag($user,'a')){?>
-					<li><a id="rehash-servers">Rehash</a></li>
+					<li><a id="rehash-servers"><?php echo _('Rehash'); ?></a></li>
 				<?php } ?>
-				<li><a id="newpass-button">Change Password</a></li>
+				<li><a id="newpass-button"><?php echo _('Change Password'); ?></a></li>
 				<?php if(has_flag($user,'u')){ ?>
-					<li><a id="sync-pass">Sync Pass</a></li>
+					<li><a id="sync-pass"><?php echo _('Sync Password'); ?></a></li>
 				<?php } ?>
-				<li><a id="logout">Logout</a></li>
+				<li><a id="logout"><?php echo _('Logout'); ?></a></li>
 			</ul>
 			<?php
 					array_push($dialogs,array(
 						'id'=>'newpass-diag',
 						'type'=>'form',
 						'form_id'=>'newpass',
-						'form_submit_label'=>'Change Password',
+						'form_submit_label'=>_('Change Password'),
 						'form_fields'=>array(
 							array(
 								'name'=>'password',
-								'label'=>'Password',
+								'label'=>_('Password'),
 								'type'=>'password',
 								'value'=>''
 							),
 							array(
 								'name'=>'newpass',
-								'label'=>'New Password',
+								'label'=>_('New Password'),
 								'type'=>'password',
 								'value'=>''
 							),
@@ -345,7 +345,7 @@
 					));
 					$roles = array(array(
 						'value'=>'user',
-						'label'=>'User'
+						'label'=>_('User')
 					));
 					if($res = query("SELECT rt.name AS value,rt.description AS label FROM user_role_types rt JOIN user_roles r ON r.user_role_id = rt.id JOIN users u ON r.user_id = u.id WHERE u.id = %d",array($user['id']))){
 						while($role = $res->fetch_assoc()){
@@ -356,11 +356,11 @@
 						'id'=>'roles-diag',
 						'type'=>'form',
 						'form_id'=>'roles',
-						'form_submit_label'=>'Switch',
+						'form_submit_label'=>_('Switch'),
 						'form_fields'=>array(
 							array(
 								'name'=>'type',
-								'label'=>'Type',
+								'label'=>_('Type'),
 								'type'=>'select',
 								'values'=>$roles,
 								'value'=>isset($_COOKIE['type'])?$_COOKIE['type']:'user'
@@ -378,11 +378,11 @@
 						'type'=>'form',
 						'autocomplete'=>'off',
 						'form_id'=>'verify',
-						'form_submit_label'=>'Login',
+						'form_submit_label'=>_('Login'),
 						'form_fields'=>array(
 							array(
 								'name'=>'token',
-								'label'=>'2-Factor Verification',
+								'label'=>_('2-Factor Verification'),
 								'type'=>'text',
 								'attributes'=>array(
 									'id'=>'authy-token',
@@ -399,7 +399,7 @@
 				}else{ 
 					$roles = array(array(
 						'value'=>'user',
-						'label'=>'User'
+						'label'=>_('User')
 					));
 					if($res = query("SELECT name AS value,description AS label FROM ircd.user_role_types")){
 						while($role = $res->fetch_assoc()){
@@ -410,27 +410,27 @@
 						'id'=>'login-diag',
 						'type'=>'form',
 						'form_id'=>'login',
-						'form_submit_label'=>'Login',
+						'form_submit_label'=>_('Login'),
 						'form_fields'=>array(
 							array(
 								'type'=>'custom',
-								'html'=>get_conf('persona-endpoint') != 'none'?"<div><span id='persona-register' class='ui-button ui-widget ui-state-default ui-corner-all' style='overflow:hidden;height:42px;padding:0px 20px 0px 0px;vertical-align:middle;'><img style='height:100%;float:left;' src='img/persona-logo.png'/><span style='display:inline-block;line-height:42px;'>Persona</span></span></div>":''
+								'html'=>get_conf('persona-endpoint') != 'none'?"<div><span id='persona-register' class='ui-button ui-widget ui-state-default ui-corner-all' style='overflow:hidden;height:42px;padding:0px 20px 0px 0px;vertical-align:middle;'><img style='height:100%;float:left;' src='img/persona-logo.png'/><span style='display:inline-block;line-height:42px;'>"._('Persona')."</span></span></div>":''
 							),
 							array(
 								'name'=>'username',
-								'label'=>'Username',
+								'label'=>_('Username'),
 								'type'=>'text',
 								'value'=>''
 							),
 							array(
 								'name'=>'password',
-								'label'=>'Password',
+								'label'=>_('Password'),
 								'type'=>'password',
 								'value'=>''
 							),
 							array(
 								'name'=>'type',
-								'label'=>'Type',
+								'label'=>_('Type'),
 								'type'=>'select',
 								'values'=>$roles
 							),

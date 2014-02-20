@@ -308,15 +308,15 @@
 		break;
 		case 'config':
 			foreach($_GET as $key => $val){
-				set_conf($key,$val,get_conf_type($key)) or die('{"code":1,"message":"Failed to update setting: '.$key.' with value: '.$val.'"}');
+				set_conf($key,$val,get_conf_type($key)) or die('{"code":1,"message":"'._('Failed to update setting').': '.$key.' ',_('with value').': '.$val.'"}');
 			}
 			die('{"code":0}');
 		break;
 		case 'rehash':
-			$u or die('{"code":10,"message":"Not logged in"}');
+			$u or die('{"code":10,"message":"'_('Not logged in').'"}');
 			die(ircrehash());
 		break;
 		default:
-			die('{"code":1,"message":"Invalid Action '.$_GET['action'].'"}');
+			die('{"code":1,"message":"'._('Invalid Action').': '.$_GET['action'].'"}');
 	}
 ?>

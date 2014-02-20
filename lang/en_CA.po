@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Omninet Control panel\n"
+"POT-Creation-Date: 2014-02-20 11:04-0700\n"
+"PO-Revision-Date: 2014-02-20 11:04-0700\n"
+"Last-Translator: \n"
+"Language-Team: Omnimaga <admin@omnimaga.org>\n"
+"Language: en_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../site/api/index.php:311
+msgid "Failed to update setting"
+msgstr ""
+
+#: ../site/api/index.php:311
+msgid "with value"
+msgstr ""
+
+#: ../site/api/index.php:316
+msgid "Not logged in"
+msgstr ""
+
+#: ../site/api/index.php:320
+msgid "Invalid Action"
+msgstr ""
+
+#: ../site/index.php:65 ../site/index.php:66 ../site/index.php:110
+#: ../site/index.php:111 ../site/index.php:141 ../site/index.php:142
+msgid "Refresh"
+msgstr ""
+
+#: ../site/index.php:68 ../site/index.php:69
+msgid "New Memo"
+msgstr ""
+
+#: ../site/index.php:71 ../site/index.php:72
+msgid "Delete All"
+msgstr ""
+
+#: ../site/index.php:78 ../site/index.php:120
+msgid "From"
+msgstr ""
+
+#: ../site/index.php:86 ../site/index.php:128
+msgid "Sent"
+msgstr ""
+
+#: ../site/index.php:94
+msgid "Body"
+msgstr ""
+
+#: ../site/index.php:100 ../site/index.php:101
+msgid "Reply"
+msgstr ""
+
+#: ../site/index.php:103 ../site/index.php:104 ../site/index.php:157
+#: ../site/index.php:158
+msgid "Delete"
+msgstr ""
+
+#: ../site/index.php:144 ../site/index.php:145
+msgid "New Channel"
+msgstr ""
+
+#: ../site/index.php:151
+msgid "Flags:"
+msgstr ""
+
+#: ../site/index.php:176
+msgid "News"
+msgstr ""
+
+#: ../site/index.php:177
+msgid "Memos"
+msgstr ""
+
+#: ../site/index.php:178
+msgid "Channels"
+msgstr ""
+
+#: ../site/index.php:180
+msgid "Servers"
+msgstr ""
+
+#: ../site/index.php:181
+msgid "Opers"
+msgstr ""
+
+#: ../site/index.php:182
+msgid "Configuration"
+msgstr ""
+
+#: ../site/index.php:184
+msgid "Profile"
+msgstr ""
+
+#: ../site/index.php:219
+msgid "To"
+msgstr ""
+
+#: ../site/index.php:225
+msgid "Message"
+msgstr ""
+
+#: ../site/index.php:247
+msgid "Country"
+msgstr ""
+
+#: ../site/index.php:255
+msgid "Cell #"
+msgstr ""
+
+#: ../site/index.php:278
+msgid "Token"
+msgstr ""
+
+#: ../site/index.php:293
+msgid "Disable 2-factor"
+msgstr ""
+
+#: ../site/index.php:299
+msgid "Link Persona"
+msgstr ""
+
+#: ../site/index.php:302
+msgid "Remove"
+msgstr ""
+
+#: ../site/index.php:310
+msgid "Switch Role"
+msgstr ""
+
+#: ../site/index.php:312
+msgid "Rehash"
+msgstr ""
+
+#: ../site/index.php:314 ../site/index.php:325
+msgid "Change Password"
+msgstr ""
+
+#: ../site/index.php:316
+msgid "Sync Password"
+msgstr ""
+
+#: ../site/index.php:318
+msgid "Logout"
+msgstr ""
+
+#: ../site/index.php:329 ../site/index.php:427
+msgid "Password"
+msgstr ""
+
+#: ../site/index.php:335
+msgid "New Password"
+msgstr ""
+
+#: ../site/index.php:348 ../site/index.php:402
+msgid "User"
+msgstr ""
+
+#: ../site/index.php:359
+msgid "Switch"
+msgstr ""
+
+#: ../site/index.php:363 ../site/index.php:433
+msgid "Type"
+msgstr ""
+
+#: ../site/index.php:381 ../site/index.php:413
+msgid "Login"
+msgstr ""
+
+#: ../site/index.php:385
+msgid "2-Factor Verification"
+msgstr ""
+
+#: ../site/index.php:417
+msgid "Persona"
+msgstr ""
+
+#: ../site/index.php:421
+msgid "Username"
+msgstr ""
