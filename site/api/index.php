@@ -147,25 +147,25 @@
 			}
 		break;
 		case 'send-memo':
-			$u or die('{"code":1,"message":"You have been logged out"}');
-			isset($_GET['to']) && isset($_GET['message']) or die('{"code":1,"message":"No message or user entered"}');
+			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
+			isset($_GET['to']) && isset($_GET['message']) or die('{"code":1,"message":"'._('No message or user entered').'"}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'MemoServ','send',Array($_GET['to'],$_GET['message']));
 			if($res[0]){
 				if(substr($res[1],-19) == ' is not registered.'){
-					die('{"code":1,"message":"User '.$_GET['to'].' does not exist"}');
+					die('{"code":1,"message":"'._('User').' '.$_GET['to'].' '._('does not exist').'"}');
 				}else{
-					die('{"code":0,"message":"Memo Sent"}');
+					die('{"code":0,"message":"'._('Memo Sent').'"}');
 				}
 			}else{
-				die('{"code":1,"message":"Cannot send memo: '+$res[1]+'"}');
+				die('{"code":1,"message":"'._('Cannot send memo').': '.$res[1].'"}');
 			}
 		break;
 		case 'delete-memo':
-			$u or die('{"code":1,"message":"You have been logged out"}');
-			isset($_GET['id']) or die('{"code":1,"message":"No id given"}');
+			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
+			isset($_GET['id']) or die('{"code":1,"message":"'._('No id given').'"}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'MemoServ','delete',Array($_GET['id']));
 			if(!$res[0]){
-				die('{"code":1,"message":"Cannot send memo: '+$res[1]+'"}');
+				die('{"code":1,"message":"'._('Cannot send memo').': '+$res[1]+'"}');
 			}
 			die('{"code":0}');
 		break;
@@ -198,9 +198,9 @@
 			$result = json_decode($result);
 			if($result->status == 'okay'){
 				if($register && !add_email($u['id'],$result->email)){
-					die('{"code":1,"message":"Failed to add email '.$result->email.' to user '.$u['nick'].'"}');
+					die('{"code":1,"message":"'._('Failed to add email').' '.$result->email.' '._('to user').' '.$u['nick'].'"}');
 				}elseif(!$register && !$u = get_user_for_email($result->email)){
-					die('{"code":1,"message":"Email does not match any users"}');
+					die('{"code":1,"message":"'._('Email does not match any users').'"}');
 				}
 				setcookie('personaUser',$result->email,null,'/');
 				$pass = null;
@@ -223,10 +223,10 @@
 			}
 		break;
 		case 'persona-remove':
-			$u or die('{"code":1,"message":"You have been logged out"}');
-			isset($_GET['id']) or die('{"code":1,"message":"No ID set"}');
+			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
+			isset($_GET['id']) or die('{"code":1,"message":"'._('No ID set').'"}');
 			if(!remove_email($u['id'],$_GET['id'],true)){
-				die('{"code":1,"message":"Could not remove email address"}');
+				die('{"code":1,"message":"'._('Could not remove email address').'"}');
 			}
 			die('{"code":0}');
 		break;
@@ -238,25 +238,25 @@
 			die('{"code":0}');
 		break;
 		case '2-factor-delete':
-			$u or die('{"code":1,"message":"You have been logged out"}');
+			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
 			$r = delete_token($u['id']);
 			if($r !== true){
 				die('{"code":1,"message":"'.$r.'"}');
 			}
-			die('{"code":0,"message":"2-factor disabled."}');
+			die('{"code":0,"message":"'._('2-factor disabled.').'"}');
 		break;
 		case 'ping':
-			$u or die('{"code":1,"message":"You have been logged out"}');
+			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
 			die('{"code":0}');
 		break;
 		case 'newpass':
-			$u && isset($_GET['password']) && isset($_GET['newpass']) or die('{"code":2,"message":"Make sure that everything is filled in. Try reloading if it is."}');
-			$u['password'] == mkpasswd($_GET['password'],$u['salt']) or die('{"code":2,"message":"Invalid password"}');
+			$u && isset($_GET['password']) && isset($_GET['newpass']) or die('{"code":2,"message":"'._('Make sure that everything is filled in. Try reloading if it is.').'"}');
+			$u['password'] == mkpasswd($_GET['password'],$u['salt']) or die('{"code":2,"message":"'._('Invalid password').'"}');
 			$u['api_key'] == $_COOKIE['key'] or die('{"code":3,"message":"Not Logged in to use '.$u['nick'].' with key '.$u['api_key'].' != '.$_COOKIE['key'].'."}');
 			if($_COOKIE['type'] == 'user'){
 				$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$u['nick'],$_GET['password'],'NickServ','set',Array('password',trim($_GET['newpass'])));
 				if($res[0] === false){
-					die('{"code":2,"message":"Could not update password with nickserv: '.$res[1].'"}');
+					die('{"code":2,"message":"'._('Could not update password with nickserv').': '.$res[1].'"}');
 				}else{
 					$_SESSION['password'] = $_GET['newpass'];
 				}
@@ -265,9 +265,9 @@
 			die('{"code":0}');
 		break;
 		case 'sync-pass':
-			$u && isset($_SESSION['password'])or die('{"code":2,"message":"Make sure that everything is filled in. Try reloading if it is."}');
-			$u['api_key'] == $_COOKIE['key'] or die('{"code":3,"message":"Not Logged in to use '.$u['nick'].' with key '.$u['api_key'].' != '.$_COOKIE['key'].'."}');
-			$_COOKIE['type'] == 'user' or die('{"code":3,"message":"Must be logged in with type user to sync pass"}');
+			$u && isset($_SESSION['password'])or die('{"code":2,"message":"'._('Make sure that everything is filled in. Try reloading if it is.').'"}');
+			$u['api_key'] == $_COOKIE['key'] or die('{"code":3,"message":"'._('Not Logged in to use').' '.$u['nick'].' '._('with key').' '.$u['api_key'].' != '.$_COOKIE['key'].'."}');
+			$_COOKIE['type'] == 'user' or die('{"code":3,"message":"'._('Must be logged in with type user to sync pass').'"}');
 			$res = atheme_login(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),$u['nick'],$_SESSION['password']);
 			if($res[0] === false){
 				die('{"code":2,"message":"'._('Could not verify with nickserv').': '.$res[1].'"}');
