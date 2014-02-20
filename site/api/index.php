@@ -308,7 +308,7 @@
 		break;
 		case 'config':
 			foreach($_GET as $key => $val){
-				set_conf($key,$val,get_conf_type($key)) or die('{"code":1,"message":"'._('Failed to update setting').': '.$key.' ',_('with value').': '.$val.'"}');
+				set_conf($key,$val,get_conf_type($key)) or die('{"code":1,"message":"'._('Failed to update setting').': '.$key.' '._('with value').': '.$val.'"}');
 			}
 			die('{"code":0}');
 		break;
