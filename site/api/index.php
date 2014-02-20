@@ -15,8 +15,8 @@
 			die();
 		break;
 		case 'login':
-			isset($_GET['username']) && isset($_GET['password']) or die('{"code":2,"message":"Missing username and/or password"}');
-			isset($_GET['type']) or die('{"code":2,"message":"Missing user type"}');
+			isset($_GET['username']) && isset($_GET['password']) or die('{"code":2,"message":"'._('Missing username and/or password').'"}');
+			isset($_GET['type']) or die('{"code":2,"message":"'._('Missing user type').'"}');
 			$r = login($_GET['username'],$_GET['password'],$_GET['type']);
 			if($r !== true){
 				die('{"code":2,"message":"'.$r.'"}');
@@ -25,7 +25,7 @@
 			}
 		break;
 		case 'verify':
-			isset($_GET['token']) or die('{"code":1,"message":"No token set"}');
+			isset($_GET['token']) or die('{"code":1,"message":"'._('No token set').'"}');
 			$r = verify($_GET['token']);
 			if($r !== true){
 				die('{"code":2,"message":"'.$r.'"}');
@@ -37,7 +37,7 @@
 			die('{"code":0}');
 		break;
 		case 'get-memos':
-			$u or die('{"code":1,"message":"You have been logged out"}');
+			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
 			$u['type'] = 'user' && isset($_COOKIE['user']) && isset($_SESSION['password']) or die('{"code":0}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'MemoServ','list');
 			if($res[0]){
@@ -66,11 +66,11 @@
 				}
 				die('{"code":0,"memos":'.json_encode($memos).'}');
 			}else{
-				die('{"code":1,"message":"Cannot fetch memos"}');
+				die('{"code":1,"message":"'._('Cannot fetch memos').'"}');
 			}
 		break;
 		case 'get-news':
-			$u or die('{"code":1,"message":"You have been logged out"}');
+			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
 			$u['type'] = 'user' && isset($_COOKIE['user']) && isset($_SESSION['password']) or die('{"code":0}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'InfoServ','list');
 			if($res[0]){
@@ -94,11 +94,11 @@
 				}
 				die('{"code":0,"news":'.json_encode($news).'}');
 			}else{
-				die('{"code":1,"message":"Cannot fetch news"}');
+				die('{"code":1,"message":"'._('Cannot fetch news').'"}');
 			}
 		break;
 		case 'get-channels':
-			$u or die('{"code":1,"message":"You have been logged out"}');
+			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
 			$u['type'] = 'user' && isset($_COOKIE['user']) && isset($_SESSION['password']) or die('{"code":0}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'NickServ','listchans');
 			if($res[0]){
@@ -110,23 +110,23 @@
 						$flags = array();
 						foreach($flags_list as $kk => $flag){
 							switch($flag){
-								case 'v':$name='Voice';break;
-								case 'V':$name='Automatic voice';break;
-								case 'h':$name='Halfop';break;
-								case 'H':$name='Automatic Halfop';break;
-								case 'o':$name='Op';break;
-								case 'O':$name='Automatic Op';break;
-								case 'a':$name='Admin';break;
-								case 'q':$name='Owner';break;
-								case 's':$name='Set';break;
-								case 'i':$name='Invite/Getkey';break;
-								case 'r':$name='Kick/Ban';break;
-								case 'R':$name='Recover/Clear';break;
-								case 'f':$name='Modify access lists';break;
-								case 't':$name='Topic';break;
-								case 'A':$name='View access lists';break;
-								case 'F':$name='Founder';break;
-								case 'b':$name='Banned';break;
+								case 'v':$name=_('Voice');break;
+								case 'V':$name=_('Automatic voice');break;
+								case 'h':$name=_('Halfop');break;
+								case 'H':$name=_('Automatic Halfop');break;
+								case 'o':$name=_('Op');break;
+								case 'O':$name=_('Automatic Op');break;
+								case 'a':$name=_('Admin');break;
+								case 'q':$name=_('Owner');break;
+								case 's':$name=_('Set');break;
+								case 'i':$name=_('Invite/Getkey');break;
+								case 'r':$name=_('Kick/Ban');break;
+								case 'R':$name=_('Recover/Clear');break;
+								case 'f':$name=_('Modify access lists');break;
+								case 't':$name=_('Topic');break;
+								case 'A':$name=_('View access lists');break;
+								case 'F':$name=_('Founder');break;
+								case 'b':$name=_('Banned');break;
 								default:$name=$flag;
 							}
 							array_push($flags,array(
@@ -143,7 +143,7 @@
 				}
 				die('{"code":0,"channels":'.json_encode($channels).'}');
 			}else{
-				die('{"code":1,"message":"Cannot fetch channels"}');
+				die('{"code":1,"message":"'._('Cannot fetch channels').'"}');
 			}
 		break;
 		case 'send-memo':
@@ -313,7 +313,7 @@
 			die('{"code":0}');
 		break;
 		case 'rehash':
-			$u or die('{"code":10,"message":"'_('Not logged in').'"}');
+			$u or die('{"code":10,"message":"'._('Not logged in').'"}');
 			die(ircrehash());
 		break;
 		default:

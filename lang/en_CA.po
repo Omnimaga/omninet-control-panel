@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omninet Control panel\n"
-"POT-Creation-Date: 2014-02-20 11:04-0700\n"
-"PO-Revision-Date: 2014-02-20 11:04-0700\n"
+"POT-Creation-Date: 2014-02-20 13:23-0700\n"
+"PO-Revision-Date: 2014-02-20 13:23-0700\n"
 "Last-Translator: \n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: en_CA\n"
@@ -14,16 +14,237 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../site/api/index.php:18
+msgid "Missing username and/or password"
+msgstr ""
+
+#: ../site/api/index.php:19
+msgid "Missing user type"
+msgstr ""
+
+#: ../site/api/index.php:28
+msgid "No token set"
+msgstr ""
+
+#: ../site/api/index.php:40 ../site/api/index.php:73 ../site/api/index.php:101
+#: ../site/api/index.php:150 ../site/api/index.php:164
+#: ../site/api/index.php:226 ../site/api/index.php:241
+#: ../site/api/index.php:249
+msgid "You have been logged out"
+msgstr ""
+
+#: ../site/api/index.php:69
+msgid "Cannot fetch memos"
+msgstr ""
+
+#: ../site/api/index.php:97
+msgid "Cannot fetch news"
+msgstr ""
+
+#: ../site/api/index.php:113
+msgid "Voice"
+msgstr ""
+
+#: ../site/api/index.php:114
+msgid "Automatic voice"
+msgstr ""
+
+#: ../site/api/index.php:115
+msgid "Halfop"
+msgstr ""
+
+#: ../site/api/index.php:116
+msgid "Automatic Halfop"
+msgstr ""
+
+#: ../site/api/index.php:117
+msgid "Op"
+msgstr ""
+
+#: ../site/api/index.php:118
+msgid "Automatic Op"
+msgstr ""
+
+#: ../site/api/index.php:119
+msgid "Admin"
+msgstr ""
+
+#: ../site/api/index.php:120
+msgid "Owner"
+msgstr ""
+
+#: ../site/api/index.php:121
+msgid "Set"
+msgstr ""
+
+#: ../site/api/index.php:122
+msgid "Invite/Getkey"
+msgstr ""
+
+#: ../site/api/index.php:123
+msgid "Kick/Ban"
+msgstr ""
+
+#: ../site/api/index.php:124
+msgid "Recover/Clear"
+msgstr ""
+
+#: ../site/api/index.php:125
+msgid "Modify access lists"
+msgstr ""
+
+#: ../site/api/index.php:126
+msgid "Topic"
+msgstr ""
+
+#: ../site/api/index.php:127
+msgid "View access lists"
+msgstr ""
+
+#: ../site/api/index.php:128
+msgid "Founder"
+msgstr ""
+
+#: ../site/api/index.php:129
+msgid "Banned"
+msgstr ""
+
+#: ../site/api/index.php:146
+msgid "Cannot fetch channels"
+msgstr ""
+
+#: ../site/api/index.php:151
+msgid "No message or user entered"
+msgstr ""
+
+#: ../site/api/index.php:155 ../site/index.php:348 ../site/index.php:402
+msgid "User"
+msgstr ""
+
+#: ../site/api/index.php:155
+msgid "does not exist"
+msgstr ""
+
+#: ../site/api/index.php:157
+msgid "Memo Sent"
+msgstr ""
+
+#: ../site/api/index.php:160 ../site/api/index.php:168
+msgid "Cannot send memo"
+msgstr ""
+
+#: ../site/api/index.php:165
+msgid "No id given"
+msgstr ""
+
+#: ../site/api/index.php:201
+msgid "Failed to add email"
+msgstr ""
+
+#: ../site/api/index.php:201
+msgid "to user"
+msgstr ""
+
+#: ../site/api/index.php:203
+msgid "Email does not match any users"
+msgstr ""
+
+#: ../site/api/index.php:227
+msgid "No ID set"
+msgstr ""
+
+#: ../site/api/index.php:229
+msgid "Could not remove email address"
+msgstr ""
+
+#: ../site/api/index.php:246
+msgid "2-factor disabled."
+msgstr ""
+
+#: ../site/api/index.php:253 ../site/api/index.php:268
+#: ../site/api/index.php:279
+msgid "Make sure that everything is filled in. Try reloading if it is."
+msgstr ""
+
+#: ../site/api/index.php:254
+msgid "Invalid password"
+msgstr ""
+
+#: ../site/api/index.php:259
+msgid "Could not update password with nickserv"
+msgstr ""
+
+#: ../site/api/index.php:269
+msgid "Not Logged in to use"
+msgstr ""
+
+#: ../site/api/index.php:269
+msgid "with key"
+msgstr ""
+
+#: ../site/api/index.php:270
+msgid "Must be logged in with type user to sync pass"
+msgstr ""
+
+#: ../site/api/index.php:273
+msgid "Could not verify with nickserv"
+msgstr ""
+
+#: ../site/api/index.php:276
+msgid "Nickserv password synchronized with main account"
+msgstr ""
+
+#: ../site/api/index.php:284 ../site/api/index.php:297
+#: ../site/api/index.php:316
+msgid "Not logged in"
+msgstr ""
+
+#: ../site/api/index.php:285 ../site/api/index.php:298
+msgid "No user set."
+msgstr ""
+
+#: ../site/api/index.php:286
+msgid "No email set."
+msgstr ""
+
+#: ../site/api/index.php:287
+msgid "No real name set."
+msgstr ""
+
+#: ../site/api/index.php:288 ../site/api/index.php:299
+msgid "No nick set."
+msgstr ""
+
+#: ../site/api/index.php:289
+msgid "User with id"
+msgstr ""
+
+#: ../site/api/index.php:289 ../site/api/index.php:301
+msgid "does not exist. You should reload the page."
+msgstr ""
+
+#: ../site/api/index.php:293
+msgid "Unable to update user"
+msgstr ""
+
+#: ../site/api/index.php:300
+msgid "No profile set."
+msgstr ""
+
+#: ../site/api/index.php:301
+msgid "Oper with id"
+msgstr ""
+
+#: ../site/api/index.php:303 ../site/api/index.php:305
+msgid "Unable to update oper"
+msgstr ""
+
 #: ../site/api/index.php:311
 msgid "Failed to update setting"
 msgstr ""
 
 #: ../site/api/index.php:311
 msgid "with value"
-msgstr ""
-
-#: ../site/api/index.php:316
-msgid "Not logged in"
 msgstr ""
 
 #: ../site/api/index.php:320
@@ -158,10 +379,6 @@ msgstr ""
 
 #: ../site/index.php:335
 msgid "New Password"
-msgstr ""
-
-#: ../site/index.php:348 ../site/index.php:402
-msgid "User"
 msgstr ""
 
 #: ../site/index.php:359
