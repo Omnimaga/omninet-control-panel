@@ -270,39 +270,39 @@
 			$_COOKIE['type'] == 'user' or die('{"code":3,"message":"Must be logged in with type user to sync pass"}');
 			$res = atheme_login(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),$u['nick'],$_SESSION['password']);
 			if($res[0] === false){
-				die('{"code":2,"message":"Could not verify with nickserv: '.$res[1].'"}');
+				die('{"code":2,"message":"'._('Could not verify with nickserv').': '.$res[1].'"}');
 			}
 			query("UPDATE users u SET u.password='%s' WHERE u.id=%d",Array(mkpasswd($_SESSION['password']),$u['id']));
-			die('{"code":0,"message":"Nickserv password synchronized with main account"}');
+			die('{"code":0,"message":"'._('Nickserv password synchronized with main account').'"}');
 		break;
 		case 'role':
-			$u && isset($_GET['type']) or die('{"code":2,"message":"Make sure that everything is filled in. Try reloading if it is."}');
+			$u && isset($_GET['type']) or die('{"code":2,"message":"'._('Make sure that everything is filled in. Try reloading if it is.').'"}');
 			setcookie('type',$_GET['type'],null,'/');
 			die('{"code":0}');
 		break;
 		case 'user':
-			$u or die('{"code":10,"message":"Not logged in"}');
-			isset($_GET['id']) or die('{"code":2,"message":"No user set."}');
-			isset($_GET['email']) or die('{"code":2,"message":"No email set."}');
-			isset($_GET['real_name']) or die('{"code":2,"message":"No real name set."}');
-			isset($_GET['nick']) or die('{"code":2,"message":"No nick set."}');
-			$user = get_user_from_id_obj($_GET['id']) or die('{"code":2,"message":"User with id '.$_GET['id'].' does not exist. You should reload the page."}');
+			$u or die('{"code":10,"message":"'._('Not logged in').'"}');
+			isset($_GET['id']) or die('{"code":2,"message":"'._('No user set.').'"}');
+			isset($_GET['email']) or die('{"code":2,"message":"'._('No email set.').'"}');
+			isset($_GET['real_name']) or die('{"code":2,"message":"'._('No real name set.').'"}');
+			isset($_GET['nick']) or die('{"code":2,"message":"'._('No nick set.').'"}');
+			$user = get_user_from_id_obj($_GET['id']) or die('{"code":2,"message":"'._('User with id').' '.$_GET['id'].' '._('does not exist. You should reload the page.').'"}');
 			if($u['id'] == $user['id']){
 				setcookie('user',$_GET['nick'],null,'/');
 			}
-			query("UPDATE users u SET u.nick='%s', u.real_name='%s', u.email='%s' WHERE u.id=%d",Array($_GET['nick'],$_GET['real_name'],$_GET['email'],$_GET['id'])) or die('{"code":2,"message":"Unable to update user"}');
+			query("UPDATE users u SET u.nick='%s', u.real_name='%s', u.email='%s' WHERE u.id=%d",Array($_GET['nick'],$_GET['real_name'],$_GET['email'],$_GET['id'])) or die('{"code":2,"message":"'._('Unable to update user').'"}');
 			die(ircrehash());
 		break;
 		case 'oper':
-			$u or die('{"code":10,"message":"Not logged in"}');
-			isset($_GET['id']) or die('{"code":2,"message":"No user set."}');
-			isset($_GET['nick']) or die('{"code":2,"message":"No nick set."}');
-			isset($_GET['swhois']) or die('{"code":2,"message":"No profile set."}');
-			$oper = get_oper_from_id_obj($_GET['id']) or die('{"code":2,"message":"Oper with id '.$_GET['id'].' does not exist. You should reload the page."}');
+			$u or die('{"code":10,"message":"'._('Not logged in').'"}');
+			isset($_GET['id']) or die('{"code":2,"message":"'._('No user set.').'"}');
+			isset($_GET['nick']) or die('{"code":2,"message":"'._('No nick set.').'"}');
+			isset($_GET['swhois']) or die('{"code":2,"message":"'._('No profile set.').'"}');
+			$oper = get_oper_from_id_obj($_GET['id']) or die('{"code":2,"message":"'._('Oper with id').' '.$_GET['id'].' '._('does not exist. You should reload the page.').'"}');
 			if(isset($_GET['password']) && $_GET['password'] != ""){
-				query("UPDATE opers o SET o.nick='%s', o.swhois='%s', o.password='%s', o.password_type_id=2 WHERE o.id=%d",Array($_GET['nick'],$_GET['swhois'],mkpasswd($_GET['password']),$_GET['id'])) or die('{"code":2,"message":"Unable to update oper"}');
+				query("UPDATE opers o SET o.nick='%s', o.swhois='%s', o.password='%s', o.password_type_id=2 WHERE o.id=%d",Array($_GET['nick'],$_GET['swhois'],mkpasswd($_GET['password']),$_GET['id'])) or die('{"code":2,"message":"'._('Unable to update oper').'"}');
 			}else{
-				query("UPDATE opers o SET o.nick='%s', o.swhois='%s' WHERE o.id=%d",Array($_GET['nick'],$_GET['swhois'],$_GET['id'])) or die('{"code":2,"message":"Unable to update oper"}');
+				query("UPDATE opers o SET o.nick='%s', o.swhois='%s' WHERE o.id=%d",Array($_GET['nick'],$_GET['swhois'],$_GET['id'])) or die('{"code":2,"message":"'._('Unable to update oper').'"}');
 			}
 			die(ircrehash());
 		break;
