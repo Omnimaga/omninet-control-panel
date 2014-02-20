@@ -2,7 +2,8 @@ $(function(){
 	if(location.host != purl(__HOSTNAME__).attr('host')){
 		location.href = __HOSTNAME__;
 	}
-	var dialogs = $('#dialogs').children('div'),
+	var _ = window._ = Pomo.getText,
+		dialogs = $('#dialogs').children('div'),
 		memos,
 		news,
 		templates = [],

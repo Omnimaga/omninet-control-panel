@@ -3,6 +3,9 @@
 	ini_set("display_errors", 1);
 	session_start();
 	define('DIR',dirname(__FILE__));
+	setlocale(LC_ALL,Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']));
+	bindtextdomain('omninet',DIR.'/lang');
+	textdomain('omninet');
 	require_once(DIR.'/config.php');
 	require_once(DIR."/lib/irc.php");
 	require_once(DIR."/lib/security.php");

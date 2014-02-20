@@ -21,15 +21,16 @@
 			__HOSTNAME__ = '<?php echo HOSTNAME; ?>';
 		</script>
 		<link href="<?php echo HOSTNAME; ?>site/favicon.ico" rel="icon" type="image/x-icon" />
-		<script src="<?php echo HOSTNAME; ?>site/Modernizr.js"></script>
+		<script src="<?php echo HOSTNAME; ?>site/js/pomo.min.js"></script>
+		<script src="<?php echo HOSTNAME; ?>site/js/Modernizr.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/js/selectize.min.js"></script>
-		<script src="<?php echo HOSTNAME; ?>site/jquery.treegrid.js"></script>
+		<script src="<?php echo HOSTNAME; ?>site/js/jquery.treegrid.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html5/jquery.history.min.js"></script>
-		<script src="<?php echo HOSTNAME; ?>site/jquery.timepicker.js"></script>
-		<script src="<?php echo HOSTNAME; ?>site/jquery.ba-resize.min.js"></script>
+		<script src="<?php echo HOSTNAME; ?>site/js/jquery.timepicker.js"></script>
+		<script src="<?php echo HOSTNAME; ?>site/js/jquery.ba-resize.min.js"></script>
 		<?php if(get_conf('2-factor-method') == 'authy'){ ?>
 			<script src="//cdnjs.cloudflare.com/ajax/libs/authy-forms.js/2.0/form.authy.min.js"></script>
 		<?php } ?>
@@ -38,7 +39,7 @@
 		<?php if(get_conf('persona-endpoint') != 'none'){ ?>
 			<script src="//login.persona.org/include.js"></script>
 		<?php } ?>
-		<script src="<?php echo HOSTNAME; ?>site/index.js"></script>
+		<script src="<?php echo HOSTNAME; ?>site/js/index.js"></script>
 		<link href="//code.jquery.com/ui/1.10.4/themes/dot-luv/jquery-ui.css" rel="stylesheet"/>
 		<link href="//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.css" rel="stylesheet"/>
 		<link href="//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css" rel="stylesheet"/>
