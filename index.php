@@ -316,8 +316,10 @@ oper RehashServ {
 	class		clients;
 	from {
 		userhost RehashServ@localhost;
-		userhost RehashServ@23.82.187.93;
-		userhost sid20210@id-20210.ealing.irccloud.com;
+		userhost <?php echo get_conf('services-server'); ?>;
+		userhost <?php echo get_conf('stats-server'); ?>;
+		userhost <?php echo get_conf('irc-server'); ?>;
+		userhost <?php echo get_conf('rehash-host'); ?>;
 	};
 	password "<?php echo mkpasswd(get_conf('rehash-pass')); ?>" { sha1; };
 	flags {
