@@ -1,0 +1,95 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #726A8B;
+	background-image: url('//www.omnimaga.org/Themes/omnimaga_retro/images/bg.png');
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+	background-position: center top;
+	background-clip: border-box;
+	background-origin: padding-box;
+	background-size: auto auto;
+	color: white;
+}
+.ui-state-default.ui-widget .link{
+	text-decoration: underline;
+	cursor: pointer;
+	color: blue;
+}
+.countries-autocomplete{
+	color: black;
+}
+.ui-dialog.ui-front{
+	z-index: 101;
+}
+.ui-widget-content{
+	background-color: rgba(0,0,0,0.5) !important;
+}
+.transparent{
+	background-color: transparent !important;
+	background-image: none !important;
+}
+.left{
+	float: left;
+	clear: none;
+}
+.right{
+	float: right;
+	clear: none;
+}
+.clearR{
+	clear: right;
+}
+.clearL{
+	clear: left;
+}
+.fill{
+	width: 100%;
+	display: inline-block;
+}
+.server-prop{
+	font-weight: bold;
+	font-style: italic;
+	cursor: pointer;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 3px;
+}
+h1,h2,h3,h4,ul,li{
+	margin: 0;
+}
+form,.table{
+	display: table;
+}
+form label, form label + span,.cell{
+	display: table-cell;
+	padding: 3px;
+}
+form label{
+	font-weight: bold;
+}
+form label + span>*{
+	width: 100%;
+}
+.row{
+	display: table-row;
+}
+.ui-tabs.ui-widget-content.ui-widget{
+	overflow: auto;
+}
+.tree{
+	border-collapse: collapse;
+}
+.tree tr td{
+	color: #777;
+}
+.tree tr:not(.treegrid-collapsed) td{
+	border-color: #777;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	padding-right: 3px;
+}
