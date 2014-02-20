@@ -3,7 +3,12 @@
 	ini_set("display_errors", 1);
 	session_start();
 	define('DIR',dirname(__FILE__));
-	setlocale(LC_ALL,Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']));
+	$locale = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+	if(strpos(',',$locale) !== false){
+		$locale = substr($locale,0,strpos(',',$locale));
+	}
+	define("LOCALE",$locale);
+	setlocale(LC_ALL,LOCALE);
 	bindtextdomain('omninet',DIR.'/lang');
 	textdomain('omninet');
 	require_once(DIR.'/config.php');
