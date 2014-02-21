@@ -14,6 +14,10 @@
 			echo mkpasswd('root');
 			die();
 		break;
+		case 'lang':
+			echo file_get_contents(DIR.'/lang/'.LOCALE.'/C/LC_MESSAGES/omninet.po');
+			die();
+		break;
 		case 'login':
 			isset($_GET['username']) && isset($_GET['password']) or die('{"code":2,"message":"'._('Missing username and/or password').'"}');
 			isset($_GET['type']) or die('{"code":2,"message":"'._('Missing user type').'"}');
