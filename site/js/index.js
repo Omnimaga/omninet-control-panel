@@ -39,12 +39,65 @@ $(function(){
 				dataType: 'json'
 			});
 		},
+		LANG,
 		lang = Pomo.load(
 			__HOSTNAME__+'site/api?action=lang',{
 				format: 'po',
 				mode: 'ajax'
 			}
-		);
+		),
+		lang_keys = (function(){
+			var keys = [];
+			$('body').find('*').contents().filter(function(){
+				return this.nodeType === 3;
+			}).each(function(){
+				keys.push({
+					node: this,
+					key: this.nodeValue
+				});
+			});
+			return keys;
+		})(),
+		has_key = function(node){
+			for(var i in lang_keys){
+				if(node === lang_keys[i].node){
+					return true;
+				}
+			}
+			return false;
+		},
+		get_key = function(node){
+			for(var i in lang_keys){
+				if(node === lang_keys[i].node){
+					return lang_keys[i].key;
+				}
+			}
+			return false;
+		},
+		translate = function(){
+			$('body').find('*').contents().filter(function(){
+				return this.nodeType === 3;
+			}).each(function(){
+				if(!has_key(this)){
+					lang_keys.push({
+						node: this,
+						key: this.nodeValue
+					});
+				}
+				this.nodeValue = _(get_key(this));
+			});
+			$('body').find('input[type=submit],input[type=button]').each(function(){
+				if(this.tagName == 'INPUT' && this.type == 'submit'){
+					if(!has_key(this)){
+						lang_keys.push({
+							node: this,
+							key: this.value
+						});
+					}
+					this.value = _(get_key(this));
+				}
+			});
+		};
 	lang.ready(function(){
 		$('script[id^=template-]').each(function(){
 			templates[this.id.substr(9)] = Handlebars.compile($(this).html());
@@ -264,17 +317,6 @@ $(function(){
 				History.pushState({},document.title,url.attr('path')+'?'+$.param(params)+url.attr('anchor'));
 			}
 		}).trigger('statechange').resize(function(){
-			$('body').find('*').contents().filter(function(){
-				return this.nodeType === 3;
-			}).each(function(){
-				console.log(_($(this).text()));
-				this.nodeValue = _($(this).text());
-			});
-			$('body').find('input[type=submit],input[type=button]').each(function(){
-				if(this.tagName == 'INPUT' && this.type == 'submit'){
-					this.value = _(this.value);
-				}
-			});
 			dialogs.each(function(){
 				var d = $(this);
 				if(d.dialog('isOpen')){
@@ -515,6 +557,22 @@ $(function(){
 				setTimeout(window.ServerPing,1000*60); // Every minute
 			}
 		};
+		setInterval(function(){
+			if(LANG != window.navigator.language){
+				console.log(_('Language change detected'));
+				LANG = window.navigator.language;
+				lang = Pomo.load(
+					__HOSTNAME__+'site/api?action=lang',{
+						format: 'po',
+						mode: 'ajax'
+					}
+				);
+				lang.ready(function(){
+					translate();
+				});
+			}
+		},1000);
+		translate();
 		$('body').resize();
 	});
 });

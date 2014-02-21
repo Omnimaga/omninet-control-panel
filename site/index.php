@@ -49,16 +49,28 @@
 			<link href="//cdnjs.cloudflare.com/ajax/libs/authy-forms.css/2.0/form.authy.min.css" rel="stylesheet"/>
 		<?php } ?>
 		<link href="<?php echo HOSTNAME; ?>site/index.css" rel="stylesheet"/>
+		<script>
+			function runWhenExists(name){
+				var run = function(){
+					if(typeof window[name] != 'function'){
+						setTimeout(run,10);
+					}else{
+						window[name]();
+					}
+				};
+				run();
+			}
+		</script>
 		<?php
 			if($user){
-				echo "<script>$(function(){";
+				echo "<script>$(document).ready(function(){";
 				if(is_logged_in() && is_verified()){
-					echo "window.ServerPing();";
+					echo "runWhenExists('ServerPing');";
 				}
 				if(has_flag($user,'u')){
-					echo "window.FetchMemos();";
-					echo "window.FetchNews();";
-					echo "window.FetchChannels();";
+					echo "runWhenExists('FetchMemos');";
+					echo "runWhenExists('FetchNews');";
+					echo "runWhenExists('FetchChannels');";
 				}
 				echo "});</script>";
 				if(has_flag($user,'u')){ ?>
