@@ -562,7 +562,7 @@ $(function(){
 				console.log(_('Language change detected'));
 				LANG = window.navigator.language;
 				lang = Pomo.load(
-					__HOSTNAME__+'site/api?action=lang',{
+					__HOSTNAME__+'site/api/?action=lang',{
 						format: 'po',
 						mode: 'ajax'
 					}
