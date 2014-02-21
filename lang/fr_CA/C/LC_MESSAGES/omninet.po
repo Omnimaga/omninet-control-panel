@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Omninet Control panel\n"
 "POT-Creation-Date: 2014-02-20 22:22-0700\n"
-"PO-Revision-Date: 2014-02-20 22:22-0700\n"
-"Last-Translator: Nathaniel van Diepen <eeems@omnimaga.org>\n"
+"PO-Revision-Date: 2014-02-21 01:43-0500\n"
+"Last-Translator: Julien Savard <juju2143@gmail.com>\n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
@@ -16,94 +16,88 @@ msgstr ""
 
 #: ../../../../lib/configuration.php:133 ../../../../lib/users.php:163
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 #: ../../../../lib/irc.php:37
 msgid "Insufficient Parameters to login"
-msgstr ""
+msgstr "Paramètres insuffisants pour se connecter"
 
 #: ../../../../lib/irc.php:40
 msgid "Account is not registered"
-msgstr ""
+msgstr "Le compte n'est pas enregistré"
 
 #: ../../../../lib/irc.php:43
-#, fuzzy
 msgid "Invalid Username/Password"
-msgstr "Mot de passe invalide"
+msgstr "Nom d'utilisateur et/ou mot de passe invalide"
 
 #: ../../../../lib/irc.php:46
 msgid "Account is frozen"
-msgstr ""
+msgstr "Le compte est gelé"
 
 #: ../../../../lib/irc.php:49
-#, fuzzy
 msgid "Could not log in"
-msgstr "Ne peut vérifier avec NickServ"
+msgstr "Impossible de se connecter."
 
 #: ../../../../lib/irc.php:132
-#, fuzzy
 msgid "Could not connect."
-msgstr "Ne peut vérifier avec NickServ"
+msgstr "Impossible de se connecter."
 
 #: ../../../../lib/irc.php:133
-#, fuzzy
 msgid "Could not set timeout."
-msgstr "Ne peut vérifier avec NickServ"
+msgstr "Impossible de régler le délai."
 
 #: ../../../../lib/irc.php:143 ../../../../lib/irc.php:160
 #: ../../../../lib/irc.php:177
 msgid "RehashServ is already running."
-msgstr ""
+msgstr "RehashServ est déjà en cours d'exécution"
 
 #: ../../../../lib/irc.php:145 ../../../../lib/irc.php:162
 #: ../../../../lib/irc.php:179
 msgid "IRC Server refused the connection."
-msgstr ""
+msgstr "Le serveur IRC a refusé la connexion."
 
 #: ../../../../lib/irc.php:166
 msgid "Failed to authenticate with NickServ"
-msgstr ""
+msgstr "L'authentication avec NickServ a échoué"
 
 #: ../../../../lib/irc.php:183
-#, fuzzy
 msgid "vhost not set."
-msgstr "n'existe pas"
+msgstr "vhost non défini."
 
 #: ../../../../lib/irc.php:203
 msgid "There is an error in the config. See console for output."
 msgstr ""
+"Il y a eu une erreur dans la configuration. Regardez la console pour la "
+"sortie."
 
 #: ../../../../lib/irc.php:205
 msgid "Rehashed. View console for output."
-msgstr ""
+msgstr "Mis à jour. Regardez la console pour la sortie."
 
 #: ../../../../lib/opers.php:56
 msgid "Managed Oper"
-msgstr ""
+msgstr "Opérateur géré"
 
 #: ../../../../lib/opers.php:56
-#, fuzzy
 msgid "Personal Oper"
-msgstr "Persona"
+msgstr "Opérateur personnel"
 
 #: ../../../../lib/opers.php:59 ../../../../lib/servers.php:111
 #: ../../../../lib/users.php:143
 msgid "Nick"
-msgstr ""
+msgstr "Pseudonyme"
 
 #: ../../../../lib/opers.php:65
-#, fuzzy
 msgid "Omnimaga Profile"
-msgstr "Profil"
+msgstr "Profil Omnimaga"
 
 #: ../../../../lib/opers.php:71 ../../../../site/index.php:336
 msgid "New Password"
 msgstr "Nouveau mot de passe"
 
 #: ../../../../lib/security.php:63
-#, fuzzy
 msgid "Invalid credentials"
-msgstr "Action invalide"
+msgstr "Informations de connexion invalides."
 
 #: ../../../../lib/security.php:67 ../../../../lib/security.php:81
 #: ../../../../site/api/index.php:159 ../../../../site/index.php:349
@@ -117,22 +111,20 @@ msgid "does not exist"
 msgstr "n'existe pas"
 
 #: ../../../../lib/security.php:73
-#, fuzzy
 msgid "Invalid persona email"
-msgstr "Impossible d'ajouter le courriel"
+msgstr "Courriel Persona invalide"
 
 #: ../../../../lib/security.php:84 ../../../../site/api/index.php:258
 msgid "Invalid password"
 msgstr "Mot de passe invalide"
 
 #: ../../../../lib/security.php:102 ../../../../lib/security.php:171
-#, fuzzy
 msgid "Failed to create Authy user"
-msgstr "Impossible de mettre à jour le réglage"
+msgstr "La création de l'utilisateur Authy a échoué"
 
 #: ../../../../lib/security.php:115
 msgid "Token didn't match "
-msgstr ""
+msgstr "Le jeton ne correspond pas"
 
 #: ../../../../lib/security.php:122 ../../../../lib/security.php:204
 #: ../../../../site/api/index.php:44 ../../../../site/api/index.php:77
@@ -145,31 +137,27 @@ msgstr "Vous avez été déconnecté"
 #: ../../../../lib/security.php:137 ../../../../lib/security.php:140
 #: ../../../../lib/security.php:150
 msgid "Failed to disable 2-factor authentication"
-msgstr ""
+msgstr "La désactivation de la vérification en deux étapes a échoué"
 
 #: ../../../../lib/security.php:178
-#, fuzzy
 msgid "No cell number set"
-msgstr "Aucun vrai nom défini."
+msgstr "Aucun numéro de cellulaire défini"
 
 #: ../../../../lib/security.php:181
-#, fuzzy
 msgid "No country code set"
-msgstr "Aucun jeton défini"
+msgstr "Aucun code de pays défini"
 
 #: ../../../../lib/security.php:191
-#, fuzzy
 msgid "Could not register"
-msgstr "Ne peut vérifier avec NickServ"
+msgstr "Impossible de s'inscrire"
 
 #: ../../../../lib/security.php:194
 msgid "No secret key defined"
-msgstr ""
+msgstr "Aucune clé secrète définie"
 
 #: ../../../../lib/security.php:197
-#, fuzzy
 msgid "No token provided"
-msgstr "Aucun jeton défini"
+msgstr "Aucun jeton fourni"
 
 #: ../../../../lib/servers.php:104 ../../../../site/api/index.php:124
 msgid "Owner"
@@ -177,11 +165,11 @@ msgstr "Propriétaire"
 
 #: ../../../../lib/servers.php:105 ../../../../lib/users.php:137
 msgid "Real Name"
-msgstr ""
+msgstr "Vrai nom"
 
 #: ../../../../lib/servers.php:105 ../../../../lib/users.php:149
 msgid "Email"
-msgstr ""
+msgstr "Courriel"
 
 #: ../../../../lib/servers.php:108 ../../../../site/index.php:182
 msgid "Opers"
@@ -189,15 +177,15 @@ msgstr "Opérateurs"
 
 #: ../../../../lib/servers.php:111
 msgid "Role"
-msgstr ""
+msgstr "Rôle"
 
 #: ../../../../lib/servers.php:119
 msgid "Parent"
-msgstr ""
+msgstr "Parent"
 
 #: ../../../../lib/servers.php:123
 msgid "Children"
-msgstr ""
+msgstr "Fils"
 
 #: ../../../../site/api/index.php:22
 msgid "Missing username and/or password"
@@ -301,11 +289,11 @@ msgstr "Impossible d'envoyer le mémo"
 
 #: ../../../../site/api/index.php:169
 msgid "No id given"
-msgstr "Aucun ID donné"
+msgstr "Aucun ID fourni"
 
 #: ../../../../site/api/index.php:205
 msgid "Failed to add email"
-msgstr "Impossible d'ajouter le courriel"
+msgstr "L'ajout du courriel a échoué"
 
 #: ../../../../site/api/index.php:205
 msgid "to user"
@@ -321,7 +309,7 @@ msgstr "Aucun ID défini"
 
 #: ../../../../site/api/index.php:233
 msgid "Could not remove email address"
-msgstr "Ne peut enlever le courriel"
+msgstr "Impossible d'enlever le courriel"
 
 #: ../../../../site/api/index.php:250
 msgid "2-factor disabled."
@@ -354,7 +342,7 @@ msgstr ""
 
 #: ../../../../site/api/index.php:277
 msgid "Could not verify with nickserv"
-msgstr "Ne peut vérifier avec NickServ"
+msgstr "Impossible de vérifier avec NickServ"
 
 #: ../../../../site/api/index.php:280
 msgid "Nickserv password synchronized with main account"
@@ -407,7 +395,7 @@ msgstr "Impossible de mettre à jour l'opérateur"
 
 #: ../../../../site/api/index.php:315
 msgid "Failed to update setting"
-msgstr "Impossible de mettre à jour le réglage"
+msgstr "La mise à jour du réglage a échoué"
 
 #: ../../../../site/api/index.php:315
 msgid "with value"
@@ -498,7 +486,7 @@ msgstr "Pays"
 
 #: ../../../../site/index.php:256
 msgid "Cell #"
-msgstr "Cellule N°"
+msgstr "Numéro de cellulaire"
 
 #: ../../../../site/index.php:279
 msgid "Token"
@@ -566,67 +554,61 @@ msgstr "Nom d'utilisateur"
 
 #: ../../../../site/js/index.js:69
 msgid "Oper updated"
-msgstr ""
+msgstr "Opérateur mis à jour"
 
 #: ../../../../site/js/index.js:80
 msgid "Could not submit the form"
-msgstr ""
+msgstr "Impossible de soumettre le formulaire"
 
 #: ../../../../site/js/index.js:106
-#, fuzzy
 msgid "Could not rehash the servers"
-msgstr "Ne peut vérifier avec NickServ"
+msgstr "Impossible de mettre à jour les serveurs"
 
 #: ../../../../site/js/index.js:147
 msgid "Could not synchronize your password"
-msgstr ""
+msgstr "Impossible de synchroniser votre mot de passe"
 
 #: ../../../../site/js/index.js:160
 msgid "This is an admin only feature. Continue?"
-msgstr ""
+msgstr "Ceci est une fonction pour les administrateurs seulement. Continuer?"
 
 #: ../../../../site/js/index.js:187
 msgid "Login failure"
-msgstr ""
+msgstr "La connexion a échoué"
 
 #: ../../../../site/js/index.js:212
-#, fuzzy
 msgid "Could not remove persona address"
-msgstr "Ne peut enlever le courriel"
+msgstr "Impossible d'enlever l'adresse Persona"
 
 #: ../../../../site/js/index.js:338
-#, fuzzy
 msgid "Server Ping"
-msgstr "Serveurs"
+msgstr "Ping du serveur"
 
 #: ../../../../site/js/index.js:353 ../../../../site/js/index.js:436
-#, fuzzy
 msgid "Could not ping server"
-msgstr "Ne peut vérifier avec NickServ"
+msgstr "Impossible de pinger le serveur"
 
 #: ../../../../site/js/index.js:361
 msgid "Fetching Memos"
-msgstr ""
+msgstr "Récupérer les mémos"
 
 #: ../../../../site/js/index.js:390 ../../../../site/js/index.js:474
 #: ../../../../site/js/index.js:509
 msgid "Could not contact server"
-msgstr ""
+msgstr "Impossible de contacter le serveur"
 
 #: ../../../../site/js/index.js:417
-#, fuzzy
 msgid "Deleting memo"
-msgstr "Supprimer"
+msgstr "Suppression du mémo"
 
 #: ../../../../site/js/index.js:443
 msgid "Fetching News"
-msgstr ""
+msgstr "Récupérer les nouvelles"
 
 #: ../../../../site/js/index.js:465
 msgid "New news item"
-msgstr ""
+msgstr "Nouvel item de nouvelle"
 
 #: ../../../../site/js/index.js:484
-#, fuzzy
 msgid "Fetching Channels"
-msgstr "Nouveau canal"
+msgstr "Récupérer les canaux"
