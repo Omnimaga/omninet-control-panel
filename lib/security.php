@@ -60,17 +60,17 @@
 				setcookie('type','user',null,'/');
 				return true;
 			}else{
-				return _("Invalid credentials");
+				return __("Invalid credentials");
 			}
 		}elseif($type=='persona'){
 			if(!$user = get_user_obj($nick,$effective_role)){
-				return _("User")." {$nick} "._("does not exist");
+				return __("User")." {$nick} ".__("does not exist");
 			}
 			if(!isset($_COOKIE['personaUser'])){
 				return false;
 			}
 			if(!in_array($_COOKIE['personaUser'],get_emails($user['id']))){
-				return _("Invalid persona email");
+				return __("Invalid persona email");
 			}
 			setcookie('user',$nick,null,'/');
 			setcookie('key',$user['api_key'],null,'/');
@@ -78,10 +78,10 @@
 			return true;
 		}else{
 			if(!$user = get_user_obj($nick,$type)){
-				return _("User")." {$nick} "._("does not exist");
+				return __("User")." {$nick} ".__("does not exist");
 			}
 			if($user['password'] != mkpasswd($pass,$user['salt'])){
-				return _("Invalid password");
+				return __("Invalid password");
 			}
 			setcookie('user',$nick,null,'/');
 			setcookie('key',$user['api_key'],null,'/');
@@ -99,7 +99,7 @@
 						setcookie('token',$u['secret_key'],null,'/');
 						$r = true;
 					}else{
-						$r = _('Failed to create Authy user').': ';
+						$r = __('Failed to create Authy user').': ';
 						foreach($verification->errors() as $field => $message){
 							$message = json_decode($message);
 							$r .= $message['message'];
@@ -112,14 +112,14 @@
 						$_SESSION['secret_key'] = $u['secret_key'];
 						$r = true;
 					}else{
-						$r = _("Token didn't match ").$u['secret_key'];
+						$r = __("Token didn't match ").$u['secret_key'];
 					}
 				break;
 				default:
 					$r = true;
 			}
 		}else{
-			$r = _("You have been logged out");
+			$r = __("You have been logged out");
 		}
 		return $r;
 	}
@@ -134,10 +134,10 @@
 					if($deletion->ok()){
 						setcookie('secret_key','',time() - 3600,'/');
 						if(!query("UPDATE users u SET u.secret_key=NULL WHERE u.id=%d",Array($u['id']))){
-							$r = _('Failed to disable 2-factor authentication');
+							$r = __('Failed to disable 2-factor authentication');
 						}
 					}else{
-						$r = _('Failed to disable 2-factor authentication').': ';
+						$r = __('Failed to disable 2-factor authentication').': ';
 						foreach($deletion->errors() as $field => $message){
 							$message = json_decode($message);
 							$r .= $message->message;
@@ -147,7 +147,7 @@
 				case 'google-authenticator':
 					setcookie('secret_key','',time() - 3600,'/');
 					if(!query("UPDATE users u SET u.secret_key=NULL WHERE u.id=%d",Array($u['id']))){
-						$r = _('Failed to disable 2-factor authentication');
+						$r = __('Failed to disable 2-factor authentication');
 					}
 				break;
 				default:
@@ -168,17 +168,17 @@
 								query("UPDATE users u SET u.secret_key='%s' WHERE u.id=%d",Array($user->id(),$u['id']));
 								$r = true;
 							}else{
-								$r = _('Failed to create Authy user').': ';
+								$r = __('Failed to create Authy user').': ';
 								foreach($user->errors() as $field => $message){
 									$message = json_decode($message);
 									$r .= $message['message'];
 								}
 							}
 						}else{
-							$r = _("No cell number set");
+							$r = __("No cell number set");
 						}
 					}else{
-						$r = _("No country code set");
+						$r = __("No country code set");
 					}
 				break;
 				case 'google-authenticator':
@@ -188,20 +188,20 @@
 								query("UPDATE users u SET u.secret_key='%s' WHERE u.id=%d",Array($_SESSION['secret_key'],$u['id']));
 								$r = true;
 							}else{
-								$r = _('Could not register');
+								$r = __('Could not register');
 							}
 						}else{
-							$r = _('No secret key defined');
+							$r = __('No secret key defined');
 						}
 					}else{
-						$r = _('No token provided');
+						$r = __('No token provided');
 					}
 				break;
 				default:
 					$r = true;
 			}
 		}else{
-			$r = _("You have been logged out");
+			$r = __("You have been logged out");
 		}
 		return $r;
 	}

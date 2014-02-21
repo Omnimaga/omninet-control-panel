@@ -53,22 +53,22 @@
 		}
 		$ret = "";
 		foreach($opers as $k => $oper){
-			$ret .= "<h3>".($u['id'] != $oper['user_id']?_("Managed Oper").":":_("Personal Oper").":")."</h3>".get_form_html('oper-form-'.$oper['id'],Array(
+			$ret .= "<h3>".($u['id'] != $oper['user_id']?__("Managed Oper").":":__("Personal Oper").":")."</h3>".get_form_html('oper-form-'.$oper['id'],Array(
 				Array(
 					'name'=>'nick',
-					'label'=>_('Nick'),
+					'label'=>__('Nick'),
 					'type'=>'text',
 					'value'=>$oper['nick']
 				),
 				Array(
 					'name'=>'swhois',
-					'label'=>_('Omnimaga Profile'),
+					'label'=>__('Omnimaga Profile'),
 					'type'=>'text',
 					'value'=>$oper['swhois']
 				),
 				Array(
 					'name'=>'password',
-					'label'=>_('New Password'),
+					'label'=>__('New Password'),
 					'type'=>'password',
 					'value'=>''
 				),

@@ -19,8 +19,8 @@
 			die();
 		break;
 		case 'login':
-			isset($_GET['username']) && isset($_GET['password']) or die('{"code":2,"message":"'._('Missing username and/or password').'"}');
-			isset($_GET['type']) or die('{"code":2,"message":"'._('Missing user type').'"}');
+			isset($_GET['username']) && isset($_GET['password']) or die('{"code":2,"message":"'.__('Missing username and/or password').'"}');
+			isset($_GET['type']) or die('{"code":2,"message":"'.__('Missing user type').'"}');
 			$r = login($_GET['username'],$_GET['password'],$_GET['type']);
 			if($r !== true){
 				die('{"code":2,"message":"'.$r.'"}');
@@ -29,7 +29,7 @@
 			}
 		break;
 		case 'verify':
-			isset($_GET['token']) or die('{"code":1,"message":"'._('No token set').'"}');
+			isset($_GET['token']) or die('{"code":1,"message":"'.__('No token set').'"}');
 			$r = verify($_GET['token']);
 			if($r !== true){
 				die('{"code":2,"message":"'.$r.'"}');
@@ -41,7 +41,7 @@
 			die('{"code":0}');
 		break;
 		case 'get-memos':
-			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
 			$u['type'] = 'user' && isset($_COOKIE['user']) && isset($_SESSION['password']) or die('{"code":0}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'MemoServ','list');
 			if($res[0]){
@@ -70,11 +70,11 @@
 				}
 				die('{"code":0,"memos":'.json_encode($memos).'}');
 			}else{
-				die('{"code":1,"message":"'._('Cannot fetch memos').'"}');
+				die('{"code":1,"message":"'.__('Cannot fetch memos').'"}');
 			}
 		break;
 		case 'get-news':
-			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
 			$u['type'] = 'user' && isset($_COOKIE['user']) && isset($_SESSION['password']) or die('{"code":0}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'InfoServ','list');
 			if($res[0]){
@@ -98,11 +98,11 @@
 				}
 				die('{"code":0,"news":'.json_encode($news).'}');
 			}else{
-				die('{"code":1,"message":"'._('Cannot fetch news').'"}');
+				die('{"code":1,"message":"'.__('Cannot fetch news').'"}');
 			}
 		break;
 		case 'get-channels':
-			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
 			$u['type'] = 'user' && isset($_COOKIE['user']) && isset($_SESSION['password']) or die('{"code":0}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'NickServ','listchans');
 			if($res[0]){
@@ -114,23 +114,23 @@
 						$flags = array();
 						foreach($flags_list as $kk => $flag){
 							switch($flag){
-								case 'v':$name=_('Voice');break;
-								case 'V':$name=_('Automatic voice');break;
-								case 'h':$name=_('Halfop');break;
-								case 'H':$name=_('Automatic Halfop');break;
-								case 'o':$name=_('Op');break;
-								case 'O':$name=_('Automatic Op');break;
-								case 'a':$name=_('Admin');break;
-								case 'q':$name=_('Owner');break;
-								case 's':$name=_('Set');break;
-								case 'i':$name=_('Invite/Getkey');break;
-								case 'r':$name=_('Kick/Ban');break;
-								case 'R':$name=_('Recover/Clear');break;
-								case 'f':$name=_('Modify access lists');break;
-								case 't':$name=_('Topic');break;
-								case 'A':$name=_('View access lists');break;
-								case 'F':$name=_('Founder');break;
-								case 'b':$name=_('Banned');break;
+								case 'v':$name=__('Voice');break;
+								case 'V':$name=__('Automatic voice');break;
+								case 'h':$name=__('Halfop');break;
+								case 'H':$name=__('Automatic Halfop');break;
+								case 'o':$name=__('Op');break;
+								case 'O':$name=__('Automatic Op');break;
+								case 'a':$name=__('Admin');break;
+								case 'q':$name=__('Owner');break;
+								case 's':$name=__('Set');break;
+								case 'i':$name=__('Invite/Getkey');break;
+								case 'r':$name=__('Kick/Ban');break;
+								case 'R':$name=__('Recover/Clear');break;
+								case 'f':$name=__('Modify access lists');break;
+								case 't':$name=__('Topic');break;
+								case 'A':$name=__('View access lists');break;
+								case 'F':$name=__('Founder');break;
+								case 'b':$name=__('Banned');break;
 								default:$name=$flag;
 							}
 							array_push($flags,array(
@@ -147,29 +147,29 @@
 				}
 				die('{"code":0,"channels":'.json_encode($channels).'}');
 			}else{
-				die('{"code":1,"message":"'._('Cannot fetch channels').'"}');
+				die('{"code":1,"message":"'.__('Cannot fetch channels').'"}');
 			}
 		break;
 		case 'send-memo':
-			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
-			isset($_GET['to']) && isset($_GET['message']) or die('{"code":1,"message":"'._('No message or user entered').'"}');
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
+			isset($_GET['to']) && isset($_GET['message']) or die('{"code":1,"message":"'.__('No message or user entered').'"}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'MemoServ','send',Array($_GET['to'],$_GET['message']));
 			if($res[0]){
 				if(substr($res[1],-19) == ' is not registered.'){
-					die('{"code":1,"message":"'._('User').' '.$_GET['to'].' '._('does not exist').'"}');
+					die('{"code":1,"message":"'.__('User').' '.$_GET['to'].' '.__('does not exist').'"}');
 				}else{
-					die('{"code":0,"message":"'._('Memo Sent').'"}');
+					die('{"code":0,"message":"'.__('Memo Sent').'"}');
 				}
 			}else{
-				die('{"code":1,"message":"'._('Cannot send memo').': '.$res[1].'"}');
+				die('{"code":1,"message":"'.__('Cannot send memo').': '.$res[1].'"}');
 			}
 		break;
 		case 'delete-memo':
-			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
-			isset($_GET['id']) or die('{"code":1,"message":"'._('No id given').'"}');
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
+			isset($_GET['id']) or die('{"code":1,"message":"'.__('No id given').'"}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'MemoServ','delete',Array($_GET['id']));
 			if(!$res[0]){
-				die('{"code":1,"message":"'._('Cannot send memo').': '+$res[1]+'"}');
+				die('{"code":1,"message":"'.__('Cannot send memo').': '+$res[1]+'"}');
 			}
 			die('{"code":0}');
 		break;
@@ -202,9 +202,9 @@
 			$result = json_decode($result);
 			if($result->status == 'okay'){
 				if($register && !add_email($u['id'],$result->email)){
-					die('{"code":1,"message":"'._('Failed to add email').' '.$result->email.' '._('to user').' '.$u['nick'].'"}');
+					die('{"code":1,"message":"'.__('Failed to add email').' '.$result->email.' '.__('to user').' '.$u['nick'].'"}');
 				}elseif(!$register && !$u = get_user_for_email($result->email)){
-					die('{"code":1,"message":"'._('Email does not match any users').'"}');
+					die('{"code":1,"message":"'.__('Email does not match any users').'"}');
 				}
 				setcookie('personaUser',$result->email,null,'/');
 				$pass = null;
@@ -227,10 +227,10 @@
 			}
 		break;
 		case 'persona-remove':
-			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
-			isset($_GET['id']) or die('{"code":1,"message":"'._('No ID set').'"}');
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
+			isset($_GET['id']) or die('{"code":1,"message":"'.__('No ID set').'"}');
 			if(!remove_email($u['id'],$_GET['id'],true)){
-				die('{"code":1,"message":"'._('Could not remove email address').'"}');
+				die('{"code":1,"message":"'.__('Could not remove email address').'"}');
 			}
 			die('{"code":0}');
 		break;
@@ -242,25 +242,25 @@
 			die('{"code":0}');
 		break;
 		case '2-factor-delete':
-			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
 			$r = delete_token($u['id']);
 			if($r !== true){
 				die('{"code":1,"message":"'.$r.'"}');
 			}
-			die('{"code":0,"message":"'._('2-factor disabled.').'"}');
+			die('{"code":0,"message":"'.__('2-factor disabled.').'"}');
 		break;
 		case 'ping':
-			$u or die('{"code":1,"message":"'._('You have been logged out').'"}');
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
 			die('{"code":0}');
 		break;
 		case 'newpass':
-			$u && isset($_GET['password']) && isset($_GET['newpass']) or die('{"code":2,"message":"'._('Make sure that everything is filled in. Try reloading if it is.').'"}');
-			$u['password'] == mkpasswd($_GET['password'],$u['salt']) or die('{"code":2,"message":"'._('Invalid password').'"}');
+			$u && isset($_GET['password']) && isset($_GET['newpass']) or die('{"code":2,"message":"'.__('Make sure that everything is filled in. Try reloading if it is.').'"}');
+			$u['password'] == mkpasswd($_GET['password'],$u['salt']) or die('{"code":2,"message":"'.__('Invalid password').'"}');
 			$u['api_key'] == $_COOKIE['key'] or die('{"code":3,"message":"Not Logged in to use '.$u['nick'].' with key '.$u['api_key'].' != '.$_COOKIE['key'].'."}');
 			if($_COOKIE['type'] == 'user'){
 				$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$u['nick'],$_GET['password'],'NickServ','set',Array('password',trim($_GET['newpass'])));
 				if($res[0] === false){
-					die('{"code":2,"message":"'._('Could not update password with nickserv').': '.$res[1].'"}');
+					die('{"code":2,"message":"'.__('Could not update password with nickserv').': '.$res[1].'"}');
 				}else{
 					$_SESSION['password'] = $_GET['newpass'];
 				}
@@ -269,58 +269,58 @@
 			die('{"code":0}');
 		break;
 		case 'sync-pass':
-			$u && isset($_SESSION['password'])or die('{"code":2,"message":"'._('Make sure that everything is filled in. Try reloading if it is.').'"}');
-			$u['api_key'] == $_COOKIE['key'] or die('{"code":3,"message":"'._('Not Logged in to use').' '.$u['nick'].' '._('with key').' '.$u['api_key'].' != '.$_COOKIE['key'].'."}');
-			$_COOKIE['type'] == 'user' or die('{"code":3,"message":"'._('Must be logged in with type user to sync pass').'"}');
+			$u && isset($_SESSION['password'])or die('{"code":2,"message":"'.__('Make sure that everything is filled in. Try reloading if it is.').'"}');
+			$u['api_key'] == $_COOKIE['key'] or die('{"code":3,"message":"'.__('Not Logged in to use').' '.$u['nick'].' '.__('with key').' '.$u['api_key'].' != '.$_COOKIE['key'].'."}');
+			$_COOKIE['type'] == 'user' or die('{"code":3,"message":"'.__('Must be logged in with type user to sync pass').'"}');
 			$res = atheme_login(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),$u['nick'],$_SESSION['password']);
 			if($res[0] === false){
-				die('{"code":2,"message":"'._('Could not verify with nickserv').': '.$res[1].'"}');
+				die('{"code":2,"message":"'.__('Could not verify with nickserv').': '.$res[1].'"}');
 			}
 			query("UPDATE users u SET u.password='%s' WHERE u.id=%d",Array(mkpasswd($_SESSION['password']),$u['id']));
-			die('{"code":0,"message":"'._('Nickserv password synchronized with main account').'"}');
+			die('{"code":0,"message":"'.__('Nickserv password synchronized with main account').'"}');
 		break;
 		case 'role':
-			$u && isset($_GET['type']) or die('{"code":2,"message":"'._('Make sure that everything is filled in. Try reloading if it is.').'"}');
+			$u && isset($_GET['type']) or die('{"code":2,"message":"'.__('Make sure that everything is filled in. Try reloading if it is.').'"}');
 			setcookie('type',$_GET['type'],null,'/');
 			die('{"code":0}');
 		break;
 		case 'user':
-			$u or die('{"code":10,"message":"'._('Not logged in').'"}');
-			isset($_GET['id']) or die('{"code":2,"message":"'._('No user set.').'"}');
-			isset($_GET['email']) or die('{"code":2,"message":"'._('No email set.').'"}');
-			isset($_GET['real_name']) or die('{"code":2,"message":"'._('No real name set.').'"}');
-			isset($_GET['nick']) or die('{"code":2,"message":"'._('No nick set.').'"}');
-			$user = get_user_from_id_obj($_GET['id']) or die('{"code":2,"message":"'._('User with id').' '.$_GET['id'].' '._('does not exist. You should reload the page.').'"}');
+			$u or die('{"code":10,"message":"'.__('Not logged in').'"}');
+			isset($_GET['id']) or die('{"code":2,"message":"'.__('No user set.').'"}');
+			isset($_GET['email']) or die('{"code":2,"message":"'.__('No email set.').'"}');
+			isset($_GET['real_name']) or die('{"code":2,"message":"'.__('No real name set.').'"}');
+			isset($_GET['nick']) or die('{"code":2,"message":"'.__('No nick set.').'"}');
+			$user = get_user_from_id_obj($_GET['id']) or die('{"code":2,"message":"'.__('User with id').' '.$_GET['id'].' '.__('does not exist. You should reload the page.').'"}');
 			if($u['id'] == $user['id']){
 				setcookie('user',$_GET['nick'],null,'/');
 			}
-			query("UPDATE users u SET u.nick='%s', u.real_name='%s', u.email='%s' WHERE u.id=%d",Array($_GET['nick'],$_GET['real_name'],$_GET['email'],$_GET['id'])) or die('{"code":2,"message":"'._('Unable to update user').'"}');
+			query("UPDATE users u SET u.nick='%s', u.real_name='%s', u.email='%s' WHERE u.id=%d",Array($_GET['nick'],$_GET['real_name'],$_GET['email'],$_GET['id'])) or die('{"code":2,"message":"'.__('Unable to update user').'"}');
 			die(ircrehash());
 		break;
 		case 'oper':
-			$u or die('{"code":10,"message":"'._('Not logged in').'"}');
-			isset($_GET['id']) or die('{"code":2,"message":"'._('No user set.').'"}');
-			isset($_GET['nick']) or die('{"code":2,"message":"'._('No nick set.').'"}');
-			isset($_GET['swhois']) or die('{"code":2,"message":"'._('No profile set.').'"}');
-			$oper = get_oper_from_id_obj($_GET['id']) or die('{"code":2,"message":"'._('Oper with id').' '.$_GET['id'].' '._('does not exist. You should reload the page.').'"}');
+			$u or die('{"code":10,"message":"'.__('Not logged in').'"}');
+			isset($_GET['id']) or die('{"code":2,"message":"'.__('No user set.').'"}');
+			isset($_GET['nick']) or die('{"code":2,"message":"'.__('No nick set.').'"}');
+			isset($_GET['swhois']) or die('{"code":2,"message":"'.__('No profile set.').'"}');
+			$oper = get_oper_from_id_obj($_GET['id']) or die('{"code":2,"message":"'.__('Oper with id').' '.$_GET['id'].' '.__('does not exist. You should reload the page.').'"}');
 			if(isset($_GET['password']) && $_GET['password'] != ""){
-				query("UPDATE opers o SET o.nick='%s', o.swhois='%s', o.password='%s', o.password_type_id=2 WHERE o.id=%d",Array($_GET['nick'],$_GET['swhois'],mkpasswd($_GET['password']),$_GET['id'])) or die('{"code":2,"message":"'._('Unable to update oper').'"}');
+				query("UPDATE opers o SET o.nick='%s', o.swhois='%s', o.password='%s', o.password_type_id=2 WHERE o.id=%d",Array($_GET['nick'],$_GET['swhois'],mkpasswd($_GET['password']),$_GET['id'])) or die('{"code":2,"message":"'.__('Unable to update oper').'"}');
 			}else{
-				query("UPDATE opers o SET o.nick='%s', o.swhois='%s' WHERE o.id=%d",Array($_GET['nick'],$_GET['swhois'],$_GET['id'])) or die('{"code":2,"message":"'._('Unable to update oper').'"}');
+				query("UPDATE opers o SET o.nick='%s', o.swhois='%s' WHERE o.id=%d",Array($_GET['nick'],$_GET['swhois'],$_GET['id'])) or die('{"code":2,"message":"'.__('Unable to update oper').'"}');
 			}
 			die(ircrehash());
 		break;
 		case 'config':
 			foreach($_GET as $key => $val){
-				set_conf($key,$val,get_conf_type($key)) or die('{"code":1,"message":"'._('Failed to update setting').': '.$key.' '._('with value').': '.$val.'"}');
+				set_conf($key,$val,get_conf_type($key)) or die('{"code":1,"message":"'.__('Failed to update setting').': '.$key.' '.__('with value').': '.$val.'"}');
 			}
 			die('{"code":0}');
 		break;
 		case 'rehash':
-			$u or die('{"code":10,"message":"'._('Not logged in').'"}');
+			$u or die('{"code":10,"message":"'.__('Not logged in').'"}');
 			die(ircrehash());
 		break;
 		default:
-			die('{"code":1,"message":"'._('Invalid Action').': '.$_GET['action'].'"}');
+			die('{"code":1,"message":"'.__('Invalid Action').': '.$_GET['action'].'"}');
 	}
 ?>

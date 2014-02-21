@@ -572,7 +572,6 @@ $(function(){
 				});
 			}
 		},1000);
-		translate();
 		$('body').resize();
 	});
 });

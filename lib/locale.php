@@ -1,4 +1,5 @@
 <?php
+	require_once(DIR.'/lib/gettext.inc');
 	@$locales = explode(',',$_SERVER["HTTP_ACCEPT_LANGUAGE"]);
 	$langs = scandir(DIR.'/lang');
 	$found = false;
@@ -17,7 +18,8 @@
 		$locale = 'en';
 	}
 	define('LOCALE',$locale);
-	bindtextdomain('omninet',DIR.'/lang/'.LOCALE);
-	bind_textdomain_codeset('omninet','UTF-8');
-	textdomain('omninet');
+	T_setlocale(LC_MESSAGES,LOCALE);
+	T_bindtextdomain('omninet',DIR.'/lang');
+	T_bind_textdomain_codeset('omninet','UTF-8');
+	T_textdomain('omninet');
 ?>
