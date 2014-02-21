@@ -1,12 +1,20 @@
 <?php
 	$locales = explode(',',$_SERVER["HTTP_ACCEPT_LANGUAGE"]);
-	for($i=count($locales)-1;$i>=0;$i--){
-		$locale = str_replace('-','_',$locales[$i]);
-		if(is_dir(DIR.'/lang/'.$locale)){
-			break;
-		}else{
-			$locale = 'en';
+	$langs = scandir(DIR.'/lang');
+	$found = false;
+	foreach($locales as $k => $l){
+		$locale = str_replace('-','_',$l);
+		foreach($langs as $lang){
+			if($lang != '.' && $lang != '..' && strtolower($lang) == strtolower($locale)){
+				$locale = $lang;
+				$found = true;
+				break;
+			}
 		}
+		if($found){
+			break;
+		}
+		$locale = 'en';
 	}
 	define('LOCALE',$locale);
 	bindtextdomain('omninet',DIR.'/lang/'.LOCALE);
