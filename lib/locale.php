@@ -1,5 +1,5 @@
 <?php
-	$locales = explode(',',$_SERVER["HTTP_ACCEPT_LANGUAGE"]);
+	@$locales = explode(',',$_SERVER["HTTP_ACCEPT_LANGUAGE"]);
 	$langs = scandir(DIR.'/lang');
 	$found = false;
 	foreach($locales as $k => $l){
