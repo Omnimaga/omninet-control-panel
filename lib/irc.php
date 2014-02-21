@@ -34,19 +34,19 @@
 		}else{
 			switch($response->faultCode()){
 				case 1:
-					$m = 'Insufficient Parameters to login';
+					$m = _('Insufficient Parameters to login');
 				break;
 				case 3:
-					$m = "Account is not registered";
+					$m = _("Account is not registered");
 				break;
 				case 5:
-					$m = "Invalid Username/Password";
+					$m = _("Invalid Username/Password");
 				break;
 				case 6:
-					$m = "Account is frozen";
+					$m = _("Account is frozen");
 				break;
 				default:
-					$m = "Could not log in";
+					$m = _("Could not log in");
 			}
 			return Array(false,$m);
 		}
@@ -129,8 +129,8 @@
 			$u = $user;
 		}
 		$msg = '';
-		if(!$irc = fsockopen(get_conf('irc-server'),get_conf('irc-port'))){return ircclose(1,"Could not connect.");}
-		stream_set_timeout($irc,1) or ircclose(2,"Could not set timeout.");
+		if(!$irc = fsockopen(get_conf('irc-server'),get_conf('irc-port'))){return ircclose(1,_("Could not connect."));}
+		stream_set_timeout($irc,1) or ircclose(2,_("Could not set timeout."));
 		while(!feof($irc)&&!$msg = fgets($irc,128)){}
 		if(!ircputs("NICK RehashServ\r\n")){return $ircret;}
 		if(!ircputs("USER RehashServ omni.irc.omnimaga.org RehashServ :RehashServ\r\n")){return $ircret;}
@@ -140,9 +140,9 @@
 				$msg .= $line;
 				$data = explode(' ',$line);
 				if(isval($data,1,'433')){
-					return ircclose(4,"RehashServ is already running.");
+					return ircclose(4,_("RehashServ is already running."));
 				}elseif(strrpos($line,'ERROR :Closing Link:') !== false){
-					return ircclose(3,"IRC Server refused the connection.");
+					return ircclose(3,_("IRC Server refused the connection."));
 				}elseif($data[0] == 'PING'){
 					if(!ircputs("PONG {$data[1]}")){return $ircret;}
 				}elseif(isval($data,1,'001')){
@@ -157,13 +157,13 @@
 				$msg .= $line;
 				$data = explode(' ',$line);
 				if(isval($data,1,'433')){
-					return ircclose(4,"RehashServ is already running.");
+					return ircclose(4,_("RehashServ is already running."));
 				}elseif(strrpos($line,'ERROR :Closing Link:') !== false){
-					return ircclose(3,"IRC Server refused the connection.");
+					return ircclose(3,_("IRC Server refused the connection."));
 				}elseif(strrpos($line,":You are now identified for") !== false){
 					break;
 				}elseif(strrpos($line,'Password incorrect.') !== false){
-					return ircclose(5,"Failed to authenticate with NickServ");
+					return ircclose(5,_("Failed to authenticate with NickServ"));
 				}
 			}
 		}
@@ -174,13 +174,13 @@
 				$msg .= $line;
 				$data = explode(' ',$line);
 				if(isval($data,1,'433')){
-					return ircclose(4,"RehashServ is already running.");
+					return ircclose(4,_("RehashServ is already running."));
 				}elseif(strrpos($line,'ERROR :Closing Link:') !== false){
-					return ircclose(3,"IRC Server refused the connection.");
+					return ircclose(3,_("IRC Server refused the connection."));
 				}elseif(strrpos($line,':Your vhost of') !== false && strrpos($line,'is now activated') !== false){
 					break;
 				}elseif(strrpos($line,"Please contact an Operator to get a vhost assigned to this nick") !== false){
-					return ircclose(6,"vhost not set.");
+					return ircclose(6,_("vhost not set."));
 				}
 			}
 		}
@@ -200,8 +200,8 @@
 		}
 		fclose($irc);
 		if(strrpos($msg,':*** Notice -- Configuration loaded without any problems ..') === false){
-			return '{"code":6,"message":"There is an error in the config. See console for output.","log":'.json_encode($msg).'}';
+			return '{"code":6,"message":"'._('There is an error in the config. See console for output.').'","log":'.json_encode($msg).'}';
 		}
-		return '{"code":0,"message":"Rehashed. View console for output.","log":'.json_encode($msg).'}';
+		return '{"code":0,"message":"'._('Rehashed. View console for output.').'","log":'.json_encode($msg).'}';
 	}
 ?>

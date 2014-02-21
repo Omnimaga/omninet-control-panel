@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omninet Control panel\n"
-"POT-Creation-Date: 2014-02-20 22:00-0700\n"
-"PO-Revision-Date: 2014-02-20 22:00-0700\n"
+"POT-Creation-Date: 2014-02-20 22:22-0700\n"
+"PO-Revision-Date: 2014-02-20 22:22-0700\n"
 "Last-Translator: Nathaniel van Diepen <eeems@omnimaga.org>\n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: fr\n"
@@ -13,6 +13,191 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: ../../../..\n"
+
+#: ../../../../lib/configuration.php:133 ../../../../lib/users.php:163
+msgid "Save"
+msgstr ""
+
+#: ../../../../lib/irc.php:37
+msgid "Insufficient Parameters to login"
+msgstr ""
+
+#: ../../../../lib/irc.php:40
+msgid "Account is not registered"
+msgstr ""
+
+#: ../../../../lib/irc.php:43
+#, fuzzy
+msgid "Invalid Username/Password"
+msgstr "Mot de passe invalide"
+
+#: ../../../../lib/irc.php:46
+msgid "Account is frozen"
+msgstr ""
+
+#: ../../../../lib/irc.php:49
+#, fuzzy
+msgid "Could not log in"
+msgstr "Ne peut vérifier avec NickServ"
+
+#: ../../../../lib/irc.php:132
+#, fuzzy
+msgid "Could not connect."
+msgstr "Ne peut vérifier avec NickServ"
+
+#: ../../../../lib/irc.php:133
+#, fuzzy
+msgid "Could not set timeout."
+msgstr "Ne peut vérifier avec NickServ"
+
+#: ../../../../lib/irc.php:143 ../../../../lib/irc.php:160
+#: ../../../../lib/irc.php:177
+msgid "RehashServ is already running."
+msgstr ""
+
+#: ../../../../lib/irc.php:145 ../../../../lib/irc.php:162
+#: ../../../../lib/irc.php:179
+msgid "IRC Server refused the connection."
+msgstr ""
+
+#: ../../../../lib/irc.php:166
+msgid "Failed to authenticate with NickServ"
+msgstr ""
+
+#: ../../../../lib/irc.php:183
+#, fuzzy
+msgid "vhost not set."
+msgstr "n'existe pas"
+
+#: ../../../../lib/irc.php:203
+msgid "There is an error in the config. See console for output."
+msgstr ""
+
+#: ../../../../lib/irc.php:205
+msgid "Rehashed. View console for output."
+msgstr ""
+
+#: ../../../../lib/opers.php:56
+msgid "Managed Oper"
+msgstr ""
+
+#: ../../../../lib/opers.php:56
+#, fuzzy
+msgid "Personal Oper"
+msgstr "Persona"
+
+#: ../../../../lib/opers.php:59 ../../../../lib/servers.php:111
+#: ../../../../lib/users.php:143
+msgid "Nick"
+msgstr ""
+
+#: ../../../../lib/opers.php:65
+#, fuzzy
+msgid "Omnimaga Profile"
+msgstr "Profil"
+
+#: ../../../../lib/opers.php:71 ../../../../site/index.php:336
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+#: ../../../../lib/security.php:63
+#, fuzzy
+msgid "Invalid credentials"
+msgstr "Action invalide"
+
+#: ../../../../lib/security.php:67 ../../../../lib/security.php:81
+#: ../../../../site/api/index.php:159 ../../../../site/index.php:349
+#: ../../../../site/index.php:403
+msgid "User"
+msgstr "Utilisateur"
+
+#: ../../../../lib/security.php:67 ../../../../lib/security.php:81
+#: ../../../../site/api/index.php:159
+msgid "does not exist"
+msgstr "n'existe pas"
+
+#: ../../../../lib/security.php:73
+#, fuzzy
+msgid "Invalid persona email"
+msgstr "Impossible d'ajouter le courriel"
+
+#: ../../../../lib/security.php:84 ../../../../site/api/index.php:258
+msgid "Invalid password"
+msgstr "Mot de passe invalide"
+
+#: ../../../../lib/security.php:102 ../../../../lib/security.php:171
+#, fuzzy
+msgid "Failed to create Authy user"
+msgstr "Impossible de mettre à jour le réglage"
+
+#: ../../../../lib/security.php:115
+msgid "Token didn't match "
+msgstr ""
+
+#: ../../../../lib/security.php:122 ../../../../lib/security.php:204
+#: ../../../../site/api/index.php:44 ../../../../site/api/index.php:77
+#: ../../../../site/api/index.php:105 ../../../../site/api/index.php:154
+#: ../../../../site/api/index.php:168 ../../../../site/api/index.php:230
+#: ../../../../site/api/index.php:245 ../../../../site/api/index.php:253
+msgid "You have been logged out"
+msgstr "Vous avez été déconnecté"
+
+#: ../../../../lib/security.php:137 ../../../../lib/security.php:140
+#: ../../../../lib/security.php:150
+msgid "Failed to disable 2-factor authentication"
+msgstr ""
+
+#: ../../../../lib/security.php:178
+#, fuzzy
+msgid "No cell number set"
+msgstr "Aucun vrai nom défini."
+
+#: ../../../../lib/security.php:181
+#, fuzzy
+msgid "No country code set"
+msgstr "Aucun jeton défini"
+
+#: ../../../../lib/security.php:191
+#, fuzzy
+msgid "Could not register"
+msgstr "Ne peut vérifier avec NickServ"
+
+#: ../../../../lib/security.php:194
+msgid "No secret key defined"
+msgstr ""
+
+#: ../../../../lib/security.php:197
+#, fuzzy
+msgid "No token provided"
+msgstr "Aucun jeton défini"
+
+#: ../../../../lib/servers.php:104 ../../../../site/api/index.php:124
+msgid "Owner"
+msgstr "Propriétaire"
+
+#: ../../../../lib/servers.php:105 ../../../../lib/users.php:137
+msgid "Real Name"
+msgstr ""
+
+#: ../../../../lib/servers.php:105 ../../../../lib/users.php:149
+msgid "Email"
+msgstr ""
+
+#: ../../../../lib/servers.php:108 ../../../../site/index.php:182
+msgid "Opers"
+msgstr "Opérateurs"
+
+#: ../../../../lib/servers.php:111
+msgid "Role"
+msgstr ""
+
+#: ../../../../lib/servers.php:119
+msgid "Parent"
+msgstr ""
+
+#: ../../../../lib/servers.php:123
+msgid "Children"
+msgstr ""
 
 #: ../../../../site/api/index.php:22
 msgid "Missing username and/or password"
@@ -25,13 +210,6 @@ msgstr "Type d'utilisateur manquant"
 #: ../../../../site/api/index.php:32
 msgid "No token set"
 msgstr "Aucun jeton défini"
-
-#: ../../../../site/api/index.php:44 ../../../../site/api/index.php:77
-#: ../../../../site/api/index.php:105 ../../../../site/api/index.php:154
-#: ../../../../site/api/index.php:168 ../../../../site/api/index.php:230
-#: ../../../../site/api/index.php:245 ../../../../site/api/index.php:253
-msgid "You have been logged out"
-msgstr "Vous avez été déconnecté"
 
 #: ../../../../site/api/index.php:73
 msgid "Cannot fetch memos"
@@ -68,10 +246,6 @@ msgstr "Opérateur automatique"
 #: ../../../../site/api/index.php:123
 msgid "Admin"
 msgstr "Administrateur"
-
-#: ../../../../site/api/index.php:124
-msgid "Owner"
-msgstr "Propriétaire"
 
 #: ../../../../site/api/index.php:125
 msgid "Set"
@@ -117,15 +291,6 @@ msgstr "Impossible de récupérer les canaux"
 msgid "No message or user entered"
 msgstr "Aucun message ou utilisateur entré"
 
-#: ../../../../site/api/index.php:159 ../../../../site/index.php:349
-#: ../../../../site/index.php:403
-msgid "User"
-msgstr "Utilisateur"
-
-#: ../../../../site/api/index.php:159
-msgid "does not exist"
-msgstr "n'existe pas"
-
 #: ../../../../site/api/index.php:161
 msgid "Memo Sent"
 msgstr "Mémo envoyé"
@@ -168,10 +333,6 @@ msgid "Make sure that everything is filled in. Try reloading if it is."
 msgstr ""
 "Assurez-vous que tous les champs sont remplis. Essayez de recharger si c'est "
 "le cas."
-
-#: ../../../../site/api/index.php:258
-msgid "Invalid password"
-msgstr "Mot de passe invalide"
 
 #: ../../../../site/api/index.php:263
 msgid "Could not update password with nickserv"
@@ -315,10 +476,6 @@ msgstr "Canaux"
 msgid "Servers"
 msgstr "Serveurs"
 
-#: ../../../../site/index.php:182
-msgid "Opers"
-msgstr "Opérateurs"
-
 #: ../../../../site/index.php:183
 msgid "Configuration"
 msgstr "Configuration"
@@ -383,10 +540,6 @@ msgstr "Se déconnecter"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: ../../../../site/index.php:336
-msgid "New Password"
-msgstr "Nouveau mot de passe"
-
 #: ../../../../site/index.php:360
 msgid "Switch"
 msgstr "Changer"
@@ -441,39 +594,39 @@ msgstr ""
 msgid "Could not remove persona address"
 msgstr "Ne peut enlever le courriel"
 
-#: ../../../../site/js/index.js:327
+#: ../../../../site/js/index.js:338
 #, fuzzy
 msgid "Server Ping"
 msgstr "Serveurs"
 
-#: ../../../../site/js/index.js:342 ../../../../site/js/index.js:425
+#: ../../../../site/js/index.js:353 ../../../../site/js/index.js:436
 #, fuzzy
 msgid "Could not ping server"
 msgstr "Ne peut vérifier avec NickServ"
 
-#: ../../../../site/js/index.js:350
+#: ../../../../site/js/index.js:361
 msgid "Fetching Memos"
 msgstr ""
 
-#: ../../../../site/js/index.js:379 ../../../../site/js/index.js:462
-#: ../../../../site/js/index.js:496
+#: ../../../../site/js/index.js:390 ../../../../site/js/index.js:474
+#: ../../../../site/js/index.js:509
 msgid "Could not contact server"
 msgstr ""
 
-#: ../../../../site/js/index.js:406
+#: ../../../../site/js/index.js:417
 #, fuzzy
 msgid "Deleting memo"
 msgstr "Supprimer"
 
-#: ../../../../site/js/index.js:432
+#: ../../../../site/js/index.js:443
 msgid "Fetching News"
 msgstr ""
 
-#: ../../../../site/js/index.js:454
+#: ../../../../site/js/index.js:465
 msgid "New news item"
 msgstr ""
 
-#: ../../../../site/js/index.js:472
+#: ../../../../site/js/index.js:484
 #, fuzzy
 msgid "Fetching Channels"
 msgstr "Nouveau canal"

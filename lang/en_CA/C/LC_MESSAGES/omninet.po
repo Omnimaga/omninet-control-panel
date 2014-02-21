@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omninet Control panel\n"
-"POT-Creation-Date: 2014-02-20 22:01-0700\n"
-"PO-Revision-Date: 2014-02-20 22:01-0700\n"
+"POT-Creation-Date: 2014-02-20 22:21-0700\n"
+"PO-Revision-Date: 2014-02-20 22:21-0700\n"
 "Last-Translator: Nathaniel van Diepen <eeems@omnimaga.org>\n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: en_CA\n"
@@ -14,6 +14,177 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: ../../../..\n"
 
+#: ../../../../lib/configuration.php:133 ../../../../lib/users.php:163
+msgid "Save"
+msgstr ""
+
+#: ../../../../lib/irc.php:37
+msgid "Insufficient Parameters to login"
+msgstr ""
+
+#: ../../../../lib/irc.php:40
+msgid "Account is not registered"
+msgstr ""
+
+#: ../../../../lib/irc.php:43
+msgid "Invalid Username/Password"
+msgstr ""
+
+#: ../../../../lib/irc.php:46
+msgid "Account is frozen"
+msgstr ""
+
+#: ../../../../lib/irc.php:49
+msgid "Could not log in"
+msgstr ""
+
+#: ../../../../lib/irc.php:132
+msgid "Could not connect."
+msgstr ""
+
+#: ../../../../lib/irc.php:133
+msgid "Could not set timeout."
+msgstr ""
+
+#: ../../../../lib/irc.php:143 ../../../../lib/irc.php:160
+#: ../../../../lib/irc.php:177
+msgid "RehashServ is already running."
+msgstr ""
+
+#: ../../../../lib/irc.php:145 ../../../../lib/irc.php:162
+#: ../../../../lib/irc.php:179
+msgid "IRC Server refused the connection."
+msgstr ""
+
+#: ../../../../lib/irc.php:166
+msgid "Failed to authenticate with NickServ"
+msgstr ""
+
+#: ../../../../lib/irc.php:183
+msgid "vhost not set."
+msgstr ""
+
+#: ../../../../lib/irc.php:203
+msgid "There is an error in the config. See console for output."
+msgstr ""
+
+#: ../../../../lib/irc.php:205
+msgid "Rehashed. View console for output."
+msgstr ""
+
+#: ../../../../lib/opers.php:56
+msgid "Managed Oper"
+msgstr ""
+
+#: ../../../../lib/opers.php:56
+msgid "Personal Oper"
+msgstr ""
+
+#: ../../../../lib/opers.php:59 ../../../../lib/servers.php:111
+#: ../../../../lib/users.php:143
+msgid "Nick"
+msgstr ""
+
+#: ../../../../lib/opers.php:65
+msgid "Omnimaga Profile"
+msgstr ""
+
+#: ../../../../lib/opers.php:71 ../../../../site/index.php:336
+msgid "New Password"
+msgstr ""
+
+#: ../../../../lib/security.php:63
+msgid "Invalid credentials"
+msgstr ""
+
+#: ../../../../lib/security.php:67 ../../../../lib/security.php:81
+#: ../../../../site/api/index.php:159 ../../../../site/index.php:349
+#: ../../../../site/index.php:403
+msgid "User"
+msgstr ""
+
+#: ../../../../lib/security.php:67 ../../../../lib/security.php:81
+#: ../../../../site/api/index.php:159
+msgid "does not exist"
+msgstr ""
+
+#: ../../../../lib/security.php:73
+msgid "Invalid persona email"
+msgstr ""
+
+#: ../../../../lib/security.php:84 ../../../../site/api/index.php:258
+msgid "Invalid password"
+msgstr ""
+
+#: ../../../../lib/security.php:102 ../../../../lib/security.php:171
+msgid "Failed to create Authy user"
+msgstr ""
+
+#: ../../../../lib/security.php:115
+msgid "Token didn't match "
+msgstr ""
+
+#: ../../../../lib/security.php:122 ../../../../lib/security.php:204
+#: ../../../../site/api/index.php:44 ../../../../site/api/index.php:77
+#: ../../../../site/api/index.php:105 ../../../../site/api/index.php:154
+#: ../../../../site/api/index.php:168 ../../../../site/api/index.php:230
+#: ../../../../site/api/index.php:245 ../../../../site/api/index.php:253
+msgid "You have been logged out"
+msgstr ""
+
+#: ../../../../lib/security.php:137 ../../../../lib/security.php:140
+#: ../../../../lib/security.php:150
+msgid "Failed to disable 2-factor authentication"
+msgstr ""
+
+#: ../../../../lib/security.php:178
+msgid "No cell number set"
+msgstr ""
+
+#: ../../../../lib/security.php:181
+msgid "No country code set"
+msgstr ""
+
+#: ../../../../lib/security.php:191
+msgid "Could not register"
+msgstr ""
+
+#: ../../../../lib/security.php:194
+msgid "No secret key defined"
+msgstr ""
+
+#: ../../../../lib/security.php:197
+msgid "No token provided"
+msgstr ""
+
+#: ../../../../lib/servers.php:104 ../../../../site/api/index.php:124
+msgid "Owner"
+msgstr ""
+
+#: ../../../../lib/servers.php:105 ../../../../lib/users.php:137
+msgid "Real Name"
+msgstr ""
+
+#: ../../../../lib/servers.php:105 ../../../../lib/users.php:149
+msgid "Email"
+msgstr ""
+
+#: ../../../../lib/servers.php:108 ../../../../site/index.php:182
+msgid "Opers"
+msgstr ""
+
+#: ../../../../lib/servers.php:111
+msgid "Role"
+msgstr ""
+
+#: ../../../../lib/servers.php:119
+msgid "Parent"
+msgstr ""
+
+#: ../../../../lib/servers.php:123
+msgid "Children"
+msgstr ""
+
 #: ../../../../site/api/index.php:22
 msgid "Missing username and/or password"
 msgstr ""
@@ -24,13 +195,6 @@ msgstr ""
 
 #: ../../../../site/api/index.php:32
 msgid "No token set"
-msgstr ""
-
-#: ../../../../site/api/index.php:44 ../../../../site/api/index.php:77
-#: ../../../../site/api/index.php:105 ../../../../site/api/index.php:154
-#: ../../../../site/api/index.php:168 ../../../../site/api/index.php:230
-#: ../../../../site/api/index.php:245 ../../../../site/api/index.php:253
-msgid "You have been logged out"
 msgstr ""
 
 #: ../../../../site/api/index.php:73
@@ -67,10 +231,6 @@ msgstr ""
 
 #: ../../../../site/api/index.php:123
 msgid "Admin"
-msgstr ""
-
-#: ../../../../site/api/index.php:124
-msgid "Owner"
 msgstr ""
 
 #: ../../../../site/api/index.php:125
@@ -117,15 +277,6 @@ msgstr ""
 msgid "No message or user entered"
 msgstr ""
 
-#: ../../../../site/api/index.php:159 ../../../../site/index.php:349
-#: ../../../../site/index.php:403
-msgid "User"
-msgstr ""
-
-#: ../../../../site/api/index.php:159
-msgid "does not exist"
-msgstr ""
-
 #: ../../../../site/api/index.php:161
 msgid "Memo Sent"
 msgstr ""
@@ -165,10 +316,6 @@ msgstr ""
 #: ../../../../site/api/index.php:257 ../../../../site/api/index.php:272
 #: ../../../../site/api/index.php:283
 msgid "Make sure that everything is filled in. Try reloading if it is."
-msgstr ""
-
-#: ../../../../site/api/index.php:258
-msgid "Invalid password"
 msgstr ""
 
 #: ../../../../site/api/index.php:263
@@ -311,10 +458,6 @@ msgstr ""
 msgid "Servers"
 msgstr ""
 
-#: ../../../../site/index.php:182
-msgid "Opers"
-msgstr ""
-
 #: ../../../../site/index.php:183
 msgid "Configuration"
 msgstr ""
@@ -379,10 +522,6 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: ../../../../site/index.php:336
-msgid "New Password"
-msgstr ""
-
 #: ../../../../site/index.php:360
 msgid "Switch"
 msgstr ""
@@ -435,35 +574,35 @@ msgstr ""
 msgid "Could not remove persona address"
 msgstr ""
 
-#: ../../../../site/js/index.js:327
+#: ../../../../site/js/index.js:338
 msgid "Server Ping"
 msgstr ""
 
-#: ../../../../site/js/index.js:342 ../../../../site/js/index.js:425
+#: ../../../../site/js/index.js:353 ../../../../site/js/index.js:436
 msgid "Could not ping server"
 msgstr ""
 
-#: ../../../../site/js/index.js:350
+#: ../../../../site/js/index.js:361
 msgid "Fetching Memos"
 msgstr ""
 
-#: ../../../../site/js/index.js:379 ../../../../site/js/index.js:462
-#: ../../../../site/js/index.js:496
+#: ../../../../site/js/index.js:390 ../../../../site/js/index.js:474
+#: ../../../../site/js/index.js:509
 msgid "Could not contact server"
 msgstr ""
 
-#: ../../../../site/js/index.js:406
+#: ../../../../site/js/index.js:417
 msgid "Deleting memo"
 msgstr ""
 
-#: ../../../../site/js/index.js:432
+#: ../../../../site/js/index.js:443
 msgid "Fetching News"
 msgstr ""
 
-#: ../../../../site/js/index.js:454
+#: ../../../../site/js/index.js:465
 msgid "New news item"
 msgstr ""
 
-#: ../../../../site/js/index.js:472
+#: ../../../../site/js/index.js:484
 msgid "Fetching Channels"
 msgstr ""

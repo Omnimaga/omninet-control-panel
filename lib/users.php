@@ -134,19 +134,19 @@
 		return get_form_html('user-form-'.$user['id'],Array(
 			Array(
 				'name'=>'real_name',
-				'label'=>'Real Name',
+				'label'=>_('Real Name'),
 				'type'=>'text',
 				'value'=>$user['real_name']
 			),
 			Array(
 				'name'=>'nick',
-				'label'=>'Nick',
+				'label'=>_('Nick'),
 				'type'=>'text',
 				'value'=>$user['nick']
 			),
 			Array(
 				'name'=>'email',
-				'label'=>'Email',
+				'label'=>_('Email'),
 				'type'=>'text',
 				'value'=>$user['email']
 			),
@@ -160,7 +160,7 @@
 				'type'=>'hidden',
 				'value'=>'user'
 			)
-		),'Save');
+		),_('Save'));
 	}
 	function has_flag($user,$flag){
 		return strpos($user['flags'],$flag)!==false;

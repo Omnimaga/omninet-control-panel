@@ -130,6 +130,6 @@
 			}
 			array_push($items,$item);
 		}
-		return get_form_html('configuration',$items,'Save');
+		return get_form_html('configuration',$items,_('Save'));
 	}
 ?>

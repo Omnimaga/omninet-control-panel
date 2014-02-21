@@ -101,14 +101,14 @@
 		foreach($servers as $k => $server){
 			$r .= "<h3>{$server['name']} ({$server['host']}) - {$server['description']}</h3><div>";
 			$suser = get_user_from_id_obj($server['user_id']);
-			$r .= "<h4>Owner:</h4>{$suser['nick']}<ul>";
-			$r .= "<li>Real Name: {$suser['real_name']}</li><li>Email: {$suser['email']}</li></ul>";
+			$r .= "<h4>"._('Owner').":</h4>{$suser['nick']}<ul>";
+			$r .= "<li>"._('Real Name').": {$suser['real_name']}</li><li>"._('Email').": {$suser['email']}</li></ul>";
 			$id = 0;
 			if(count($server['opers']) > 0){
-				$r .= "<h4>Opers:</h4><table class='tree'>";
+				$r .= "<h4>"._('Opers').":</h4><table class='tree'>";
 				$id++;
 				$pid = $id;
-				$r .= "<tr style='font-weight:bold;' class='treegrid-".($id)."'><td>Nick</td><td>Role</td></tr>";
+				$r .= "<tr style='font-weight:bold;' class='treegrid-".($id)."'><td>"._('Nick')."</td><td>"._('Role')."</td></tr>";
 				foreach($server['opers'] as $kk => $oper){
 					$id++;
 					$r .= "<tr class='treegrid-{$id} treegrid-parent-{$pid}'><td>{$oper['nick']}</td><td>{$oper['role']}</td></tr>";
@@ -116,11 +116,11 @@
 				$r .= "</table>";
 			}
 			if(isset($server['parent'])){
-				$r .= "<h4>Parent</h4>";
+				$r .= "<h4>"._('Parent')."</h4>";
 				$r .= get_servers_list_html(Array($server['parent']),$depth+1);
 			}
 			if(count($server['children']) > 0){
-				$r .= "<h4>Children</h4>";
+				$r .= "<h4>"._('Children')."</h4>";
 				$r .= get_servers_list_html($server['children'],$depth+1);
 			}
 			$r .="</div>";
