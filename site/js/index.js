@@ -1,4 +1,5 @@
 $(function(){
+	"use strict";
 	if(location.host != purl(__HOSTNAME__).attr('host')){
 		location.href = __HOSTNAME__;
 	}
@@ -39,7 +40,7 @@ $(function(){
 				dataType: 'json'
 			});
 		},
-		LANG,
+		LANG = navigator.language,
 		lang = Pomo.load(
 			__HOSTNAME__+'site/api?action=lang',{
 				format: 'po',
@@ -74,8 +75,8 @@ $(function(){
 			}
 			return false;
 		},
-		translate = function(){
-			$('body').find('*').contents().filter(function(){
+		translate = function(parent){
+			$(parent).find('*').contents().filter(function(){
 				return this.nodeType === 3;
 			}).each(function(){
 				if(!has_key(this)){
@@ -86,7 +87,7 @@ $(function(){
 				}
 				this.nodeValue = _(get_key(this));
 			});
-			$('body').find('input[type=submit],input[type=button]').each(function(){
+			$(parent).find('input[type=submit],input[type=button]').each(function(){
 				if(this.tagName == 'INPUT' && this.type == 'submit'){
 					if(!has_key(this)){
 						lang_keys.push({
@@ -426,6 +427,8 @@ $(function(){
 						memos = d.memos;
 					}
 					$('#memos').html(templates.memos(d)).find('button').button();
+					translate('#memos');
+					$('body').resize();
 				},
 				error: function(xhr,msg,e){
 					console.error(e);
@@ -509,6 +512,7 @@ $(function(){
 						news = d.news;
 					}
 					$('#news').html(templates.news(d)).find('button').button();
+					translate('#news');
 					$('body').resize();
 				},
 				error: function(xhr,msg,e){
@@ -544,6 +548,7 @@ $(function(){
 						}
 					}
 					$('#channels').html(templates.channels(d)).find('button').button();
+					translate('#channels');
 					$('body').resize();
 				},
 				error: function(xhr,msg,e){
@@ -560,16 +565,7 @@ $(function(){
 		setInterval(function(){
 			if(LANG != window.navigator.language){
 				console.log(_('Language change detected'));
-				LANG = window.navigator.language;
-				lang = Pomo.load(
-					__HOSTNAME__+'site/api/?action=lang',{
-						format: 'po',
-						mode: 'ajax'
-					}
-				);
-				lang.ready(function(){
-					translate();
-				});
+				location.reload();
 			}
 		},1000);
 		$('body').resize();
