@@ -11,8 +11,7 @@
 		case 'test':
 			//$u or die();
 			//print_r(atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'topic','#omnimaga'));
-			echo mkpasswd('root');
-			die();
+			//echo mkpasswd('root');
 		break;
 		case 'lang':
 			echo file_get_contents(DIR.'/lang/'.LOCALE.'/C/LC_MESSAGES/omninet.po');
@@ -169,9 +168,41 @@
 			isset($_GET['id']) or die('{"code":1,"message":"'.__('No id given').'"}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'MemoServ','delete',Array($_GET['id']));
 			if(!$res[0]){
-				die('{"code":1,"message":"'.__('Cannot send memo').': '+$res[1]+'"}');
+				die('{"code":1,"message":"'.__('Cannot delete memo').': '+$res[1]+'"}');
 			}
 			die('{"code":0}');
+		break;
+		case 'delete-channel':
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
+			isset($_GET['channel']) or die('{"code":1,"message":"'.__('No channel given').'"}');
+			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'ChanServ','drop',Array($_GET['channel']));
+			if(!$res[0]){
+				die('{"code":1,"message":"'.__('Cannot drop channel').': '+$res[1]+'"}');
+			}
+			die('{"code":0}');
+		break;
+		case 'register-channel':
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
+			isset($_GET['channel']) or die('{"code":1,"message":"'.__('No channel given').'"}');
+			$ret = irccommands(array(
+				'join '.$_GET['channel'],
+				'samode '.$_GET['channel'].' +o RehashServ',
+				'cs register '.$_GET['channel'],
+				'cs set '.$_GET['channel'].' keeptopic on',
+				'cs set '.$_GET['channel'].' founder '.$_COOKIE['user']
+			));
+			if($ret['code'] !== 0){
+				die(json_encode($ret));
+			}
+			$ret2 = irccommands(array(
+				'join '.$_GET['channel'],
+				'cs set '.$_GET['channel'].' founder '.$_COOKIE['user']
+			),$_COOKIE['user']);
+			if($ret2['code'] !== 0){
+				$ret2['message'] = 'Failed to register channel. See log for information.';
+			}
+			$ret2['log'] = $ret['log']."\r\n".$ret2['log'];
+			die(json_encode($ret));
 		break;
 		case 'persona-login':
 			if($u){

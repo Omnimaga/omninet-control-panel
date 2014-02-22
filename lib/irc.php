@@ -97,7 +97,7 @@
 		}
 		return $r;
 	}
-	function ircclose($code=0,$message=null){
+	function ircclose($code=0,$message=null,$ret_type='string'){
 		global $msg;
 		global $irc;
 		global $ircret;
@@ -113,7 +113,15 @@
 			}
 		}
 		fclose($irc);
-		$ircret = '{"code":'.$code.',"message":"'.$message.'","log":'.json_encode($msg).'}';
+		if($ret_type == 'string'){
+			$ircret = '{"code":'.$code.',"message":"'.$message.'","log":'.json_encode($msg).'}';
+		}else{
+			$ircret = Array(
+				'code'=>$code,
+				'message'=>$message,
+				'log'=>$msg
+			);
+		}
 		return $ircret;
 	}
 	function isval($src,$prop,$val){
@@ -203,5 +211,116 @@
 			return '{"code":6,"message":"'.__('There is an error in the config. See console for output.').'","log":'.json_encode($msg).'}';
 		}
 		return '{"code":0,"message":"'.__('Rehashed. View console for output.').'","log":'.json_encode($msg).'}';
+	}
+	function irccommands($commands,$runas="RehashServ"){
+		global $msg;
+		global $irc;
+		global $ircret;
+		global $u;
+		global $user;
+		$ircret = Array(
+			'code'=>1
+		);
+		if(!isset($u)){
+			$u = $user;
+		}
+		$msg = '';
+		if(!$irc = fsockopen(get_conf('irc-server'),get_conf('irc-port'))){return ircclose(1,__("Could not connect."),'array');}
+		stream_set_timeout($irc,1) or ircclose(2,__("Could not set timeout."),'array');
+		while(!feof($irc)&&!$msg = fgets($irc,128)){}
+		if($runas == 'RehashServ'){
+			if(!ircputs("NICK RehashServ\r\n")){return $ircret;}
+			if(!ircputs("USER RehashServ omni.irc.omnimaga.org RehashServ :RehashServ\r\n")){return $ircret;}
+		}else{
+			if(!ircputs("NICK RunServ\r\n")){return $ircret;}
+			if(!ircputs("USER {$runas} omni.irc.omnimaga.org {$runas} :{$runas}\r\n")){return $ircret;}
+		}
+		while(!feof($irc)){
+			$line = fgets($irc,128);
+			if(is_string($line)){
+				$msg .= $line;
+				$data = explode(' ',$line);
+				if(isval($data,1,'433')){
+					return ircclose(4,__("RunServ is already running."),'array');
+				}elseif(strrpos($line,'ERROR :Closing Link:') !== false){
+					return ircclose(3,__("IRC Server refused the connection."),'array');
+				}elseif($data[0] == 'PING'){
+					if(!ircputs("PONG {$data[1]}")){return $ircret;}
+				}elseif(isval($data,1,'001')){
+					break;
+				}
+			}
+		}
+		if($runas == 'RehashServ'){
+			if(!ircputs("OPER RehashServ ".get_conf('rehash-pass','string')."\r\n")){return $ircret;}
+			if(!ircputs("IDENTIFY RehashServ ".get_conf('rehash-pass','string')."\r\n")){return $ircret;}
+		}else{
+			if(!ircputs("IDENTIFY {$runas} ".$_SESSION['password']."\r\n")){return $ircret;}
+		}
+		while(!feof($irc)){
+			$line = fgets($irc,128);
+			if(is_string($line)){
+				$msg .= $line;
+				$data = explode(' ',$line);
+				if(isval($data,1,'433')){
+					return ircclose(4,__("RunServ is already running."),'array');
+				}elseif(isval($data,1,'375')){
+					while(!feof($irc)){
+						$line = fgets($irc,128);
+						if(is_string($line)){
+							$msg .= $line;
+							$data = explode(' ',$line);
+							if(isval($data,1,'376')){
+								break;
+							}
+						}
+					}
+				}elseif(strrpos($line,'ERROR :Closing Link:') !== false){
+					return ircclose(3,__("IRC Server refused the connection."),'array');
+				}elseif(strrpos($line,":You are now identified for") !== false){
+					break;
+				}elseif(strrpos($line,'Password incorrect.') !== false){
+					return ircclose(5,__("Failed to authenticate with NickServ"),'array');
+				}
+			}
+		}
+		if($runas == 'RehashServ'){
+			if(!ircputs("HS ON\r\n")){return $ircret;}
+			while(!feof($irc)){
+				$line = fgets($irc,128);
+				if(is_string($line)){
+					$msg .= $line;
+					$data = explode(' ',$line);
+					if(isval($data,1,'433')){
+						return ircclose(4,__("RunServ is already running."),'array');
+					}elseif(strrpos($line,'ERROR :Closing Link:') !== false){
+						return ircclose(3,__("IRC Server refused the connection."),'array');
+					}elseif(strrpos($line,':Your vhost of') !== false && strrpos($line,'is now activated') !== false){
+						break;
+					}elseif(strrpos($line,"Please contact an Operator to get a vhost assigned to this nick") !== false){
+						return ircclose(6,__("vhost not set."),'array');
+					}
+				}
+			}
+		}
+		foreach($commands as $k => $command){
+			if(!ircputs($command."\r\n")){return $ircret;}
+		}
+		try{
+			error_reporting(0);
+			$msg .= 'QUIT :'.$message;
+			fputs($irc,'QUIT :'.$message);
+			error_reporting(E_ALL);
+		}catch(Exception $e){}
+		while(!feof($irc) && $line = fgets($irc,128)){
+			if(is_string($line)){
+				$msg .= $line;
+			}
+		}
+		fclose($irc);
+		return array(
+			'code'=>0,
+			'log'=>$msg
+		);
 	}
 ?>

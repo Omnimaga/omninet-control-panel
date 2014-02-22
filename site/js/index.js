@@ -342,6 +342,12 @@ $(function(){
 				of: window
 			}
 		}).dialog('open');
+		if(typeof $.cookie('user') != 'undefined'){
+			$('#login').find('input[name=username]').val($.cookie('user'));
+		}
+		if(typeof $.cookie('type') != 'undefined'){
+			$('#login').find('select[name=type]').val($.cookie('type'));
+		}
 		$('#verify-diag').dialog('option','close',logout);
 		$('.accordion').accordion({
 			collapsible: true,
@@ -441,24 +447,16 @@ $(function(){
 				setTimeout(window.ServerPing,1000*60); // Every minute
 			}
 		};
-		window.DeleteMemoFromButton = function(){
-			window.DeleteMemo($(this).parent());
-		};
-		window.ReplyToMemoFromButton = function(){
-			window.ReplyToMemo($(this).parent());
-		};
-		window.ReplyToMemo = function(div){
-			var from = div.find('.memo-from').text().trim();
+		window.ReplyToMemo = function(from){
 			$('#memo-diag').dialog('open').find('input[name=to]').val(from);
 			$('#memo-diag').find('input[name=message]').select();
 		};
 		window.DeleteMemos = function(){
-			window.DeleteMemo($('<div>').attr('id','memo-all'),function(){
+			window.DeleteMemo('all',function(){
 				window.FetchMemos(true);
 			});
 		};
-		window.DeleteMemo = function(div,callback){
-			var id = $(div).attr('id').substr(5);
+		window.DeleteMemo = function(id,callback){
 			console.log(_("Deleting memo")+": "+id);
 			$.ajax(__HOSTNAME__+'site/api/?action=delete-memo&id='+id,{
 				success: function(d){
@@ -471,7 +469,7 @@ $(function(){
 					if(d.code!==0){
 						location.reload();
 					}
-					div.remove();
+					$('#memo-'+id).remove();
 					if(typeof callback != 'undefined'){
 						callback();
 					}
@@ -561,6 +559,63 @@ $(function(){
 			if(!once){
 				setTimeout(window.ServerPing,1000*60); // Every minute
 			}
+		};
+		window.DeleteChannel = function(channel){
+			if(confirm(_('Are you sure you want to delete channel')+' '+channel)){
+				console.log(_("Deleting channel")+": "+channel);
+				$.ajax(__HOSTNAME__+'site/api/?action=delete-channel',{
+					data: {
+						channel: channel
+					},
+					success: function(d){
+						if(d.log){
+							console.log(d.log);
+						}
+						if(d.message){
+							alert(d.message);
+						}
+						if(d.code!==0){
+							location.reload();
+						}
+						$('[id=channel-'+channel+']').remove();
+						if(typeof callback != 'undefined'){
+							callback();
+						}
+					},
+					error: function(xhr,msg,e){
+						console.error(e);
+						alert(_("Could not ping server")+": "+msg);
+						location.reload();
+					},
+					dataType: 'json'
+				});
+			}
+		};
+		window.RegisterChannel = function(channel){
+			console.log(_("Registering channel")+": "+channel);
+				$.ajax(__HOSTNAME__+'site/api/?action=register-channel',{
+					data: {
+						channel: channel
+					},
+					success: function(d){
+						if(d.log){
+							console.log(d.log);
+						}
+						if(d.message){
+							alert(d.message);
+						}
+						if(d.code!==0){
+							location.reload();
+						}
+						window.FetchChannels(true);
+					},
+					error: function(xhr,msg,e){
+						console.error(e);
+						alert(_("Could not ping server")+": "+msg);
+						location.reload();
+					},
+					dataType: 'json'
+				});
 		};
 		setInterval(function(){
 			if(LANG != window.navigator.language){

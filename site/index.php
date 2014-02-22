@@ -110,10 +110,10 @@
 										{{html this.body}}
 									</span>
 								</div>
-								<button class="button" value="<?php echo __('Reply'); ?>" onclick="return window.ReplyToMemoFromButton.call(this);">
+								<button class="button" value="<?php echo __('Reply'); ?>" onclick="return window.ReplyToMemo('{{this.from}}');">
 									<?php echo __('Reply'); ?>
 								</button>
-								<button style="background-color:red;background-image:none;" class="button" value="<?php echo __('Delete'); ?>" onclick="return window.DeleteMemoFromButton.call(this);">
+								<button style="background-color:red;background-image:none;" class="button" value="<?php echo __('Delete'); ?>" onclick="return window.DeleteMemo({{this.id}});">
 									<?php echo __('Delete'); ?>
 								</button>
 							</div>
@@ -154,7 +154,7 @@
 						<button value="<?php echo __('Refresh'); ?>" onclick="window.FetchChannels(true);">
 							<?php echo __('Refresh'); ?>
 						</button>
-						<button value="<?php echo __('New Channel'); ?>" style="background-color:green;background-image:none;" onclick="">
+						<button value="<?php echo __('New Channel'); ?>" style="background-color:green;background-image:none;" onclick="$('#channel-diag').dialog('open');">
 							<?php echo __('New Channel'); ?>
 						</button>
 						{{#each channels}}
@@ -167,7 +167,7 @@
 										<li>{{this.name}}</li>
 									{{/each}}
 								</ul>
-								<button value="<?php echo __('Delete'); ?>" style="background-color:red;background-image:none;" onclick="">
+								<button value="<?php echo __('Delete'); ?>" style="background-color:red;background-image:none;" onclick="window.DeleteChannel('{{this.name}}');">
 									<?php echo __('Delete'); ?>
 								</button>
 							</div>
@@ -243,6 +243,25 @@
 								'name'=>'action',
 								'type'=>'hidden',
 								'value'=>'send-memo'
+							)
+						)
+					));
+					array_push($dialogs,array(
+						'id'=>'channel-diag',
+						'type'=>'form',
+						'form_id'=>'channel',
+						'form_submit_label'=>'Register',
+						'form_fields'=>array(
+							array(
+								'name'=>'channel',
+								'label'=>__('Channel Name'),
+								'type'=>'string',
+								'value'=>''
+							),
+							array(
+								'name'=>'action',
+								'type'=>'hidden',
+								'value'=>'register-channel'
 							)
 						)
 					));
