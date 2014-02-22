@@ -138,10 +138,14 @@
 							));
 						}
 						$name = preg_replace('/^Access flag\(s\) \+.+ in (.+)$/i','\1',$row);
-						array_push($channels,Array(
+						$chan = array(
 							'name'=>$name,
 							'flags'=>$flags
-						));
+						);
+						if(in_array('F',$flags_list)){
+							$chan['candrop'] = true;
+						}
+						array_push($channels,$chan);
 					}
 				}
 				die('{"code":0,"channels":'.json_encode($channels).'}');

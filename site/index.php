@@ -167,9 +167,11 @@
 										<li>{{this.name}}</li>
 									{{/each}}
 								</ul>
-								<button value="<?php echo __('Delete'); ?>" style="background-color:red;background-image:none;" onclick="window.DeleteChannel('{{this.name}}');">
-									<?php echo __('Delete'); ?>
-								</button>
+								{{#if this.candrop}}
+									<button value="<?php echo __('Delete'); ?>" style="background-color:red;background-image:none;" onclick="window.DeleteChannel('{{this.name}}');">
+										<?php echo __('Delete'); ?>
+									</button>
+								{{/if}}
 							</div>
 						{{/each}}
 					</script>
