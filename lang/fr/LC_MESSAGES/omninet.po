@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omninet Control panel\n"
-"POT-Creation-Date: 2014-02-22 21:11-0700\n"
-"PO-Revision-Date: 2014-02-22 23:30-0500\n"
-"Last-Translator: Julien Savard <juju2143@gmail.com>\n"
+"POT-Creation-Date: 2014-02-23 00:09-0700\n"
+"PO-Revision-Date: 2014-02-23 00:17-0700\n"
+"Last-Translator: Nathaniel van Diepen <eeems@omnimaga.org>\n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: __\n"
-"X-Poedit-SearchPath-0: ../../../..\n"
+"X-Poedit-SearchPath-0: ../../..\n"
 
 #: ../lib/configuration.php:133 ../lib/users.php:163
 msgid "Save"
@@ -78,6 +78,74 @@ msgstr "Mis à jour. Regardez la console pour la sortie."
 msgid "RunServ is already running."
 msgstr "RunServ est déjà en cours d'exécution"
 
+#: ../lib/irc.php:328
+msgid "Voice"
+msgstr "Voix"
+
+#: ../lib/irc.php:329
+msgid "Automatic voice"
+msgstr "Voix automatique"
+
+#: ../lib/irc.php:330
+msgid "Halfop"
+msgstr "Demi-opérateur"
+
+#: ../lib/irc.php:331
+msgid "Automatic Halfop"
+msgstr "Demi-opérateur automatique"
+
+#: ../lib/irc.php:332
+msgid "Op"
+msgstr "Opérateur"
+
+#: ../lib/irc.php:333
+msgid "Automatic Op"
+msgstr "Opérateur automatique"
+
+#: ../lib/irc.php:334
+msgid "Admin"
+msgstr "Administrateur"
+
+#: ../lib/irc.php:335 ../lib/servers.php:104
+msgid "Owner"
+msgstr "Propriétaire"
+
+#: ../lib/irc.php:336
+msgid "Set"
+msgstr "Définir"
+
+#: ../lib/irc.php:337
+msgid "Invite/Getkey"
+msgstr "Invitation/Obtenir clé"
+
+#: ../lib/irc.php:338
+msgid "Kick/Ban"
+msgstr "Expulsion/Bannissement"
+
+#: ../lib/irc.php:339
+msgid "Recover/Clear"
+msgstr "Recouvrer/Effacer"
+
+#: ../lib/irc.php:340
+msgid "Modify access lists"
+msgstr "Modifier les listes d'accès"
+
+#: ../lib/irc.php:341
+msgid "Topic"
+msgstr "Sujet"
+
+#: ../lib/irc.php:342
+msgid "View access lists"
+msgstr "Voir les listes d'accès"
+
+#: ../lib/irc.php:343
+msgid "Founder"
+msgstr "Fondateur"
+
+#: ../lib/irc.php:344
+msgid "Banned"
+msgstr "Banni"
+
 #: ../lib/opers.php:56
 msgid "Managed Oper"
 msgstr "Opérateur géré"
@@ -94,7 +162,7 @@ msgstr "Pseudonyme"
 msgid "Omnimaga Profile"
 msgstr "Profil Omnimaga"
 
-#: ../lib/opers.php:71 ../site/index.php:369
+#: ../lib/opers.php:71 ../site/index.php:389
 msgid "New Password"
 msgstr "Nouveau mot de passe"
 
@@ -102,12 +170,12 @@ msgstr "Nouveau mot de passe"
 msgid "Invalid credentials"
 msgstr "Informations de connexion invalides."
 
-#: ../lib/security.php:67 ../lib/security.php:81 ../site/api/index.php:162
-#: ../site/index.php:382 ../site/index.php:436
+#: ../lib/security.php:67 ../lib/security.php:81 ../site/api/index.php:158
+#: ../site/index.php:402 ../site/index.php:456
 msgid "User"
 msgstr "Utilisateur"
 
-#: ../lib/security.php:67 ../lib/security.php:81 ../site/api/index.php:162
+#: ../lib/security.php:67 ../lib/security.php:81 ../site/api/index.php:158
 msgid "does not exist"
 msgstr "n'existe pas"
 
@@ -115,7 +183,7 @@ msgstr "n'existe pas"
 msgid "Invalid persona email"
 msgstr "Courriel Persona invalide"
 
-#: ../lib/security.php:84 ../site/api/index.php:293
+#: ../lib/security.php:84 ../site/api/index.php:289
 msgid "Invalid password"
 msgstr "Mot de passe invalide"
 
@@ -129,10 +197,10 @@ msgstr "Le jeton ne correspond pas"
 
 #: ../lib/security.php:122 ../lib/security.php:204 ../site/api/index.php:43
 #: ../site/api/index.php:76 ../site/api/index.php:104
-#: ../site/api/index.php:157 ../site/api/index.php:171
-#: ../site/api/index.php:180 ../site/api/index.php:189
-#: ../site/api/index.php:265 ../site/api/index.php:280
-#: ../site/api/index.php:288
+#: ../site/api/index.php:153 ../site/api/index.php:167
+#: ../site/api/index.php:176 ../site/api/index.php:185
+#: ../site/api/index.php:261 ../site/api/index.php:276
+#: ../site/api/index.php:284
 msgid "You have been logged out"
 msgstr "Vous avez été déconnecté"
 
@@ -160,10 +228,6 @@ msgstr "Aucune clé secrète définie"
 msgid "No token provided"
 msgstr "Aucun jeton fourni"
 
-#: ../lib/servers.php:104 ../site/api/index.php:123
-msgid "Owner"
-msgstr "Propriétaire"
-
 #: ../lib/servers.php:105 ../lib/users.php:137
 msgid "Real Name"
 msgstr "Vrai nom"
@@ -172,7 +236,7 @@ msgstr "Vrai nom"
 msgid "Email"
 msgstr "Courriel"
 
-#: ../lib/servers.php:108 ../site/index.php:196
+#: ../lib/servers.php:108 ../site/index.php:216
 msgid "Opers"
 msgstr "Opérateurs"
 
@@ -208,213 +272,149 @@ msgstr "Impossible de récupérer les mémos"
 msgid "Cannot fetch news"
 msgstr "Impossible de récupérer les nouvelles"
 
-#: ../site/api/index.php:116
-msgid "Voice"
-msgstr "Voix"
-
-#: ../site/api/index.php:117
-msgid "Automatic voice"
-msgstr "Voix automatique"
-
-#: ../site/api/index.php:118
-msgid "Halfop"
-msgstr "Demi-opérateur"
-
-#: ../site/api/index.php:119
-msgid "Automatic Halfop"
-msgstr "Demi-opérateur automatique"
-
-#: ../site/api/index.php:120
-msgid "Op"
-msgstr "Opérateur"
-
-#: ../site/api/index.php:121
-msgid "Automatic Op"
-msgstr "Opérateur automatique"
-
-#: ../site/api/index.php:122
-msgid "Admin"
-msgstr "Administrateur"
-
-#: ../site/api/index.php:124
-msgid "Set"
-msgstr "Définir"
-
-#: ../site/api/index.php:125
-msgid "Invite/Getkey"
-msgstr "Invitation/Obtenir clé"
-
-#: ../site/api/index.php:126
-msgid "Kick/Ban"
-msgstr "Expulsion/Bannissement"
-
-#: ../site/api/index.php:127
-msgid "Recover/Clear"
-msgstr "Recouvrer/Effacer"
-
-#: ../site/api/index.php:128
-msgid "Modify access lists"
-msgstr "Modifier les listes d'accès"
-
-#: ../site/api/index.php:129
-msgid "Topic"
-msgstr "Sujet"
-
-#: ../site/api/index.php:130
-msgid "View access lists"
-msgstr "Voir les listes d'accès"
-
-#: ../site/api/index.php:131
-msgid "Founder"
-msgstr "Fondateur"
-
-#: ../site/api/index.php:132
-msgid "Banned"
-msgstr "Banni"
-
-#: ../site/api/index.php:153
+#: ../site/api/index.php:149
 msgid "Cannot fetch channels"
 msgstr "Impossible de récupérer les canaux"
 
-#: ../site/api/index.php:158
+#: ../site/api/index.php:154
 msgid "No message or user entered"
 msgstr "Aucun message ou utilisateur entré"
 
-#: ../site/api/index.php:164
+#: ../site/api/index.php:160
 msgid "Memo Sent"
 msgstr "Mémo envoyé"
 
-#: ../site/api/index.php:167
+#: ../site/api/index.php:163
 msgid "Cannot send memo"
 msgstr "Impossible d'envoyer le mémo"
 
-#: ../site/api/index.php:172
+#: ../site/api/index.php:168
 msgid "No id given"
 msgstr "Aucun ID fourni"
 
-#: ../site/api/index.php:175
+#: ../site/api/index.php:171
 msgid "Cannot delete memo"
 msgstr "Impossible de supprimer le mémo"
 
-#: ../site/api/index.php:181 ../site/api/index.php:190
+#: ../site/api/index.php:177 ../site/api/index.php:186
 msgid "No channel given"
 msgstr "Aucun canal fourni"
 
-#: ../site/api/index.php:184
+#: ../site/api/index.php:180
 msgid "Cannot drop channel"
 msgstr "Impossible d'abandonner le canal"
 
-#: ../site/api/index.php:240
+#: ../site/api/index.php:236
 msgid "Failed to add email"
 msgstr "L'ajout du courriel a échoué"
 
-#: ../site/api/index.php:240
+#: ../site/api/index.php:236
 msgid "to user"
 msgstr "à l'utilisateur"
 
-#: ../site/api/index.php:242
+#: ../site/api/index.php:238
 msgid "Email does not match any users"
 msgstr "Le courriel ne correspond à aucun utilisateur"
 
-#: ../site/api/index.php:266
+#: ../site/api/index.php:262
 msgid "No ID set"
 msgstr "Aucun ID défini"
 
-#: ../site/api/index.php:268
+#: ../site/api/index.php:264
 msgid "Could not remove email address"
 msgstr "Impossible d'enlever le courriel"
 
-#: ../site/api/index.php:285
+#: ../site/api/index.php:281
 msgid "2-factor disabled."
 msgstr "Vérification en deux étapes désactivée."
 
-#: ../site/api/index.php:292 ../site/api/index.php:307
-#: ../site/api/index.php:318
+#: ../site/api/index.php:288 ../site/api/index.php:303
+#: ../site/api/index.php:314
 msgid "Make sure that everything is filled in. Try reloading if it is."
 msgstr ""
 "Assurez-vous que tous les champs sont remplis. Essayez de recharger si c'est "
 "le cas."
 
-#: ../site/api/index.php:298
+#: ../site/api/index.php:294
 msgid "Could not update password with nickserv"
 msgstr "Impossible de mettre à jour le mot de passe avec NickServ"
 
-#: ../site/api/index.php:308
+#: ../site/api/index.php:304
 msgid "Not Logged in to use"
 msgstr "Déconnecté pour utiliser"
 
-#: ../site/api/index.php:308
+#: ../site/api/index.php:304
 msgid "with key"
 msgstr "avec la clé"
 
-#: ../site/api/index.php:309
+#: ../site/api/index.php:305
 msgid "Must be logged in with type user to sync pass"
 msgstr ""
 "Vous devez être connecté avec le type utilisateur pour synchroniser le mot "
 "de passe"
 
-#: ../site/api/index.php:312
+#: ../site/api/index.php:308
 msgid "Could not verify with nickserv"
 msgstr "Impossible de vérifier avec NickServ"
 
-#: ../site/api/index.php:315
+#: ../site/api/index.php:311
 msgid "Nickserv password synchronized with main account"
 msgstr "Le mot de passe NickServ a été synchronisé avec le compte principal"
 
-#: ../site/api/index.php:323 ../site/api/index.php:336
-#: ../site/api/index.php:355
+#: ../site/api/index.php:319 ../site/api/index.php:332
+#: ../site/api/index.php:351
 msgid "Not logged in"
 msgstr "Déconnecté"
 
-#: ../site/api/index.php:324 ../site/api/index.php:337
+#: ../site/api/index.php:320 ../site/api/index.php:333
 msgid "No user set."
 msgstr "Aucun utilisateur défini."
 
-#: ../site/api/index.php:325
+#: ../site/api/index.php:321
 msgid "No email set."
 msgstr "Aucun courriel défini."
 
-#: ../site/api/index.php:326
+#: ../site/api/index.php:322
 msgid "No real name set."
 msgstr "Aucun vrai nom défini."
 
-#: ../site/api/index.php:327 ../site/api/index.php:338
+#: ../site/api/index.php:323 ../site/api/index.php:334
 msgid "No nick set."
 msgstr "Aucun pseudonyme défini."
 
-#: ../site/api/index.php:328
+#: ../site/api/index.php:324
 msgid "User with id"
 msgstr "Utilisateur avec ID"
 
-#: ../site/api/index.php:328 ../site/api/index.php:340
+#: ../site/api/index.php:324 ../site/api/index.php:336
 msgid "does not exist. You should reload the page."
 msgstr "n'existe pas. Vous devriez recharger la page."
 
-#: ../site/api/index.php:332
+#: ../site/api/index.php:328
 msgid "Unable to update user"
 msgstr "Impossible de mettre à jour l'utilisateur"
 
-#: ../site/api/index.php:339
+#: ../site/api/index.php:335
 msgid "No profile set."
 msgstr "Aucun profil défini."
 
-#: ../site/api/index.php:340
+#: ../site/api/index.php:336
 msgid "Oper with id"
 msgstr "Opérateur avec ID"
 
-#: ../site/api/index.php:342 ../site/api/index.php:344
+#: ../site/api/index.php:338 ../site/api/index.php:340
 msgid "Unable to update oper"
 msgstr "Impossible de mettre à jour l'opérateur"
 
-#: ../site/api/index.php:350
+#: ../site/api/index.php:346
 msgid "Failed to update setting"
 msgstr "La mise à jour du réglage a échoué"
 
-#: ../site/api/index.php:350
+#: ../site/api/index.php:346
 msgid "with value"
 msgstr "avec la valeur"
 
-#: ../site/api/index.php:359
+#: ../site/api/index.php:355
 msgid "Invalid Action"
 msgstr "Action invalide"
 
@@ -447,8 +447,8 @@ msgstr "Corps"
 msgid "Reply"
 msgstr "Répondre"
 
-#: ../site/index.php:116 ../site/index.php:117 ../site/index.php:171
-#: ../site/index.php:172
+#: ../site/index.php:116 ../site/index.php:117 ../site/index.php:191
+#: ../site/index.php:192
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -456,115 +456,120 @@ msgstr "Supprimer"
 msgid "New Channel"
 msgstr "Nouveau canal"
 
-#: ../site/index.php:164
-msgid "Flags:"
+#: ../site/index.php:166
+msgid "Access"
+msgstr ""
+
+#: ../site/index.php:176
+#, fuzzy
+msgid "Flags"
 msgstr "Indicateurs:"
 
-#: ../site/index.php:191
+#: ../site/index.php:211
 msgid "News"
 msgstr "Nouvelles"
 
-#: ../site/index.php:192
+#: ../site/index.php:212
 msgid "Memos"
 msgstr "Mémos"
 
-#: ../site/index.php:193
+#: ../site/index.php:213
 msgid "Channels"
 msgstr "Canaux"
 
-#: ../site/index.php:195
+#: ../site/index.php:215
 msgid "Servers"
 msgstr "Serveurs"
 
-#: ../site/index.php:197
+#: ../site/index.php:217
 msgid "Configuration"
 msgstr "Configuration"
 
-#: ../site/index.php:199
+#: ../site/index.php:219
 msgid "Profile"
 msgstr "Profil"
 
-#: ../site/index.php:234
+#: ../site/index.php:254
 msgid "To"
 msgstr "À"
 
-#: ../site/index.php:240
+#: ../site/index.php:260
 msgid "Message"
 msgstr "Message"
 
-#: ../site/index.php:259
+#: ../site/index.php:279
 msgid "Channel Name"
 msgstr "Nom du canal"
 
-#: ../site/index.php:281
+#: ../site/index.php:301
 msgid "Country"
 msgstr "Pays"
 
-#: ../site/index.php:289
+#: ../site/index.php:309
 msgid "Cell #"
 msgstr "Numéro de cellulaire"
 
-#: ../site/index.php:312
+#: ../site/index.php:332
 msgid "Token"
 msgstr "Jeton"
 
-#: ../site/index.php:327
+#: ../site/index.php:347
 msgid "Disable 2-factor"
 msgstr "Désactiver la vérification en deux étapes"
 
-#: ../site/index.php:333
+#: ../site/index.php:353
 msgid "Link Persona"
 msgstr "Lier le Persona"
 
-#: ../site/index.php:336
+#: ../site/index.php:356
 msgid "Remove"
 msgstr "Enlever"
 
-#: ../site/index.php:344
+#: ../site/index.php:364
 msgid "Switch Role"
 msgstr "Changer de rôle"
 
-#: ../site/index.php:346
+#: ../site/index.php:366
 msgid "Rehash"
 msgstr "Mettre à jour"
 
-#: ../site/index.php:348 ../site/index.php:359
+#: ../site/index.php:368 ../site/index.php:379
 msgid "Change Password"
 msgstr "Changer le mot de passe"
 
-#: ../site/index.php:350
+#: ../site/index.php:370
 msgid "Sync Password"
 msgstr "Synchroniser le mot de passe"
 
-#: ../site/index.php:352
+#: ../site/index.php:372
 msgid "Logout"
 msgstr "Se déconnecter"
 
-#: ../site/index.php:363 ../site/index.php:461
+#: ../site/index.php:383 ../site/index.php:481
 msgid "Password"
 msgstr "Mot de passe"
 
-#: ../site/index.php:393
+#: ../site/index.php:413
 msgid "Switch"
 msgstr "Changer"
 
-#: ../site/index.php:397 ../site/index.php:467
+#: ../site/index.php:417 ../site/index.php:487
 msgid "Type"
 msgstr "Type"
 
-#: ../site/index.php:415 ../site/index.php:447
+#: ../site/index.php:435 ../site/index.php:467
 msgid "Login"
 msgstr "Se connecter"
 
-#: ../site/index.php:419
+#: ../site/index.php:439
 msgid "2-Factor Verification"
 msgstr "Validation en deux étapes"
 
-#: ../site/index.php:451
+#: ../site/index.php:471
 msgid "Persona"
 msgstr "Persona"
 
-#: ../site/index.php:455
+#: ../site/index.php:475
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
@@ -596,51 +601,51 @@ msgstr "La connexion a échoué"
 msgid "Could not remove persona address"
 msgstr "Impossible d'enlever l'adresse Persona"
 
-#: ../site/js/index.js:387
+#: ../site/js/index.js:386
 msgid "Server Ping"
 msgstr "Ping du serveur"
 
-#: ../site/js/index.js:402 ../site/js/index.js:479 ../site/js/index.js:587
-#: ../site/js/index.js:614
+#: ../site/js/index.js:401 ../site/js/index.js:478 ../site/js/index.js:589
+#: ../site/js/index.js:616
 msgid "Could not ping server"
 msgstr "Impossible de pinger le serveur"
 
-#: ../site/js/index.js:410
+#: ../site/js/index.js:409
 msgid "Fetching Memos"
 msgstr "Récupérer les mémos"
 
-#: ../site/js/index.js:441 ../site/js/index.js:518 ../site/js/index.js:554
+#: ../site/js/index.js:440 ../site/js/index.js:517 ../site/js/index.js:556
 msgid "Could not contact server"
 msgstr "Impossible de contacter le serveur"
 
-#: ../site/js/index.js:460
+#: ../site/js/index.js:459
 msgid "Deleting memo"
 msgstr "Suppression du mémo"
 
-#: ../site/js/index.js:486
+#: ../site/js/index.js:485
 msgid "Fetching News"
 msgstr "Récupérer les nouvelles"
 
-#: ../site/js/index.js:508
+#: ../site/js/index.js:507
 msgid "New news item"
 msgstr "Nouvel item de nouvelle"
 
-#: ../site/js/index.js:528
+#: ../site/js/index.js:527
 msgid "Fetching Channels"
 msgstr "Récupérer les canaux"
 
-#: ../site/js/index.js:564
+#: ../site/js/index.js:566
 msgid "Are you sure you want to delete channel"
 msgstr "Êtes-vous sûr vous voulez supprimer le canal"
 
-#: ../site/js/index.js:565
+#: ../site/js/index.js:567
 msgid "Deleting channel"
 msgstr "Suppression du canal"
 
-#: ../site/js/index.js:595
+#: ../site/js/index.js:597
 msgid "Registering channel"
 msgstr "Enregistrement du canal"
 
-#: ../site/js/index.js:622
+#: ../site/js/index.js:624
 msgid "Language change detected"
 msgstr "Changement de langue détecté"
