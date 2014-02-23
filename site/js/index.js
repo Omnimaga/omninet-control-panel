@@ -3,6 +3,11 @@ $(function(){
 	if(location.host != purl(__HOSTNAME__).attr('host')){
 		location.href = __HOSTNAME__;
 	}
+	$(document).ajaxStart(function(){
+		$("#loading").show();
+	}).ajaxStop(function(){
+		$("#loading").hide();
+	});
 	Pomo.domain = 'messages';
 	Pomo.unescapeStrings = true;
 	var _ = window._ = function(text){
@@ -626,11 +631,6 @@ $(function(){
 			}
 		},1000);
 		delayedload();
-		$(document).ajaxStart(function(){
-			$("#loading").show();
-		}).ajaxStop(function(){
-			$("#loading").hide();
-		});
 		$('body').show();
 		$('body').resize();
 	});
