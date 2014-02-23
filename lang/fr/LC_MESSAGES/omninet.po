@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Omninet Control panel\n"
 "POT-Creation-Date: 2014-02-23 00:09-0700\n"
-"PO-Revision-Date: 2014-02-23 00:17-0700\n"
-"Last-Translator: Nathaniel van Diepen <eeems@omnimaga.org>\n"
+"PO-Revision-Date: 2014-02-23 02:45-0500\n"
+"Last-Translator: Julien Savard <juju2143@gmail.com>\n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -458,12 +458,11 @@ msgstr "Nouveau canal"
 
 #: ../site/index.php:166
 msgid "Access"
-msgstr ""
+msgstr "Accès"
 
 #: ../site/index.php:176
-#, fuzzy
 msgid "Flags"
-msgstr "Indicateurs:"
+msgstr "Indicateurs"
 
 #: ../site/index.php:211
 msgid "News"
