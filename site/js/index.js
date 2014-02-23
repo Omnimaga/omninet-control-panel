@@ -528,7 +528,7 @@ $(function(){
 				setTimeout(window.ServerPing,1000*60); // Every minute
 			}
 		};
-		window.FetchChannels = function(once){
+		window.FetchChannels = function(){
 			console.log(_("Fetching Channels"));
 			$.ajax(__HOSTNAME__+'site/api/?action=get-channels',{
 				success: function(d){
@@ -563,9 +563,6 @@ $(function(){
 				},
 				dataType: 'json'
 			});
-			if(!once){
-				setTimeout(window.ServerPing,1000*60); // Every minute
-			}
 		};
 		window.DeleteChannel = function(channel){
 			if(confirm(_('Are you sure you want to delete channel')+' '+channel)){
