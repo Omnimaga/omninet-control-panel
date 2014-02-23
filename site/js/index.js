@@ -382,7 +382,6 @@ $(function(){
 		if(!Modernizr.inputtypes.number){
 			$('input[type=number]').spinner();
 		}
-		$('body').show();
 		window.ServerPing = function(){
 			console.log(_("Server Ping"));
 			$.ajax(__HOSTNAME__+'site/api/?action=ping',{
@@ -547,6 +546,9 @@ $(function(){
 					}
 					$('#channels').html(templates.channels(d)).find('button').button();
 					translate('#channels');
+					$('#channels').find('.tree').treegrid({
+						initialState: 'collapsed'
+					});
 					$('body').resize();
 				},
 				error: function(xhr,msg,e){
@@ -623,6 +625,13 @@ $(function(){
 				location.reload();
 			}
 		},1000);
+		delayedload();
+		$(document).ajaxStart(function(){
+			$("#loading").show();
+		}).ajaxStop(function(){
+			$("#loading").hide();
+		});
+		$('body').show();
 		$('body').resize();
 	});
 });

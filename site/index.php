@@ -63,7 +63,7 @@
 		</script>
 		<?php
 			if($user){
-				echo "<script>$(document).ready(function(){";
+				echo "<script>function delayedload(){";
 				if(is_logged_in() && is_verified()){
 					echo "runWhenExists('ServerPing');";
 				}
@@ -72,7 +72,7 @@
 					echo "runWhenExists('FetchNews');";
 					echo "runWhenExists('FetchChannels');";
 				}
-				echo "});</script>";
+				echo "};</script>";
 				if(has_flag($user,'u')){ ?>
 					<script id="template-memos" type="text/x-handlebars-template">
 						<button class="button" value="<?php echo __('Refresh'); ?>" onclick="window.FetchMemos(true);">
@@ -160,12 +160,32 @@
 						{{#each channels}}
 							<div id="channel-{{this.name}}" class="ui-widget ui-state-default ui-corner-all" style="padding:5px;">
 								{{this.name}}
-								<br/>
-								<?php echo __('Flags:'); ?>
-								<ul>
-									{{#each this.flags}}
-										<li>{{this.name}}</li>
+								<table class="tree">
+									<tr style='font-weight:bold;' class='treegrid-0'>
+										<td>
+											<?php echo __('Access'); ?>
+										</td>
+										<td></td>
+									</tr>
+									{{#each this.users}}
+										<tr style='font-weight:bold;' class='treegrid-{{this.id}} treegrid-parent-0'>
+											<td>
+												{{this.name}}
+											</td>
+											<td>
+												<?php echo __('Flags'); ?>
+											</td>
+										</tr>
+										{{#each this.flags}}
+											<tr class='treegrid-{{this.flag}} treegrid-parent-{{../id}}'>
+												<td></td>
+												<td>
+													{{this.name}}
+												</td>
+											</tr>
+										{{/each}}
 									{{/each}}
+									</table>
 								</ul>
 								{{#if this.candrop}}
 									<button value="<?php echo __('Delete'); ?>" style="background-color:red;background-image:none;" onclick="window.DeleteChannel('{{this.name}}');">
@@ -499,6 +519,9 @@
 						echo "</div>";
 					}
 				?>
+			</div>
+			<div id="loading">
+				<div class="ui-widget ui-state-default ui-corner-all"></div>
 			</div>
 	</body>
 </html>
