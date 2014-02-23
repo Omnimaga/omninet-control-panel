@@ -196,7 +196,8 @@
 			}
 			$ret2 = irccommands(array(
 				'join '.$_GET['channel'],
-				'cs set '.$_GET['channel'].' founder '.$_COOKIE['user']
+				'cs set '.$_GET['channel'].' founder '.$_COOKIE['user'],
+				'cs flags '.$_GET['channel'].' RehashServ -AORafhioqrstv'
 			),$_COOKIE['user']);
 			if($ret2['code'] !== 0){
 				$ret2['message'] = 'Failed to register channel. See log for information.';
