@@ -627,7 +627,9 @@ $(function(){
 				location.reload();
 			}
 		},1000);
-		delayedload();
+		if(typeof delayedload == 'function'){
+			delayedload();
+		}
 		$('body').show();
 		$('body').resize();
 	});
