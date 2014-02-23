@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omninet Control panel\n"
-"POT-Creation-Date: 2014-02-21 12:08-0700\n"
-"PO-Revision-Date: 2014-02-21 12:08-0700\n"
-"Last-Translator: Nathaniel van Diepen <eeems@omnimaga.org>\n"
+"POT-Creation-Date: 2014-02-22 21:11-0700\n"
+"PO-Revision-Date: 2014-02-22 23:28-0500\n"
+"Last-Translator: Julien Savard <juju2143@gmail.com>\n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
@@ -15,628 +15,632 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: ../../../..\n"
 
-#: ../../../../omninet-control-panel/lib/configuration.php:133
-#: ../../../../omninet-control-panel/lib/users.php:163
+#: ../lib/configuration.php:133 ../lib/users.php:163
 msgid "Save"
 msgstr "Enregistrer"
 
-#: ../../../../omninet-control-panel/lib/irc.php:37
+#: ../lib/irc.php:37
 msgid "Insufficient Parameters to login"
 msgstr "Paramètres insuffisants pour se connecter"
 
-#: ../../../../omninet-control-panel/lib/irc.php:40
+#: ../lib/irc.php:40
 msgid "Account is not registered"
 msgstr "Le compte n'est pas enregistré"
 
-#: ../../../../omninet-control-panel/lib/irc.php:43
+#: ../lib/irc.php:43
 msgid "Invalid Username/Password"
 msgstr "Nom d'utilisateur et/ou mot de passe invalide"
 
-#: ../../../../omninet-control-panel/lib/irc.php:46
+#: ../lib/irc.php:46
 msgid "Account is frozen"
 msgstr "Le compte est gelé"
 
-#: ../../../../omninet-control-panel/lib/irc.php:49
+#: ../lib/irc.php:49
 msgid "Could not log in"
 msgstr "Impossible de se connecter."
 
-#: ../../../../omninet-control-panel/lib/irc.php:132
+#: ../lib/irc.php:140 ../lib/irc.php:228
 msgid "Could not connect."
 msgstr "Impossible de se connecter."
 
-#: ../../../../omninet-control-panel/lib/irc.php:133
+#: ../lib/irc.php:141 ../lib/irc.php:229
 msgid "Could not set timeout."
 msgstr "Impossible de régler le délai."
 
-#: ../../../../omninet-control-panel/lib/irc.php:143
-#: ../../../../omninet-control-panel/lib/irc.php:160
-#: ../../../../omninet-control-panel/lib/irc.php:177
+#: ../lib/irc.php:151 ../lib/irc.php:168 ../lib/irc.php:185
 msgid "RehashServ is already running."
 msgstr "RehashServ est déjà en cours d'exécution"
 
-#: ../../../../omninet-control-panel/lib/irc.php:145
-#: ../../../../omninet-control-panel/lib/irc.php:162
-#: ../../../../omninet-control-panel/lib/irc.php:179
+#: ../lib/irc.php:153 ../lib/irc.php:170 ../lib/irc.php:187 ../lib/irc.php:246
+#: ../lib/irc.php:279 ../lib/irc.php:297
 msgid "IRC Server refused the connection."
 msgstr "Le serveur IRC a refusé la connexion."
 
-#: ../../../../omninet-control-panel/lib/irc.php:166
+#: ../lib/irc.php:174 ../lib/irc.php:283
 msgid "Failed to authenticate with NickServ"
 msgstr "L'authentication avec NickServ a échoué"
 
-#: ../../../../omninet-control-panel/lib/irc.php:183
+#: ../lib/irc.php:191 ../lib/irc.php:301
 msgid "vhost not set."
 msgstr "vhost non défini."
 
-#: ../../../../omninet-control-panel/lib/irc.php:203
+#: ../lib/irc.php:211
 msgid "There is an error in the config. See console for output."
 msgstr ""
 "Il y a eu une erreur dans la configuration. Regardez la console pour la "
 "sortie."
 
-#: ../../../../omninet-control-panel/lib/irc.php:205
+#: ../lib/irc.php:213
 msgid "Rehashed. View console for output."
 msgstr "Mis à jour. Regardez la console pour la sortie."
 
-#: ../../../../omninet-control-panel/lib/opers.php:56
+#: ../lib/irc.php:244 ../lib/irc.php:266 ../lib/irc.php:295
+msgid "RunServ is already running."
+msgstr "RunServ est déjà en cours d'exécution"
+
+#: ../lib/opers.php:56
 msgid "Managed Oper"
 msgstr "Opérateur géré"
 
-#: ../../../../omninet-control-panel/lib/opers.php:56
+#: ../lib/opers.php:56
 msgid "Personal Oper"
 msgstr "Opérateur personnel"
 
-#: ../../../../omninet-control-panel/lib/opers.php:59
-#: ../../../../omninet-control-panel/lib/servers.php:111
-#: ../../../../omninet-control-panel/lib/users.php:143
+#: ../lib/opers.php:59 ../lib/servers.php:111 ../lib/users.php:143
 msgid "Nick"
 msgstr "Pseudonyme"
 
-#: ../../../../omninet-control-panel/lib/opers.php:65
+#: ../lib/opers.php:65
 msgid "Omnimaga Profile"
 msgstr "Profil Omnimaga"
 
-#: ../../../../omninet-control-panel/lib/opers.php:71
-#: ../../../../omninet-control-panel/site/index.php:348
+#: ../lib/opers.php:71 ../site/index.php:369
 msgid "New Password"
 msgstr "Nouveau mot de passe"
 
-#: ../../../../omninet-control-panel/lib/security.php:63
+#: ../lib/security.php:63
 msgid "Invalid credentials"
 msgstr "Informations de connexion invalides."
 
-#: ../../../../omninet-control-panel/lib/security.php:67
-#: ../../../../omninet-control-panel/lib/security.php:81
-#: ../../../../omninet-control-panel/site/api/index.php:159
-#: ../../../../omninet-control-panel/site/index.php:361
-#: ../../../../omninet-control-panel/site/index.php:415
+#: ../lib/security.php:67 ../lib/security.php:81 ../site/api/index.php:162
+#: ../site/index.php:382 ../site/index.php:436
 msgid "User"
 msgstr "Utilisateur"
 
-#: ../../../../omninet-control-panel/lib/security.php:67
-#: ../../../../omninet-control-panel/lib/security.php:81
-#: ../../../../omninet-control-panel/site/api/index.php:159
+#: ../lib/security.php:67 ../lib/security.php:81 ../site/api/index.php:162
 msgid "does not exist"
 msgstr "n'existe pas"
 
-#: ../../../../omninet-control-panel/lib/security.php:73
+#: ../lib/security.php:73
 msgid "Invalid persona email"
 msgstr "Courriel Persona invalide"
 
-#: ../../../../omninet-control-panel/lib/security.php:84
-#: ../../../../omninet-control-panel/site/api/index.php:258
+#: ../lib/security.php:84 ../site/api/index.php:293
 msgid "Invalid password"
 msgstr "Mot de passe invalide"
 
-#: ../../../../omninet-control-panel/lib/security.php:102
-#: ../../../../omninet-control-panel/lib/security.php:171
+#: ../lib/security.php:102 ../lib/security.php:171
 msgid "Failed to create Authy user"
 msgstr "La création de l'utilisateur Authy a échoué"
 
-#: ../../../../omninet-control-panel/lib/security.php:115
+#: ../lib/security.php:115
 msgid "Token didn't match "
 msgstr "Le jeton ne correspond pas"
 
-#: ../../../../omninet-control-panel/lib/security.php:122
-#: ../../../../omninet-control-panel/lib/security.php:204
-#: ../../../../omninet-control-panel/site/api/index.php:44
-#: ../../../../omninet-control-panel/site/api/index.php:77
-#: ../../../../omninet-control-panel/site/api/index.php:105
-#: ../../../../omninet-control-panel/site/api/index.php:154
-#: ../../../../omninet-control-panel/site/api/index.php:168
-#: ../../../../omninet-control-panel/site/api/index.php:230
-#: ../../../../omninet-control-panel/site/api/index.php:245
-#: ../../../../omninet-control-panel/site/api/index.php:253
+#: ../lib/security.php:122 ../lib/security.php:204 ../site/api/index.php:43
+#: ../site/api/index.php:76 ../site/api/index.php:104
+#: ../site/api/index.php:157 ../site/api/index.php:171
+#: ../site/api/index.php:180 ../site/api/index.php:189
+#: ../site/api/index.php:265 ../site/api/index.php:280
+#: ../site/api/index.php:288
 msgid "You have been logged out"
 msgstr "Vous avez été déconnecté"
 
-#: ../../../../omninet-control-panel/lib/security.php:137
-#: ../../../../omninet-control-panel/lib/security.php:140
-#: ../../../../omninet-control-panel/lib/security.php:150
+#: ../lib/security.php:137 ../lib/security.php:140 ../lib/security.php:150
 msgid "Failed to disable 2-factor authentication"
 msgstr "La désactivation de la vérification en deux étapes a échoué"
 
-#: ../../../../omninet-control-panel/lib/security.php:178
+#: ../lib/security.php:178
 msgid "No cell number set"
 msgstr "Aucun numéro de cellulaire défini"
 
-#: ../../../../omninet-control-panel/lib/security.php:181
+#: ../lib/security.php:181
 msgid "No country code set"
 msgstr "Aucun code de pays défini"
 
-#: ../../../../omninet-control-panel/lib/security.php:191
+#: ../lib/security.php:191
 msgid "Could not register"
 msgstr "Impossible de s'inscrire"
 
-#: ../../../../omninet-control-panel/lib/security.php:194
+#: ../lib/security.php:194
 msgid "No secret key defined"
 msgstr "Aucune clé secrète définie"
 
-#: ../../../../omninet-control-panel/lib/security.php:197
+#: ../lib/security.php:197
 msgid "No token provided"
 msgstr "Aucun jeton fourni"
 
-#: ../../../../omninet-control-panel/lib/servers.php:104
-#: ../../../../omninet-control-panel/site/api/index.php:124
+#: ../lib/servers.php:104 ../site/api/index.php:123
 msgid "Owner"
 msgstr "Propriétaire"
 
-#: ../../../../omninet-control-panel/lib/servers.php:105
-#: ../../../../omninet-control-panel/lib/users.php:137
+#: ../lib/servers.php:105 ../lib/users.php:137
 msgid "Real Name"
 msgstr "Vrai nom"
 
-#: ../../../../omninet-control-panel/lib/servers.php:105
-#: ../../../../omninet-control-panel/lib/users.php:149
+#: ../lib/servers.php:105 ../lib/users.php:149
 msgid "Email"
 msgstr "Courriel"
 
-#: ../../../../omninet-control-panel/lib/servers.php:108
-#: ../../../../omninet-control-panel/site/index.php:194
+#: ../lib/servers.php:108 ../site/index.php:196
 msgid "Opers"
 msgstr "Opérateurs"
 
-#: ../../../../omninet-control-panel/lib/servers.php:111
+#: ../lib/servers.php:111
 msgid "Role"
 msgstr "Rôle"
 
-#: ../../../../omninet-control-panel/lib/servers.php:119
+#: ../lib/servers.php:119
 msgid "Parent"
 msgstr "Parent"
 
-#: ../../../../omninet-control-panel/lib/servers.php:123
+#: ../lib/servers.php:123
 msgid "Children"
 msgstr "Fils"
 
-#: ../../../../omninet-control-panel/site/api/index.php:22
+#: ../site/api/index.php:21
 msgid "Missing username and/or password"
 msgstr "Nom d'utilisateur et/ou mot de passe manquant"
 
-#: ../../../../omninet-control-panel/site/api/index.php:23
+#: ../site/api/index.php:22
 msgid "Missing user type"
 msgstr "Type d'utilisateur manquant"
 
-#: ../../../../omninet-control-panel/site/api/index.php:32
+#: ../site/api/index.php:31
 msgid "No token set"
 msgstr "Aucun jeton défini"
 
-#: ../../../../omninet-control-panel/site/api/index.php:73
+#: ../site/api/index.php:72
 msgid "Cannot fetch memos"
 msgstr "Impossible de récupérer les mémos"
 
-#: ../../../../omninet-control-panel/site/api/index.php:101
+#: ../site/api/index.php:100
 msgid "Cannot fetch news"
 msgstr "Impossible de récupérer les nouvelles"
 
-#: ../../../../omninet-control-panel/site/api/index.php:117
+#: ../site/api/index.php:116
 msgid "Voice"
 msgstr "Voix"
 
-#: ../../../../omninet-control-panel/site/api/index.php:118
+#: ../site/api/index.php:117
 msgid "Automatic voice"
 msgstr "Voix automatique"
 
-#: ../../../../omninet-control-panel/site/api/index.php:119
+#: ../site/api/index.php:118
 msgid "Halfop"
 msgstr "Demi-opérateur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:120
+#: ../site/api/index.php:119
 msgid "Automatic Halfop"
 msgstr "Demi-opérateur automatique"
 
-#: ../../../../omninet-control-panel/site/api/index.php:121
+#: ../site/api/index.php:120
 msgid "Op"
 msgstr "Opérateur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:122
+#: ../site/api/index.php:121
 msgid "Automatic Op"
 msgstr "Opérateur automatique"
 
-#: ../../../../omninet-control-panel/site/api/index.php:123
+#: ../site/api/index.php:122
 msgid "Admin"
 msgstr "Administrateur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:125
+#: ../site/api/index.php:124
 msgid "Set"
 msgstr "Définir"
 
-#: ../../../../omninet-control-panel/site/api/index.php:126
+#: ../site/api/index.php:125
 msgid "Invite/Getkey"
 msgstr "Invitation/Obtenir clé"
 
-#: ../../../../omninet-control-panel/site/api/index.php:127
+#: ../site/api/index.php:126
 msgid "Kick/Ban"
 msgstr "Expulsion/Bannissement"
 
-#: ../../../../omninet-control-panel/site/api/index.php:128
+#: ../site/api/index.php:127
 msgid "Recover/Clear"
 msgstr "Recouvrer/Effacer"
 
-#: ../../../../omninet-control-panel/site/api/index.php:129
+#: ../site/api/index.php:128
 msgid "Modify access lists"
 msgstr "Modifier les listes d'accès"
 
-#: ../../../../omninet-control-panel/site/api/index.php:130
+#: ../site/api/index.php:129
 msgid "Topic"
 msgstr "Sujet"
 
-#: ../../../../omninet-control-panel/site/api/index.php:131
+#: ../site/api/index.php:130
 msgid "View access lists"
 msgstr "Voir les listes d'accès"
 
-#: ../../../../omninet-control-panel/site/api/index.php:132
+#: ../site/api/index.php:131
 msgid "Founder"
 msgstr "Fondateur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:133
+#: ../site/api/index.php:132
 msgid "Banned"
 msgstr "Banni"
 
-#: ../../../../omninet-control-panel/site/api/index.php:150
+#: ../site/api/index.php:153
 msgid "Cannot fetch channels"
 msgstr "Impossible de récupérer les canaux"
 
-#: ../../../../omninet-control-panel/site/api/index.php:155
+#: ../site/api/index.php:158
 msgid "No message or user entered"
 msgstr "Aucun message ou utilisateur entré"
 
-#: ../../../../omninet-control-panel/site/api/index.php:161
+#: ../site/api/index.php:164
 msgid "Memo Sent"
 msgstr "Mémo envoyé"
 
-#: ../../../../omninet-control-panel/site/api/index.php:164
-#: ../../../../omninet-control-panel/site/api/index.php:172
+#: ../site/api/index.php:167
 msgid "Cannot send memo"
 msgstr "Impossible d'envoyer le mémo"
 
-#: ../../../../omninet-control-panel/site/api/index.php:169
+#: ../site/api/index.php:172
 msgid "No id given"
 msgstr "Aucun ID fourni"
 
-#: ../../../../omninet-control-panel/site/api/index.php:205
+#: ../site/api/index.php:175
+msgid "Cannot delete memo"
+msgstr "Impossible de supprimer le mémo"
+
+#: ../site/api/index.php:181 ../site/api/index.php:190
+msgid "No channel given"
+msgstr "Aucun canal fourni"
+
+#: ../site/api/index.php:184
+msgid "Cannot drop channel"
+msgstr "Impossible d'abandonner le canal"
+
+#: ../site/api/index.php:240
 msgid "Failed to add email"
 msgstr "L'ajout du courriel a échoué"
 
-#: ../../../../omninet-control-panel/site/api/index.php:205
+#: ../site/api/index.php:240
 msgid "to user"
 msgstr "à l'utilisateur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:207
+#: ../site/api/index.php:242
 msgid "Email does not match any users"
 msgstr "Le courriel ne correspond à aucun utilisateur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:231
+#: ../site/api/index.php:266
 msgid "No ID set"
 msgstr "Aucun ID défini"
 
-#: ../../../../omninet-control-panel/site/api/index.php:233
+#: ../site/api/index.php:268
 msgid "Could not remove email address"
 msgstr "Impossible d'enlever le courriel"
 
-#: ../../../../omninet-control-panel/site/api/index.php:250
+#: ../site/api/index.php:285
 msgid "2-factor disabled."
 msgstr "Vérification en deux étapes désactivée."
 
-#: ../../../../omninet-control-panel/site/api/index.php:257
-#: ../../../../omninet-control-panel/site/api/index.php:272
-#: ../../../../omninet-control-panel/site/api/index.php:283
+#: ../site/api/index.php:292 ../site/api/index.php:307
+#: ../site/api/index.php:318
 msgid "Make sure that everything is filled in. Try reloading if it is."
 msgstr ""
 "Assurez-vous que tous les champs sont remplis. Essayez de recharger si c'est "
 "le cas."
 
-#: ../../../../omninet-control-panel/site/api/index.php:263
+#: ../site/api/index.php:298
 msgid "Could not update password with nickserv"
 msgstr "Impossible de mettre à jour le mot de passe avec NickServ"
 
-#: ../../../../omninet-control-panel/site/api/index.php:273
+#: ../site/api/index.php:308
 msgid "Not Logged in to use"
 msgstr "Déconnecté pour utiliser"
 
-#: ../../../../omninet-control-panel/site/api/index.php:273
+#: ../site/api/index.php:308
 msgid "with key"
 msgstr "avec la clé"
 
-#: ../../../../omninet-control-panel/site/api/index.php:274
+#: ../site/api/index.php:309
 msgid "Must be logged in with type user to sync pass"
 msgstr ""
 "Vous devez être connecté avec le type utilisateur pour synchroniser le mot "
 "de passe"
 
-#: ../../../../omninet-control-panel/site/api/index.php:277
+#: ../site/api/index.php:312
 msgid "Could not verify with nickserv"
 msgstr "Impossible de vérifier avec NickServ"
 
-#: ../../../../omninet-control-panel/site/api/index.php:280
+#: ../site/api/index.php:315
 msgid "Nickserv password synchronized with main account"
 msgstr "Le mot de passe NickServ a été synchronisé avec le compte principal"
 
-#: ../../../../omninet-control-panel/site/api/index.php:288
-#: ../../../../omninet-control-panel/site/api/index.php:301
-#: ../../../../omninet-control-panel/site/api/index.php:320
+#: ../site/api/index.php:323 ../site/api/index.php:336
+#: ../site/api/index.php:355
 msgid "Not logged in"
 msgstr "Déconnecté"
 
-#: ../../../../omninet-control-panel/site/api/index.php:289
-#: ../../../../omninet-control-panel/site/api/index.php:302
+#: ../site/api/index.php:324 ../site/api/index.php:337
 msgid "No user set."
 msgstr "Aucun utilisateur défini."
 
-#: ../../../../omninet-control-panel/site/api/index.php:290
+#: ../site/api/index.php:325
 msgid "No email set."
 msgstr "Aucun courriel défini."
 
-#: ../../../../omninet-control-panel/site/api/index.php:291
+#: ../site/api/index.php:326
 msgid "No real name set."
 msgstr "Aucun vrai nom défini."
 
-#: ../../../../omninet-control-panel/site/api/index.php:292
-#: ../../../../omninet-control-panel/site/api/index.php:303
+#: ../site/api/index.php:327 ../site/api/index.php:338
 msgid "No nick set."
 msgstr "Aucun pseudonyme défini."
 
-#: ../../../../omninet-control-panel/site/api/index.php:293
+#: ../site/api/index.php:328
 msgid "User with id"
 msgstr "Utilisateur avec ID"
 
-#: ../../../../omninet-control-panel/site/api/index.php:293
-#: ../../../../omninet-control-panel/site/api/index.php:305
+#: ../site/api/index.php:328 ../site/api/index.php:340
 msgid "does not exist. You should reload the page."
 msgstr "n'existe pas. Vous devriez recharger la page."
 
-#: ../../../../omninet-control-panel/site/api/index.php:297
+#: ../site/api/index.php:332
 msgid "Unable to update user"
 msgstr "Impossible de mettre à jour l'utilisateur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:304
+#: ../site/api/index.php:339
 msgid "No profile set."
 msgstr "Aucun profil défini."
 
-#: ../../../../omninet-control-panel/site/api/index.php:305
+#: ../site/api/index.php:340
 msgid "Oper with id"
 msgstr "Opérateur avec ID"
 
-#: ../../../../omninet-control-panel/site/api/index.php:307
-#: ../../../../omninet-control-panel/site/api/index.php:309
+#: ../site/api/index.php:342 ../site/api/index.php:344
 msgid "Unable to update oper"
 msgstr "Impossible de mettre à jour l'opérateur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:315
+#: ../site/api/index.php:350
 msgid "Failed to update setting"
 msgstr "La mise à jour du réglage a échoué"
 
-#: ../../../../omninet-control-panel/site/api/index.php:315
+#: ../site/api/index.php:350
 msgid "with value"
 msgstr "avec la valeur"
 
-#: ../../../../omninet-control-panel/site/api/index.php:324
+#: ../site/api/index.php:359
 msgid "Invalid Action"
 msgstr "Action invalide"
 
-#: ../../../../omninet-control-panel/site/index.php:78
-#: ../../../../omninet-control-panel/site/index.php:79
-#: ../../../../omninet-control-panel/site/index.php:123
-#: ../../../../omninet-control-panel/site/index.php:124
-#: ../../../../omninet-control-panel/site/index.php:154
-#: ../../../../omninet-control-panel/site/index.php:155
+#: ../site/index.php:78 ../site/index.php:79 ../site/index.php:123
+#: ../site/index.php:124 ../site/index.php:154 ../site/index.php:155
 msgid "Refresh"
 msgstr "Rafraîchir"
 
-#: ../../../../omninet-control-panel/site/index.php:81
-#: ../../../../omninet-control-panel/site/index.php:82
+#: ../site/index.php:81 ../site/index.php:82
 msgid "New Memo"
 msgstr "Nouveau mémo"
 
-#: ../../../../omninet-control-panel/site/index.php:84
-#: ../../../../omninet-control-panel/site/index.php:85
+#: ../site/index.php:84 ../site/index.php:85
 msgid "Delete All"
 msgstr "Supprimer tout"
 
-#: ../../../../omninet-control-panel/site/index.php:91
-#: ../../../../omninet-control-panel/site/index.php:133
+#: ../site/index.php:91 ../site/index.php:133
 msgid "From"
 msgstr "De"
 
-#: ../../../../omninet-control-panel/site/index.php:99
-#: ../../../../omninet-control-panel/site/index.php:141
+#: ../site/index.php:99 ../site/index.php:141
 msgid "Sent"
 msgstr "Envoyé"
 
-#: ../../../../omninet-control-panel/site/index.php:107
+#: ../site/index.php:107
 msgid "Body"
 msgstr "Corps"
 
-#: ../../../../omninet-control-panel/site/index.php:113
-#: ../../../../omninet-control-panel/site/index.php:114
+#: ../site/index.php:113 ../site/index.php:114
 msgid "Reply"
 msgstr "Répondre"
 
-#: ../../../../omninet-control-panel/site/index.php:116
-#: ../../../../omninet-control-panel/site/index.php:117
-#: ../../../../omninet-control-panel/site/index.php:170
-#: ../../../../omninet-control-panel/site/index.php:171
+#: ../site/index.php:116 ../site/index.php:117 ../site/index.php:171
+#: ../site/index.php:172
 msgid "Delete"
 msgstr "Supprimer"
 
-#: ../../../../omninet-control-panel/site/index.php:157
-#: ../../../../omninet-control-panel/site/index.php:158
+#: ../site/index.php:157 ../site/index.php:158
 msgid "New Channel"
 msgstr "Nouveau canal"
 
-#: ../../../../omninet-control-panel/site/index.php:164
+#: ../site/index.php:164
 msgid "Flags:"
 msgstr "Indicateurs:"
 
-#: ../../../../omninet-control-panel/site/index.php:189
+#: ../site/index.php:191
 msgid "News"
 msgstr "Nouvelles"
 
-#: ../../../../omninet-control-panel/site/index.php:190
+#: ../site/index.php:192
 msgid "Memos"
 msgstr "Mémos"
 
-#: ../../../../omninet-control-panel/site/index.php:191
+#: ../site/index.php:193
 msgid "Channels"
 msgstr "Canaux"
 
-#: ../../../../omninet-control-panel/site/index.php:193
+#: ../site/index.php:195
 msgid "Servers"
 msgstr "Serveurs"
 
-#: ../../../../omninet-control-panel/site/index.php:195
+#: ../site/index.php:197
 msgid "Configuration"
 msgstr "Configuration"
 
-#: ../../../../omninet-control-panel/site/index.php:197
+#: ../site/index.php:199
 msgid "Profile"
 msgstr "Profil"
 
-#: ../../../../omninet-control-panel/site/index.php:232
+#: ../site/index.php:234
 msgid "To"
 msgstr "À"
 
-#: ../../../../omninet-control-panel/site/index.php:238
+#: ../site/index.php:240
 msgid "Message"
 msgstr "Message"
 
-#: ../../../../omninet-control-panel/site/index.php:260
+#: ../site/index.php:259
+msgid "Channel Name"
+msgstr "Nom du canal"
+
+#: ../site/index.php:281
 msgid "Country"
 msgstr "Pays"
 
-#: ../../../../omninet-control-panel/site/index.php:268
+#: ../site/index.php:289
 msgid "Cell #"
 msgstr "Numéro de cellulaire"
 
-#: ../../../../omninet-control-panel/site/index.php:291
+#: ../site/index.php:312
 msgid "Token"
 msgstr "Jeton"
 
-#: ../../../../omninet-control-panel/site/index.php:306
+#: ../site/index.php:327
 msgid "Disable 2-factor"
 msgstr "Désactiver la vérification en deux étapes"
 
-#: ../../../../omninet-control-panel/site/index.php:312
+#: ../site/index.php:333
 msgid "Link Persona"
 msgstr "Lier le Persona"
 
-#: ../../../../omninet-control-panel/site/index.php:315
+#: ../site/index.php:336
 msgid "Remove"
 msgstr "Enlever"
 
-#: ../../../../omninet-control-panel/site/index.php:323
+#: ../site/index.php:344
 msgid "Switch Role"
 msgstr "Changer de rôle"
 
-#: ../../../../omninet-control-panel/site/index.php:325
+#: ../site/index.php:346
 msgid "Rehash"
 msgstr "Mettre à jour"
 
-#: ../../../../omninet-control-panel/site/index.php:327
-#: ../../../../omninet-control-panel/site/index.php:338
+#: ../site/index.php:348 ../site/index.php:359
 msgid "Change Password"
 msgstr "Changer le mot de passe"
 
-#: ../../../../omninet-control-panel/site/index.php:329
+#: ../site/index.php:350
 msgid "Sync Password"
 msgstr "Synchroniser le mot de passe"
 
-#: ../../../../omninet-control-panel/site/index.php:331
+#: ../site/index.php:352
 msgid "Logout"
 msgstr "Se déconnecter"
 
-#: ../../../../omninet-control-panel/site/index.php:342
-#: ../../../../omninet-control-panel/site/index.php:440
+#: ../site/index.php:363 ../site/index.php:461
 msgid "Password"
 msgstr "Mot de passe"
 
-#: ../../../../omninet-control-panel/site/index.php:372
+#: ../site/index.php:393
 msgid "Switch"
 msgstr "Changer"
 
-#: ../../../../omninet-control-panel/site/index.php:376
-#: ../../../../omninet-control-panel/site/index.php:446
+#: ../site/index.php:397 ../site/index.php:467
 msgid "Type"
 msgstr "Type"
 
-#: ../../../../omninet-control-panel/site/index.php:394
-#: ../../../../omninet-control-panel/site/index.php:426
+#: ../site/index.php:415 ../site/index.php:447
 msgid "Login"
 msgstr "Se connecter"
 
-#: ../../../../omninet-control-panel/site/index.php:398
+#: ../site/index.php:419
 msgid "2-Factor Verification"
 msgstr "Validation en deux étapes"
 
-#: ../../../../omninet-control-panel/site/index.php:430
+#: ../site/index.php:451
 msgid "Persona"
 msgstr "Persona"
 
-#: ../../../../omninet-control-panel/site/index.php:434
+#: ../site/index.php:455
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#~ msgid "Oper updated"
-#~ msgstr "Opérateur mis à jour"
+#: ../site/js/index.js:123
+msgid "Oper updated"
+msgstr "Opérateur mis à jour"
 
-#~ msgid "Could not submit the form"
-#~ msgstr "Impossible de soumettre le formulaire"
+#: ../site/js/index.js:134
+msgid "Could not submit the form"
+msgstr "Impossible de soumettre le formulaire"
 
-#~ msgid "Could not rehash the servers"
-#~ msgstr "Impossible de mettre à jour les serveurs"
+#: ../site/js/index.js:160
+msgid "Could not rehash the servers"
+msgstr "Impossible de mettre à jour les serveurs"
 
-#~ msgid "Could not synchronize your password"
-#~ msgstr "Impossible de synchroniser votre mot de passe"
+#: ../site/js/index.js:201
+msgid "Could not synchronize your password"
+msgstr "Impossible de synchroniser votre mot de passe"
 
-#~ msgid "This is an admin only feature. Continue?"
-#~ msgstr ""
-#~ "Ceci est une fonction pour les administrateurs seulement. Continuer?"
+#: ../site/js/index.js:214
+msgid "This is an admin only feature. Continue?"
+msgstr "Ceci est une fonction pour les administrateurs seulement. Continuer?"
 
-#~ msgid "Login failure"
-#~ msgstr "La connexion a échoué"
+#: ../site/js/index.js:241
+msgid "Login failure"
+msgstr "La connexion a échoué"
 
-#~ msgid "Could not remove persona address"
-#~ msgstr "Impossible d'enlever l'adresse Persona"
+#: ../site/js/index.js:266
+msgid "Could not remove persona address"
+msgstr "Impossible d'enlever l'adresse Persona"
 
-#~ msgid "Server Ping"
-#~ msgstr "Ping du serveur"
+#: ../site/js/index.js:387
+msgid "Server Ping"
+msgstr "Ping du serveur"
 
-#~ msgid "Could not ping server"
-#~ msgstr "Impossible de pinger le serveur"
+#: ../site/js/index.js:402 ../site/js/index.js:479 ../site/js/index.js:587
+#: ../site/js/index.js:614
+msgid "Could not ping server"
+msgstr "Impossible de pinger le serveur"
 
-#~ msgid "Fetching Memos"
-#~ msgstr "Récupérer les mémos"
+#: ../site/js/index.js:410
+msgid "Fetching Memos"
+msgstr "Récupérer les mémos"
 
-#~ msgid "Could not contact server"
-#~ msgstr "Impossible de contacter le serveur"
+#: ../site/js/index.js:441 ../site/js/index.js:518 ../site/js/index.js:554
+msgid "Could not contact server"
+msgstr "Impossible de contacter le serveur"
 
-#~ msgid "Deleting memo"
-#~ msgstr "Suppression du mémo"
+#: ../site/js/index.js:460
+msgid "Deleting memo"
+msgstr "Suppression du mémo"
 
-#~ msgid "Fetching News"
-#~ msgstr "Récupérer les nouvelles"
+#: ../site/js/index.js:486
+msgid "Fetching News"
+msgstr "Récupérer les nouvelles"
 
-#~ msgid "New news item"
-#~ msgstr "Nouvel item de nouvelle"
+#: ../site/js/index.js:508
+msgid "New news item"
+msgstr "Nouvel item de nouvelle"
 
-#~ msgid "Fetching Channels"
-#~ msgstr "Récupérer les canaux"
+#: ../site/js/index.js:528
+msgid "Fetching Channels"
+msgstr "Récupérer les canaux"
+
+#: ../site/js/index.js:564
+msgid "Are you sure you want to delete channel"
+msgstr "Êtes-vous sûr vous voulez supprimer le canal"
+
+#: ../site/js/index.js:565
+msgid "Deleting channel"
+msgstr "Suppression du canal"
+
+#: ../site/js/index.js:595
+msgid "Registering channel"
+msgstr "Enregistrement du canal"
+
+#: ../site/js/index.js:622
+msgid "Language change detected"
+msgstr "Changement de langue détecté"
