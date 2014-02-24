@@ -166,6 +166,7 @@
 											<?php echo __('Access'); ?>
 										</td>
 										<td></td>
+										<td></td>
 									</tr>
 									{{#each this.users}}
 										<tr style='font-weight:bold;' class='treegrid-{{this.id}} treegrid-parent-0'>
@@ -175,6 +176,13 @@
 											<td>
 												<?php echo __('Flags'); ?>
 											</td>
+											<td>
+												{{#if ../canaccess}}
+													<a onclick="window.ModifyChannelAccess('{{../../name}}','{{this.name}}',{{this.id}});" style="cursor:pointer;">
+														<?php echo __('Modify'); ?>
+													</a>
+												{{/if}}
+											</td>
 										</tr>
 										{{#each this.flags}}
 											<tr class='treegrid-{{this.flag}} treegrid-parent-{{../id}}'>
@@ -182,11 +190,17 @@
 												<td>
 													{{this.name}}
 												</td>
+												<td></td>
 											</tr>
 										{{/each}}
 									{{/each}}
 									</table>
 								</ul>
+								{{#if this.canaccess}}
+									<button value="<?php echo __('Add Access'); ?>" onclick="window.ModifyChannelAccess('{{this.name}}');">
+										<?php echo __('Add Access'); ?>
+									</button>
+								{{/if}}
 								{{#if this.candrop}}
 									<button value="<?php echo __('Delete'); ?>" style="background-color:red;background-image:none;" onclick="window.DeleteChannel('{{this.name}}');">
 										<?php echo __('Delete'); ?>
@@ -247,7 +261,7 @@
 						'id'=>'memo-diag',
 						'type'=>'form',
 						'form_id'=>'memo',
-						'form_submit_label'=>'Send',
+						'form_submit_label'=>__('Send'),
 						'form_fields'=>array(
 							array(
 								'name'=>'to',
@@ -272,7 +286,7 @@
 						'id'=>'channel-diag',
 						'type'=>'form',
 						'form_id'=>'channel',
-						'form_submit_label'=>'Register',
+						'form_submit_label'=>__('Register'),
 						'form_fields'=>array(
 							array(
 								'name'=>'channel',
@@ -284,6 +298,53 @@
 								'name'=>'action',
 								'type'=>'hidden',
 								'value'=>'register-channel'
+							)
+						)
+					));
+					array_push($dialogs,array(
+						'id'=>'channel-flags-diag',
+						'type'=>'form',
+						'form_id'=>'channel-flags',
+						'form_submit_label'=>__('Modify'),
+						'form_fields'=>array(
+							array(
+								'name'=>'user',
+								'label'=>__('User'),
+								'type'=>'string',
+								'value'=>''
+							),
+							array(
+								'name'=>'flags',
+								'label'=>__('Flags'),
+								'type'=>'multi',
+								'values'=>array(
+									channel_flag_obj('A'),
+									channel_flag_obj('F'),
+									channel_flag_obj('O'),
+									channel_flag_obj('R'),
+									channel_flag_obj('V'),
+									channel_flag_obj('a'),
+									channel_flag_obj('f'),
+									channel_flag_obj('h'),
+									channel_flag_obj('i'),
+									channel_flag_obj('o'),
+									channel_flag_obj('q'),
+									channel_flag_obj('r'),
+									channel_flag_obj('s'),
+									channel_flag_obj('t'),
+									channel_flag_obj('v'),
+									channel_flag_obj('b')
+								)
+							),
+							array(
+								'name'=>'channel',
+								'type'=>'hidden',
+								'value'=>''
+							),
+							array(
+								'name'=>'action',
+								'type'=>'hidden',
+								'value'=>'channel-flags'
 							)
 						)
 					));

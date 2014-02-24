@@ -116,6 +116,10 @@
 						);
 						if(in_array('F',$flags_list)){
 							$chan['candrop'] = true;
+							$chan['canaccess'] = true;
+						}
+						if(in_array('f',$flags_list)){
+							$chan['canaccess'] = true;
 						}
 						$res2 = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'ChanServ','flags',array($name));
 						if($res2[0]){
@@ -125,7 +129,7 @@
 								if($kk > 1 && $kk < count($res2)-2){
 									$user = array(
 										'id'=>preg_replace('/^(\d+)\b.+$/','\1',$row2),
-										'name'=>preg_replace('/^\d+\s+(.+)\s+\+.+/','\1',$row2),
+										'name'=>trim(preg_replace('/^\d+\s+(.+)\s+\+.+/','\1',$row2)),
 										'flags'=>array()
 									);
 									$flags_list = str_split(preg_replace('/^\d+\s+.+\s+\+(.+)\s+\[.+/i','\1',$row2));
@@ -168,7 +172,7 @@
 			isset($_GET['id']) or die('{"code":1,"message":"'.__('No id given').'"}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'MemoServ','delete',array($_GET['id']));
 			if(!$res[0]){
-				die('{"code":1,"message":"'.__('Cannot delete memo').': '+$res[1]+'"}');
+				die('{"code":1,"message":"'.__('Cannot delete memo').': '.$res[1].'"}');
 			}
 			die('{"code":0}');
 		break;
@@ -177,9 +181,38 @@
 			isset($_GET['channel']) or die('{"code":1,"message":"'.__('No channel given').'"}');
 			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'ChanServ','drop',array($_GET['channel']));
 			if(!$res[0]){
-				die('{"code":1,"message":"'.__('Cannot drop channel').': '+$res[1]+'"}');
+				die('{"code":1,"message":"'.__('Cannot drop channel').': '.$res[1].'"}');
 			}
 			die('{"code":0}');
+		break;
+		case 'channel-flags':
+			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
+			isset($_GET['channel']) or die('{"code":1,"message":"'.__('No channel given').'"}');
+			isset($_GET['user']) or die('{"code":1,"message":"'.__('No user given').'"}');
+			if(isset($_GET['flags'])){
+				$flags = $_GET['flags'];
+			}else{
+				$flags = array();
+			}
+			$flags_on = '';
+			$flags_off = '';
+			$flags = sanitize_channel_flags($flags);
+			foreach($flags as $flag => $val){
+				if($val){
+					$flags_on .= ' '.$flag;
+				}else{
+					$flags_off .= ' '.$flag;
+				}
+			}
+			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'ChanServ','flags',array($_GET['channel'],$_GET['user'],'+'.$flags_on));
+			if(!$res[0] && $res[2] != 12){
+				die('{"code":1,"message":"'.__('Cannot change flag').': '.$res[1].'"}');
+			}
+			$res = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'ChanServ','flags',array($_GET['channel'],$_GET['user'],'-'.$flags_off));
+			if(!$res[0] && $res[2] != 12){
+				die('{"code":1,"message":"'.__('Cannot change flag').': '.$res[1].'"}');
+			}
+			die('{"code":0,"flags":'.json_encode($flags).'}');
 		break;
 		case 'register-channel':
 			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');

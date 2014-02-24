@@ -48,6 +48,22 @@
 				}
 				$r .= "</select></span></div>";
 			break;
+			case 'multi':
+				$r = "<div class='row'><label for='{$field['name']}'>{$field['label']}</label><span><div>";
+				foreach($field['values'] as $k => $opt){
+					$a = '';
+					if(isset($opt['attributes']) && is_array($opt['attributes'])){
+						foreach($opt['attributes'] as $attribute => $value){
+							$a .= " {$attribute}=\"{$value}\"";
+						}
+					}
+					if(isset($field['value'])&&$field['value']==$opt['value']){
+						$a .= "selected=\"selected\"";
+					}
+					$r .= "<input type='checkbox' name='{$field['name']}[{$opt['value']}]'{$a}/> {$opt['label']}<br/>";
+				}
+				$r .= "</div></span></div>";
+			break;
 			case 'hidden':
 				$r = "<input type='hidden' name='{$field['name']}'{$v}{$a}/>";
 			break;

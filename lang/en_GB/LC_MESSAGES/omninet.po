@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Omninet\n"
-"POT-Creation-Date: 2014-02-23 14:18-0700\n"
-"PO-Revision-Date: 2014-02-23 14:18-0700\n"
+"POT-Creation-Date: 2014-02-23 18:36-0700\n"
+"PO-Revision-Date: 2014-02-23 18:36-0700\n"
 "Last-Translator: Nathaniel van Diepen <eeems@omnimaga.org>\n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: en_GB\n"
@@ -14,6 +14,74 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: ../../..\n"
+
+#: ../../../lib/channels.php:5
+msgid "Voice"
+msgstr ""
+
+#: ../../../lib/channels.php:6
+msgid "Automatic voice"
+msgstr ""
+
+#: ../../../lib/channels.php:7
+msgid "Halfop"
+msgstr ""
+
+#: ../../../lib/channels.php:8
+msgid "Automatic Halfop"
+msgstr ""
+
+#: ../../../lib/channels.php:9
+msgid "Op"
+msgstr ""
+
+#: ../../../lib/channels.php:10
+msgid "Automatic Op"
+msgstr ""
+
+#: ../../../lib/channels.php:11
+msgid "Admin"
+msgstr ""
+
+#: ../../../lib/channels.php:12 ../../../lib/servers.php:104
+msgid "Owner"
+msgstr ""
+
+#: ../../../lib/channels.php:13
+msgid "Set"
+msgstr ""
+
+#: ../../../lib/channels.php:14
+msgid "Invite/Getkey"
+msgstr ""
+
+#: ../../../lib/channels.php:15
+msgid "Kick/Ban"
+msgstr ""
+
+#: ../../../lib/channels.php:16
+msgid "Recover/Clear"
+msgstr ""
+
+#: ../../../lib/channels.php:17
+msgid "Modify access lists"
+msgstr ""
+
+#: ../../../lib/channels.php:18
+msgid "Topic"
+msgstr ""
+
+#: ../../../lib/channels.php:19
+msgid "View access lists"
+msgstr ""
+
+#: ../../../lib/channels.php:20
+msgid "Founder"
+msgstr ""
+
+#: ../../../lib/channels.php:21
+msgid "Banned"
+msgstr ""
 
 #: ../../../lib/configuration.php:133 ../../../lib/users.php:163
 msgid "Save"
@@ -39,109 +107,41 @@ msgstr ""
 msgid "Could not log in"
 msgstr ""
 
-#: ../../../lib/irc.php:140 ../../../lib/irc.php:228
+#: ../../../lib/irc.php:129 ../../../lib/irc.php:217
 msgid "Could not connect."
 msgstr ""
 
-#: ../../../lib/irc.php:141 ../../../lib/irc.php:229
+#: ../../../lib/irc.php:130 ../../../lib/irc.php:218
 msgid "Could not set timeout."
 msgstr ""
 
-#: ../../../lib/irc.php:151 ../../../lib/irc.php:168 ../../../lib/irc.php:185
+#: ../../../lib/irc.php:140 ../../../lib/irc.php:157 ../../../lib/irc.php:174
 msgid "RehashServ is already running."
 msgstr ""
 
-#: ../../../lib/irc.php:153 ../../../lib/irc.php:170 ../../../lib/irc.php:187
-#: ../../../lib/irc.php:246 ../../../lib/irc.php:279 ../../../lib/irc.php:297
+#: ../../../lib/irc.php:142 ../../../lib/irc.php:159 ../../../lib/irc.php:176
+#: ../../../lib/irc.php:235 ../../../lib/irc.php:268 ../../../lib/irc.php:286
 msgid "IRC Server refused the connection."
 msgstr ""
 
-#: ../../../lib/irc.php:174 ../../../lib/irc.php:283
+#: ../../../lib/irc.php:163 ../../../lib/irc.php:272
 msgid "Failed to authenticate with NickServ"
 msgstr ""
 
-#: ../../../lib/irc.php:191 ../../../lib/irc.php:301
+#: ../../../lib/irc.php:180 ../../../lib/irc.php:290
 msgid "vhost not set."
 msgstr ""
 
-#: ../../../lib/irc.php:211
+#: ../../../lib/irc.php:200
 msgid "There is an error in the config. See console for output."
 msgstr ""
 
-#: ../../../lib/irc.php:213
+#: ../../../lib/irc.php:202
 msgid "Rehashed. View console for output."
 msgstr ""
 
-#: ../../../lib/irc.php:244 ../../../lib/irc.php:266 ../../../lib/irc.php:295
+#: ../../../lib/irc.php:233 ../../../lib/irc.php:255 ../../../lib/irc.php:284
 msgid "RunServ is already running."
-msgstr ""
-
-#: ../../../lib/irc.php:328
-msgid "Voice"
-msgstr ""
-
-#: ../../../lib/irc.php:329
-msgid "Automatic voice"
-msgstr ""
-
-#: ../../../lib/irc.php:330
-msgid "Halfop"
-msgstr ""
-
-#: ../../../lib/irc.php:331
-msgid "Automatic Halfop"
-msgstr ""
-
-#: ../../../lib/irc.php:332
-msgid "Op"
-msgstr ""
-
-#: ../../../lib/irc.php:333
-msgid "Automatic Op"
-msgstr ""
-
-#: ../../../lib/irc.php:334
-msgid "Admin"
-msgstr ""
-
-#: ../../../lib/irc.php:335 ../../../lib/servers.php:104
-msgid "Owner"
-msgstr ""
-
-#: ../../../lib/irc.php:336
-msgid "Set"
-msgstr ""
-
-#: ../../../lib/irc.php:337
-msgid "Invite/Getkey"
-msgstr ""
-
-#: ../../../lib/irc.php:338
-msgid "Kick/Ban"
-msgstr ""
-
-#: ../../../lib/irc.php:339
-msgid "Recover/Clear"
-msgstr ""
-
-#: ../../../lib/irc.php:340
-msgid "Modify access lists"
-msgstr ""
-
-#: ../../../lib/irc.php:341
-msgid "Topic"
-msgstr ""
-
-#: ../../../lib/irc.php:342
-msgid "View access lists"
-msgstr ""
-
-#: ../../../lib/irc.php:343
-msgid "Founder"
-msgstr ""
-
-#: ../../../lib/irc.php:344
-msgid "Banned"
 msgstr ""
 
 #: ../../../lib/opers.php:56
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Omnimaga Profile"
 msgstr ""
 
-#: ../../../lib/opers.php:71 ../../../site/index.php:389
+#: ../../../lib/opers.php:71 ../../../site/index.php:450
 msgid "New Password"
 msgstr ""
 
@@ -170,13 +170,13 @@ msgid "Invalid credentials"
 msgstr ""
 
 #: ../../../lib/security.php:67 ../../../lib/security.php:81
-#: ../../../site/api/index.php:158 ../../../site/index.php:402
-#: ../../../site/index.php:456
+#: ../../../site/api/index.php:162 ../../../site/index.php:312
+#: ../../../site/index.php:463 ../../../site/index.php:517
 msgid "User"
 msgstr ""
 
 #: ../../../lib/security.php:67 ../../../lib/security.php:81
-#: ../../../site/api/index.php:158
+#: ../../../site/api/index.php:162
 msgid "does not exist"
 msgstr ""
 
@@ -184,7 +184,7 @@ msgstr ""
 msgid "Invalid persona email"
 msgstr ""
 
-#: ../../../lib/security.php:84 ../../../site/api/index.php:290
+#: ../../../lib/security.php:84 ../../../site/api/index.php:323
 msgid "Invalid password"
 msgstr ""
 
@@ -198,10 +198,11 @@ msgstr ""
 
 #: ../../../lib/security.php:122 ../../../lib/security.php:204
 #: ../../../site/api/index.php:43 ../../../site/api/index.php:76
-#: ../../../site/api/index.php:104 ../../../site/api/index.php:153
-#: ../../../site/api/index.php:167 ../../../site/api/index.php:176
-#: ../../../site/api/index.php:185 ../../../site/api/index.php:262
-#: ../../../site/api/index.php:277 ../../../site/api/index.php:285
+#: ../../../site/api/index.php:104 ../../../site/api/index.php:157
+#: ../../../site/api/index.php:171 ../../../site/api/index.php:180
+#: ../../../site/api/index.php:189 ../../../site/api/index.php:218
+#: ../../../site/api/index.php:295 ../../../site/api/index.php:310
+#: ../../../site/api/index.php:318
 msgid "You have been logged out"
 msgstr ""
 
@@ -238,7 +239,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: ../../../lib/servers.php:108 ../../../site/index.php:216
+#: ../../../lib/servers.php:108 ../../../site/index.php:230
 msgid "Opers"
 msgstr ""
 
@@ -274,145 +275,154 @@ msgstr ""
 msgid "Cannot fetch news"
 msgstr ""
 
-#: ../../../site/api/index.php:149
+#: ../../../site/api/index.php:153
 msgid "Cannot fetch channels"
 msgstr ""
 
-#: ../../../site/api/index.php:154
+#: ../../../site/api/index.php:158
 msgid "No message or user entered"
 msgstr ""
 
-#: ../../../site/api/index.php:160
+#: ../../../site/api/index.php:164
 msgid "Memo Sent"
 msgstr ""
 
-#: ../../../site/api/index.php:163
+#: ../../../site/api/index.php:167
 msgid "Cannot send memo"
 msgstr ""
 
-#: ../../../site/api/index.php:168
+#: ../../../site/api/index.php:172
 msgid "No id given"
 msgstr ""
 
-#: ../../../site/api/index.php:171
+#: ../../../site/api/index.php:175
 msgid "Cannot delete memo"
 msgstr ""
 
-#: ../../../site/api/index.php:177 ../../../site/api/index.php:186
+#: ../../../site/api/index.php:181 ../../../site/api/index.php:190
+#: ../../../site/api/index.php:219
 msgid "No channel given"
 msgstr ""
 
-#: ../../../site/api/index.php:180
+#: ../../../site/api/index.php:184
 msgid "Cannot drop channel"
 msgstr ""
 
-#: ../../../site/api/index.php:237
+#: ../../../site/api/index.php:191
+msgid "No user given"
+msgstr ""
+
+#: ../../../site/api/index.php:209 ../../../site/api/index.php:213
+msgid "Cannot change flag"
+msgstr ""
+
+#: ../../../site/api/index.php:270
 msgid "Failed to add email"
 msgstr ""
 
-#: ../../../site/api/index.php:237
+#: ../../../site/api/index.php:270
 msgid "to user"
 msgstr ""
 
-#: ../../../site/api/index.php:239
+#: ../../../site/api/index.php:272
 msgid "Email does not match any users"
 msgstr ""
 
-#: ../../../site/api/index.php:263
+#: ../../../site/api/index.php:296
 msgid "No ID set"
 msgstr ""
 
-#: ../../../site/api/index.php:265
+#: ../../../site/api/index.php:298
 msgid "Could not remove email address"
 msgstr ""
 
-#: ../../../site/api/index.php:282
+#: ../../../site/api/index.php:315
 msgid "2-factor disabled."
 msgstr ""
 
-#: ../../../site/api/index.php:289 ../../../site/api/index.php:304
-#: ../../../site/api/index.php:315
+#: ../../../site/api/index.php:322 ../../../site/api/index.php:337
+#: ../../../site/api/index.php:348
 msgid "Make sure that everything is filled in. Try reloading if it is."
 msgstr ""
 
-#: ../../../site/api/index.php:295
+#: ../../../site/api/index.php:328
 msgid "Could not update password with nickserv"
 msgstr ""
 
-#: ../../../site/api/index.php:305
+#: ../../../site/api/index.php:338
 msgid "Not Logged in to use"
 msgstr ""
 
-#: ../../../site/api/index.php:305
+#: ../../../site/api/index.php:338
 msgid "with key"
 msgstr ""
 
-#: ../../../site/api/index.php:306
+#: ../../../site/api/index.php:339
 msgid "Must be logged in with type user to sync pass"
 msgstr ""
 
-#: ../../../site/api/index.php:309
+#: ../../../site/api/index.php:342
 msgid "Could not verify with nickserv"
 msgstr ""
 
-#: ../../../site/api/index.php:312
+#: ../../../site/api/index.php:345
 msgid "Nickserv password synchronized with main account"
 msgstr ""
 
-#: ../../../site/api/index.php:320 ../../../site/api/index.php:333
-#: ../../../site/api/index.php:352
+#: ../../../site/api/index.php:353 ../../../site/api/index.php:366
+#: ../../../site/api/index.php:385
 msgid "Not logged in"
 msgstr ""
 
-#: ../../../site/api/index.php:321 ../../../site/api/index.php:334
+#: ../../../site/api/index.php:354 ../../../site/api/index.php:367
 msgid "No user set."
 msgstr ""
 
-#: ../../../site/api/index.php:322
+#: ../../../site/api/index.php:355
 msgid "No email set."
 msgstr ""
 
-#: ../../../site/api/index.php:323
+#: ../../../site/api/index.php:356
 msgid "No real name set."
 msgstr ""
 
-#: ../../../site/api/index.php:324 ../../../site/api/index.php:335
+#: ../../../site/api/index.php:357 ../../../site/api/index.php:368
 msgid "No nick set."
 msgstr ""
 
-#: ../../../site/api/index.php:325
+#: ../../../site/api/index.php:358
 msgid "User with id"
 msgstr ""
 
-#: ../../../site/api/index.php:325 ../../../site/api/index.php:337
+#: ../../../site/api/index.php:358 ../../../site/api/index.php:370
 msgid "does not exist. You should reload the page."
 msgstr ""
 
-#: ../../../site/api/index.php:329
+#: ../../../site/api/index.php:362
 msgid "Unable to update user"
 msgstr ""
 
-#: ../../../site/api/index.php:336
+#: ../../../site/api/index.php:369
 msgid "No profile set."
 msgstr ""
 
-#: ../../../site/api/index.php:337
+#: ../../../site/api/index.php:370
 msgid "Oper with id"
 msgstr ""
 
-#: ../../../site/api/index.php:339 ../../../site/api/index.php:341
+#: ../../../site/api/index.php:372 ../../../site/api/index.php:374
 msgid "Unable to update oper"
 msgstr ""
 
-#: ../../../site/api/index.php:347
+#: ../../../site/api/index.php:380
 msgid "Failed to update setting"
 msgstr ""
 
-#: ../../../site/api/index.php:347
+#: ../../../site/api/index.php:380
 msgid "with value"
 msgstr ""
 
-#: ../../../site/api/index.php:356
+#: ../../../site/api/index.php:389
 msgid "Invalid Action"
 msgstr ""
 
@@ -447,7 +457,7 @@ msgid "Reply"
 msgstr ""
 
 #: ../../../site/index.php:116 ../../../site/index.php:117
-#: ../../../site/index.php:191 ../../../site/index.php:192
+#: ../../../site/index.php:205 ../../../site/index.php:206
 msgid "Delete"
 msgstr ""
 
@@ -459,115 +469,131 @@ msgstr ""
 msgid "Access"
 msgstr ""
 
-#: ../../../site/index.php:176
+#: ../../../site/index.php:177 ../../../site/index.php:318
 msgid "Flags"
 msgstr ""
 
-#: ../../../site/index.php:211
+#: ../../../site/index.php:182 ../../../site/index.php:308
+msgid "Modify"
+msgstr ""
+
+#: ../../../site/index.php:200 ../../../site/index.php:201
+msgid "Add Access"
+msgstr ""
+
+#: ../../../site/index.php:225
 msgid "News"
 msgstr ""
 
-#: ../../../site/index.php:212
+#: ../../../site/index.php:226
 msgid "Memos"
 msgstr ""
 
-#: ../../../site/index.php:213
+#: ../../../site/index.php:227
 msgid "Channels"
 msgstr ""
 
-#: ../../../site/index.php:215
+#: ../../../site/index.php:229
 msgid "Servers"
 msgstr ""
 
-#: ../../../site/index.php:217
+#: ../../../site/index.php:231
 msgid "Configuration"
 msgstr ""
 
-#: ../../../site/index.php:219
+#: ../../../site/index.php:233
 msgid "Profile"
 msgstr ""
 
-#: ../../../site/index.php:254
+#: ../../../site/index.php:264
+msgid "Send"
+msgstr ""
+
+#: ../../../site/index.php:268
 msgid "To"
 msgstr ""
 
-#: ../../../site/index.php:260
+#: ../../../site/index.php:274
 msgid "Message"
 msgstr ""
 
-#: ../../../site/index.php:279
+#: ../../../site/index.php:289
+msgid "Register"
+msgstr ""
+
+#: ../../../site/index.php:293
 msgid "Channel Name"
 msgstr ""
 
-#: ../../../site/index.php:301
+#: ../../../site/index.php:362
 msgid "Country"
 msgstr ""
 
-#: ../../../site/index.php:309
+#: ../../../site/index.php:370
 msgid "Cell #"
 msgstr ""
 
-#: ../../../site/index.php:332
+#: ../../../site/index.php:393
 msgid "Token"
 msgstr ""
 
-#: ../../../site/index.php:347
+#: ../../../site/index.php:408
 msgid "Disable 2-factor"
 msgstr ""
 
-#: ../../../site/index.php:353
+#: ../../../site/index.php:414
 msgid "Link Persona"
 msgstr ""
 
-#: ../../../site/index.php:356
+#: ../../../site/index.php:417
 msgid "Remove"
 msgstr ""
 
-#: ../../../site/index.php:364
+#: ../../../site/index.php:425
 msgid "Switch Role"
 msgstr ""
 
-#: ../../../site/index.php:366
+#: ../../../site/index.php:427
 msgid "Rehash"
 msgstr ""
 
-#: ../../../site/index.php:368 ../../../site/index.php:379
+#: ../../../site/index.php:429 ../../../site/index.php:440
 msgid "Change Password"
 msgstr ""
 
-#: ../../../site/index.php:370
+#: ../../../site/index.php:431
 msgid "Sync Password"
 msgstr ""
 
-#: ../../../site/index.php:372
+#: ../../../site/index.php:433
 msgid "Logout"
 msgstr ""
 
-#: ../../../site/index.php:383 ../../../site/index.php:481
+#: ../../../site/index.php:444 ../../../site/index.php:542
 msgid "Password"
 msgstr ""
 
-#: ../../../site/index.php:413
+#: ../../../site/index.php:474
 msgid "Switch"
 msgstr ""
 
-#: ../../../site/index.php:417 ../../../site/index.php:487
+#: ../../../site/index.php:478 ../../../site/index.php:548
 msgid "Type"
 msgstr ""
 
-#: ../../../site/index.php:435 ../../../site/index.php:467
+#: ../../../site/index.php:496 ../../../site/index.php:528
 msgid "Login"
 msgstr ""
 
-#: ../../../site/index.php:439
+#: ../../../site/index.php:500
 msgid "2-Factor Verification"
 msgstr ""
 
-#: ../../../site/index.php:471
+#: ../../../site/index.php:532
 msgid "Persona"
 msgstr ""
 
-#: ../../../site/index.php:475
+#: ../../../site/index.php:536
 msgid "Username"
 msgstr ""
 
@@ -645,6 +671,6 @@ msgstr ""
 msgid "Registering channel"
 msgstr ""
 
-#: ../../../site/js/index.js:626
+#: ../../../site/js/index.js:647
 msgid "Language change detected"
 msgstr ""

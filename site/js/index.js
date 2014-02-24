@@ -621,6 +621,27 @@ $(function(){
 					dataType: 'json'
 				});
 		};
+		window.ModifyChannelAccess = function(channel,user,id){
+			var d = $('#channel-flags-diag');
+			if(typeof user != 'undefined'){
+				d.find('input[name=user]').val(user);
+			}else{
+				d.find('input[name=user]').val('');
+			}
+			d.find('input[type=checkbox]').prop('checked',false);
+			if(typeof id != 'undefined'){
+				$('div[id=channel-'+channel+']>table').find('tr.treegrid-parent-'+id).each(function(){
+					var flag = this.className.substr(9,1);
+					d.find('input[name^=flags]').each(function(){
+						if(this.name.substr(6,1) == flag){
+							$(this).prop('checked',true);
+						}
+					});
+				});
+			}
+			d.find('input[name=channel]').val(channel);
+			d.dialog('open');
+		};
 		setInterval(function(){
 			if(LANG != window.navigator.language){
 				console.log(_('Language change detected'));

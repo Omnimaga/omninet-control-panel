@@ -8,6 +8,7 @@
 	require_once(DIR."/lib/irc.php");
 	require_once(DIR."/lib/security.php");
 	require_once(DIR."/lib/users.php");
+	require_once(DIR."/lib/channels.php");
 	require_once(DIR."/lib/servers.php");
 	require_once(DIR."/lib/opers.php");
 	require_once(DIR."/lib/forms.php");
