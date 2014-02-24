@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Omninet Control panel\n"
 "POT-Creation-Date: 2014-02-23 18:36-0700\n"
-"PO-Revision-Date: 2014-02-23 18:36-0700\n"
-"Last-Translator: Nathaniel van Diepen <eeems@omnimaga.org>\n"
+"PO-Revision-Date: 2014-02-23 20:43-0500\n"
+"Last-Translator: Julien Savard <juju2143@gmail.com>\n"
 "Language-Team: Omnimaga <admin@omnimaga.org>\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
@@ -311,14 +311,12 @@ msgid "Cannot drop channel"
 msgstr "Impossible d'abandonner le canal"
 
 #: ../../../site/api/index.php:191
-#, fuzzy
 msgid "No user given"
-msgstr "Aucun ID fourni"
+msgstr "Aucun utilisateur fourni"
 
 #: ../../../site/api/index.php:209 ../../../site/api/index.php:213
-#, fuzzy
 msgid "Cannot change flag"
-msgstr "Impossible d'abandonner le canal"
+msgstr "Impossible de changer l'indicateur"
 
 #: ../../../site/api/index.php:270
 msgid "Failed to add email"
@@ -483,12 +481,11 @@ msgstr "Indicateurs"
 
 #: ../../../site/index.php:182 ../../../site/index.php:308
 msgid "Modify"
-msgstr ""
+msgstr "Modifier"
 
 #: ../../../site/index.php:200 ../../../site/index.php:201
-#, fuzzy
 msgid "Add Access"
-msgstr "Accès"
+msgstr "Ajouter accès"
 
 #: ../../../site/index.php:225
 msgid "News"
@@ -516,7 +513,7 @@ msgstr "Profil"
 
 #: ../../../site/index.php:264
 msgid "Send"
-msgstr ""
+msgstr "Envoyer"
 
 #: ../../../site/index.php:268
 msgid "To"
@@ -528,7 +525,7 @@ msgstr "Message"
 
 #: ../../../site/index.php:289
 msgid "Register"
-msgstr ""
+msgstr "S'enregistrer"
 
 #: ../../../site/index.php:293
 msgid "Channel Name"
