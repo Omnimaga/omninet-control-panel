@@ -166,15 +166,11 @@
 											<?php echo __('Access'); ?>
 										</td>
 										<td></td>
-										<td></td>
 									</tr>
 									{{#each this.users}}
 										<tr style='font-weight:bold;' class='treegrid-{{this.id}} treegrid-parent-0'>
 											<td>
 												{{this.name}}
-											</td>
-											<td>
-												<?php echo __('Flags'); ?>
 											</td>
 											<td>
 												{{#if ../canaccess}}
@@ -190,7 +186,6 @@
 												<td>
 													{{this.name}}
 												</td>
-												<td></td>
 											</tr>
 										{{/each}}
 									{{/each}}
