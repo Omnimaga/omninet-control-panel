@@ -75,7 +75,8 @@ INSERT INTO `configuration` (`key`, `description`, `value`, `type`) VALUES
 ('stats-server', 'Stats Server', NULL, 'lookup'),
 ('xmlrpc-path', 'XMLRPC Path', '/xmlrpc', 'string'),
 ('xmlrpc-port', 'XMLRPC Port', '9900', 'number'),
-('xmlrpc-server', 'XMLRPC Server', NULL, 'lookup');
+('xmlrpc-server', 'XMLRPC Server', NULL, 'lookup'),
+('smf-path', 'SMF Installation Path', NULL, '');
 
 -- --------------------------------------------------------
 
