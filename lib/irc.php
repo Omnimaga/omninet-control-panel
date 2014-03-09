@@ -11,9 +11,9 @@
 			$session = explode("<string>", $response->serialize());
 			$session = explode("</string", $session[1]);
 			$session = $session[0];
-			return Array(true,$session);
+			return array(true,$session);
 		}else{
-			return Array(
+			return array(
 				false,
 				'['.$response->faultCode().'] '.$response->faultString()
 			);
@@ -48,7 +48,7 @@
 				default:
 					$m = __("Could not log in");
 			}
-			return Array(false,$m,$response->faultCode());
+			return array(false,$m,$response->faultCode());
 		}
 		$message = new xmlrpcmsg("atheme.command");
 		$message->addParam(new xmlrpcval($session, "string"));
@@ -66,9 +66,9 @@
 			$response = explode("<string>", $response->serialize());
 			$response = explode("</string", $response[1]);
 			$response = $response[0];
-			return Array(true,$response,0);
+			return array(true,$response,0);
 		}else{
-			return Array(false,"Command failed: " . $response->faultString(),$response->faultCode());
+			return array(false,"Command failed: " . $response->faultString(),$response->faultCode());
 		}
 	}
 	$ircret = "";
@@ -105,7 +105,7 @@
 		if($ret_type == 'string'){
 			$ircret = '{"code":'.$code.',"message":"'.$message.'","log":'.json_encode($msg).'}';
 		}else{
-			$ircret = Array(
+			$ircret = array(
 				'code'=>$code,
 				'message'=>$message,
 				'log'=>$msg
@@ -207,7 +207,7 @@
 		global $ircret;
 		global $u;
 		global $user;
-		$ircret = Array(
+		$ircret = array(
 			'code'=>1
 		);
 		if(!isset($u)){
