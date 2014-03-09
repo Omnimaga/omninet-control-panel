@@ -371,7 +371,7 @@
 						$ret3 = irccommands(array(
 							'grs fflags !'.$res2['irc_name'].' '.$_COOKIE['user'].' +cvi'
 						));
-						$log .= $ret3['log'];
+						$log .= isset($ret3['log'])?$ret3['log']:'';
 						if($ret3['code'] !== 0){
 							die('{"code":'.$ret3['code'].',"message":"'.__('Unable to sync groups').'","log":'.json_encode($log).'}');
 						}
