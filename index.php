@@ -7,7 +7,8 @@
 		$_GET['key'] = isset($opts['key'])?$opts['key']:(isset($opts['k'])?$opts['k']:false);
 		$_GET['server'] = isset($opts['server'])?$opts['server']:(isset($opts['s'])?$opts['s']:false);
 		if(!$_GET['user'] || !$_GET['key'] || !$_GET['server']){
-			die('# Please provide a user, api key and a server name.');
+			header('Location: site/');
+			die();
 		}
 	}
 	$user = get_current_user_obj('netadmin') or $user = get_current_user_obj('servermanager') or $user = get_current_user_obj('globaladmin') or die('# Invalid user/key pair.');

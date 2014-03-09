@@ -211,6 +211,26 @@ $(function(){
 			btn.attr('disabled','disabled');
 			return false;
 		});
+		$('#sync-groups').click(function(){
+			var btn = $(this);
+			$.ajax(__HOSTNAME__+'site/api/?action=sync-groups',{
+				success: function(d){
+					if(d.log){
+						console.log(d.log);
+					}
+					alert(d.message);
+					btn.removeAttr('disabled');
+				},
+				error: function(xhr,msg,e){
+					console.error(e);
+					alert(_("Could not synchronize your groups")+": "+msg);
+					btn.removeAttr('disabled');
+				},
+				dataType: 'json'
+			});
+			btn.attr('disabled','disabled');
+			return false;
+		});
 		$('#persona-register').hover(function(){
 			$(this).addClass('ui-state-hover');
 		},function(){

@@ -424,6 +424,7 @@
 				<li><a id="newpass-button"><?php echo __('Change Password'); ?></a></li>
 				<?php if(has_flag($user,'u')){ ?>
 					<li><a id="sync-pass"><?php echo __('Sync Password'); ?></a></li>
+					<li><a id="sync-groups"><?php echo __('Sync Groups'); ?></a></li>
 				<?php } ?>
 				<li><a id="logout"><?php echo __('Logout'); ?></a></li>
 			</ul>

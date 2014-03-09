@@ -442,6 +442,16 @@ INSERT INTO `user_role_types` (`id`, `name`, `description`, `flags`) VALUES
 (3, 'netadmin', 'Network Admin', 'on'),
 (4, 'globaladmin', 'Global Admin', 'nao');
 
+
+DROP TABLE IF EXISTS `smf_groups`;
+CREATE TABLE IF NOT EXISTS `smf_groups` (
+  `irc_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `id_group` smallint(5) NOT NULL,
+  PRIMARY KEY (`irc_name`),
+  UNIQUE KEY `irc_name` (`irc_name`,`id_group`),
+  KEY `id_group` (`id_group`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
 -- --------------------------------------------------------
 
 --

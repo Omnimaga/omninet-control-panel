@@ -334,7 +334,7 @@
 			die('{"code":0}');
 		break;
 		case 'sync-pass':
-			$u && isset($_SESSION['password'])or die('{"code":2,"message":"'.__('Make sure that everything is filled in. Try reloading if it is.').'"}');
+			$u && isset($_SESSION['password'])or die('{"code":2,"message":"'.__('Not logged in').'"}');
 			$u['api_key'] == $_COOKIE['key'] or die('{"code":3,"message":"'.__('Not Logged in to use').' '.$u['nick'].' '.__('with key').' '.$u['api_key'].' != '.$_COOKIE['key'].'."}');
 			$_COOKIE['type'] == 'user' or die('{"code":3,"message":"'.__('Must be logged in with type user to sync pass').'"}');
 			$res = atheme_login(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),$u['nick'],$_SESSION['password']);
@@ -344,8 +344,46 @@
 			query("UPDATE users u SET u.password='%s' WHERE u.id=%d",array(mkpasswd($_SESSION['password']),$u['id']));
 			die('{"code":0,"message":"'.__('Nickserv password synchronized with main account').'"}');
 		break;
+		case 'sync-groups':
+			$u && isset($_SESSION['password'])or die('{"code":2,"message":"'.__('Make sure that everything is filled in. Try reloading if it is.').'"}');
+			$u['api_key'] == $_COOKIE['key'] or die('{"code":3,"message":"'.__('Not Logged in to use').' '.$u['nick'].' '.__('with key').' '.$u['api_key'].' != '.$_COOKIE['key'].'."}');
+			$res = atheme_login(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),$u['nick'],$_SESSION['password']);
+			if($res[0] === false){
+				die('{"code":2,"message":"'.__('Could not verify with nickserv').': '.$res[1].'"}');
+			}
+			require_once(get_conf('smf-path').'/SSI.php');
+			$res = $smcFunc['db_query']('',"SELECT id_group,additional_groups
+				FROM {db_prefix}members
+				WHERE id_member = {int:id_member}
+			",array(
+				'id_member'=>$user_info['id']
+			));
+			$log = '';
+			while($row = $smcFunc['db_fetch_assoc']($res)){
+				$groups = explode(',',$row['additional_groups']);
+				if(!is_null($row['id_group'])){
+					array_push($groups,$row['id_group']);
+				}
+				foreach($groups as $k => $group){
+					$res2 = query("SELECT irc_name FROM smf_groups WHERE id_group = %d",array($group));
+					if($res2 && $res2->num_rows > 0){
+						$res2 = $res2->fetch_assoc();
+						$ret3 = irccommands(array(
+							'grs fflags !'.$res2['irc_name'].' '.$_COOKIE['user'].' +cvi'
+						));
+						$log .= $ret3['log'];
+						if($ret3['code'] !== 0){
+							die('{"code":'.$ret3['code'].',"message":"'.__('Unable to sync groups').'","log":'.json_encode($log).'}');
+						}
+					}else{
+						$log .= "No group match for {$group}\n";
+					}
+				}
+			}
+			die('{"code":0,"message":"'.__('Groups synced with SMF').'","log":'.json_encode($log).'}');
+		break;
 		case 'role':
-			$u && isset($_GET['type']) or die('{"code":2,"message":"'.__('Make sure that everything is filled in. Try reloading if it is.').'"}');
+			$u && isset($_GET['type']) or die('{"code":2,"message":"'.__('Not logged in').'"}');
 			setcookie('type',$_GET['type'],null,'/');
 			die('{"code":0}');
 		break;

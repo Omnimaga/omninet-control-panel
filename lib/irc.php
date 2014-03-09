@@ -201,7 +201,7 @@
 		}
 		return '{"code":0,"message":"'.__('Rehashed. View console for output.').'","log":'.json_encode($msg).'}';
 	}
-	function irccommands($commands,$runas="RehashServ"){
+	function irccommands($commands,$runas="RehashServ",$nick='RunServ',$isreg=true){
 		global $msg;
 		global $irc;
 		global $ircret;
@@ -221,7 +221,7 @@
 			if(!ircputs("NICK RehashServ\r\n")){return $ircret;}
 			if(!ircputs("USER RehashServ omni.irc.omnimaga.org RehashServ :RehashServ\r\n")){return $ircret;}
 		}else{
-			if(!ircputs("NICK RunServ\r\n")){return $ircret;}
+			if(!ircputs("NICK {$nick}\r\n")){return $ircret;}
 			if(!ircputs("USER {$runas} omni.irc.omnimaga.org {$runas} :{$runas}\r\n")){return $ircret;}
 		}
 		while(!feof($irc)){
@@ -243,7 +243,7 @@
 		if($runas == 'RehashServ'){
 			if(!ircputs("OPER RehashServ ".get_conf('rehash-pass','string')."\r\n")){return $ircret;}
 			if(!ircputs("IDENTIFY RehashServ ".get_conf('rehash-pass','string')."\r\n")){return $ircret;}
-		}else{
+		}else if($isreg){
 			if(!ircputs("IDENTIFY {$runas} ".$_SESSION['password']."\r\n")){return $ircret;}
 		}
 		while(!feof($irc)){
@@ -263,6 +263,9 @@
 								break;
 							}
 						}
+					}
+					if(!$isreg){
+						break;
 					}
 				}elseif(strrpos($line,'ERROR :Closing Link:') !== false){
 					return ircclose(3,__("IRC Server refused the connection."),'array');
@@ -294,6 +297,7 @@
 		}
 		foreach($commands as $k => $command){
 			if(!ircputs($command."\r\n")){return $ircret;}
+			time_nanosleep(0, 250000000);
 		}
 		try{
 			error_reporting(0);
@@ -306,6 +310,8 @@
 				$msg .= $line;
 			}
 		}
+		$msg .= 'QUIT :Done';
+		fputs($irc,'QUIT :Done');
 		fclose($irc);
 		return array(
 			'code'=>0,
