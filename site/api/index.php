@@ -378,6 +378,10 @@
 					die('{"code":'.$res3[2].',"message":"'.__('Unable to sync groups').': '.$res3[1].'"}');
 				}
 			}
+			$res3 = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,'RehashServ',get_conf('rehash-pass'),'NickServ','hold',array($_COOKIE['user'],'on'));
+			if(!$res3[0]){
+				die('{"code":'.$res3[2].',"message":"'.__('Unable to sync groups').': '.$res3[1].'"}');
+			}
 			die('{"code":0,"message":"'.__('Groups synced with SMF').'"}');
 		break;
 		case 'role':
