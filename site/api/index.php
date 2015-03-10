@@ -218,25 +218,33 @@
 		case 'register-channel':
 			$u or die('{"code":1,"message":"'.__('You have been logged out').'"}');
 			isset($_GET['channel']) or die('{"code":1,"message":"'.__('No channel given').'"}');
-			$ret = irccommands(array(
-				'join '.$_GET['channel'],
-				'samode '.$_GET['channel'].' +o RehashServ',
-				'cs register '.$_GET['channel'],
-				'cs set '.$_GET['channel'].' keeptopic on',
-				'cs set '.$_GET['channel'].' founder '.$_COOKIE['user']
-			));
-			if($ret['code'] !== 0){
-				die(json_encode($ret));
+			$channel = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'ChanServ','info',Array($_GET['channel']));
+			if(!$channel[0]){
+				$ret = irccommands(array(
+					'join '.$_GET['channel'],
+					'samode '.$_GET['channel'].' +o RehashServ',
+					'cs register '.$_GET['channel'],
+					'cs set '.$_GET['channel'].' keeptopic on',
+					'cs set '.$_GET['channel'].' founder '.$_COOKIE['user']
+				));
+				if($ret['code'] !== 0){
+					die(json_encode($ret));
+				}
+				$ret2 = irccommands(array(
+					'join '.$_GET['channel'],
+					'cs set '.$_GET['channel'].' founder '.$_COOKIE['user'],
+					'cs flags '.$_GET['channel'].' RehashServ -AORafhioqrstv'
+				),$_COOKIE['user']);
+				if($ret2['code'] !== 0){
+					$ret2['message'] = 'Failed to register channel. See log for information.';
+				}
+				@$ret2['log'] = $ret['log']."\r\n".$ret2['log'];
+			}else{
+				$ret = array(
+					'code'=>1,
+					'message'=>'Channel '.$_GET['channel'].' already exists.'
+				);
 			}
-			$ret2 = irccommands(array(
-				'join '.$_GET['channel'],
-				'cs set '.$_GET['channel'].' founder '.$_COOKIE['user'],
-				'cs flags '.$_GET['channel'].' RehashServ -AORafhioqrstv'
-			),$_COOKIE['user']);
-			if($ret2['code'] !== 0){
-				$ret2['message'] = 'Failed to register channel. See log for information.';
-			}
-			$ret2['log'] = $ret['log']."\r\n".$ret2['log'];
 			die(json_encode($ret));
 		break;
 		case 'persona-login':
