@@ -1,4 +1,5 @@
 <?php
+	error_reporting(E_ERROR);
 	header('Content-type: application/json');
 	header('Access-Control-Allow-Origin: *');
 	require_once("../../header.php");
@@ -22,7 +23,7 @@
 			isset($_GET['type']) or die('{"code":2,"message":"'.__('Missing user type').'"}');
 			$r = login($_GET['username'],$_GET['password'],$_GET['type']);
 			if($r !== true){
-				die('{"code":2,"message":"'.$r.'"}');
+				die('{"code":2,"message":'.json_encode($r).'}');
 			}else{
 				die('{"code":0}');
 			}
@@ -122,9 +123,9 @@
 							$chan['canaccess'] = true;
 						}
 						$res2 = atheme_command(get_conf('xmlrpc-server'),get_conf('xmlrpc-port'),get_conf('xmlrpc-path'),USER_IP,$_COOKIE['user'],$_SESSION['password'],'ChanServ','flags',array($name));
+						$users = array();
 						if($res2[0]){
 							$res2 = explode('&#10;',$res2[1]);
-							$users = array();
 							foreach($res2 as $kk => $row2){
 								if($kk > 1 && $kk < count($res2)-2){
 									$user = array(

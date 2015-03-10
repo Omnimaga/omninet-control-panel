@@ -25,7 +25,6 @@
 		$message->addParam(new xmlrpcval($password, "string"));
 		$client = new xmlrpc_client($path, $hostname, $port);
 		$response = $client->send($message);
-
 		$session = NULL;
 		if(!$response->faultCode()){
 			$session = explode("<string>", $response->serialize());
@@ -48,7 +47,7 @@
 				default:
 					$m = __("Could not log in");
 			}
-			return array(false,$m,$response->faultCode());
+			return array(false,$m,$response->faultCode(),$response->faultString());
 		}
 		$message = new xmlrpcmsg("atheme.command");
 		$message->addParam(new xmlrpcval($session, "string"));

@@ -60,7 +60,7 @@
 				setcookie('type','user',null,'/');
 				return true;
 			}else{
-				return __("Invalid credentials");
+				return __("Could not log in: ").@$user[1].": ".@$user[3];
 			}
 		}elseif($type=='persona'){
 			if(!$user = get_user_obj($nick,$effective_role)){
