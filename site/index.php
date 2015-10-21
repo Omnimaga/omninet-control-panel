@@ -35,7 +35,7 @@
 			<script src="//cdnjs.cloudflare.com/ajax/libs/authy-forms.js/2.0/form.authy.min.js"></script>
 		<?php } ?>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.min.js"></script>
 		<?php if(get_conf('persona-endpoint') != 'none'){ ?>
 			<script src="//login.persona.org/include.js"></script>
 		<?php } ?>
@@ -181,12 +181,14 @@
 											</td>
 										</tr>
 										{{#each this.flags}}
-											<tr class='treegrid-{{this.flag}} treegrid-parent-{{../id}}'>
-												<td></td>
-												<td>
-													{{this.name}}
-												</td>
-											</tr>
+											{{#if this.flag}}
+												<tr class='treegrid-{{this.flag}} treegrid-parent-{{../id}}'>
+													<td></td>
+													<td>
+														{{this.name}}
+													</td>
+												</tr>
+											{{/if}}
 										{{/each}}
 									{{/each}}
 									</table>
@@ -576,9 +578,6 @@
 						echo "</div>";
 					}
 				?>
-			</div>
-			<div id="loading">
-				<div class="ui-widget ui-state-default ui-corner-all"></div>
 			</div>
 	</body>
 </html>

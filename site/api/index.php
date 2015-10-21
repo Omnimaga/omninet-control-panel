@@ -108,6 +108,7 @@
 			if($res[0]){
 				$res = explode('&#10;',$res[1]);
 				$channels = array();
+				$flags = array();
 				foreach($res as $k => $row){
 					if($k != count($res)-1){
 						$flags_list = str_split(preg_replace('/^Access flag\(s\) \+(.+) in .+$/i','\1',$row));
@@ -135,11 +136,13 @@
 									);
 									$flags_list = str_split(preg_replace('/^\d+\s+.+\s+\+(.+)\s+\[.+/i','\1',$row2));
 									foreach($flags_list as $kk => $flag){
-										$name = channel_flag_name($flag);
-										array_push($user['flags'],array(
-											'flag'=>$flag,
-											'name'=>$name
-										));
+										if($flag!=' '){
+											array_push($user['flags'],$flag);
+											$name = channel_flag_name($flag);
+											if(!isset($flags[$flag])){
+												$flags[$flag] = $name;
+											}
+										}
 									}
 									array_push($users,$user);
 								}
@@ -149,7 +152,7 @@
 						array_push($channels,$chan);
 					}
 				}
-				die('{"code":0,"channels":'.json_encode($channels).'}');
+				die('{"code":0,"channels":'.json_encode($channels).',"flags": '.json_encode($flags).'}');
 			}else{
 				die('{"code":1,"message":"'.__('Cannot fetch channels').'"}');
 			}

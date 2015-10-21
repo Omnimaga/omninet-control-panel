@@ -3,11 +3,6 @@ $(function(){
 	if(location.host != purl(__HOSTNAME__).attr('host')){
 		location.href = __HOSTNAME__;
 	}
-	$(document).ajaxStart(function(){
-		$("#loading").show();
-	}).ajaxStop(function(){
-		$("#loading").hide();
-	});
 	Pomo.domain = 'messages';
 	Pomo.unescapeStrings = true;
 	var _ = window._ = function(text){
@@ -18,6 +13,7 @@ $(function(){
 				return text;
 			}
 		},
+		loadingHTML = '<div class="loading"><div class="ui-widget ui-state-default ui-corner-all loading-spinner"></div></div>',
 		dialogs = $('#dialogs').children('div'),
 		memos,
 		news,
@@ -432,6 +428,7 @@ $(function(){
 		};
 		window.FetchMemos = function(once){
 			console.log(_("Fetching Memos"));
+			$('#memos').prepend(loadingHTML);
 			$.ajax(__HOSTNAME__+'site/api/?action=get-memos',{
 				success: function(d){
 					if(d.log){
@@ -482,6 +479,7 @@ $(function(){
 		};
 		window.DeleteMemo = function(id,callback){
 			console.log(_("Deleting memo")+": "+id);
+			$('#memos').prepend(loadingHTML);
 			$.ajax(__HOSTNAME__+'site/api/?action=delete-memo&id='+id,{
 				success: function(d){
 					if(d.log){
@@ -497,6 +495,7 @@ $(function(){
 					if(typeof callback != 'undefined'){
 						callback();
 					}
+					$('#memos>.loading').remove();
 				},
 				error: function(xhr,msg,e){
 					console.error(e);
@@ -508,6 +507,7 @@ $(function(){
 		};
 		window.FetchNews = function(once){
 			console.log(_("Fetching News"));
+			$('#news').prepend(loadingHTML);
 			$.ajax(__HOSTNAME__+'site/api/?action=get-news',{
 				success: function(d){
 					if(d.log){
@@ -550,6 +550,7 @@ $(function(){
 		};
 		window.FetchChannels = function(){
 			console.log(_("Fetching Channels"));
+			$('#channels').prepend(loadingHTML);
 			$.ajax(__HOSTNAME__+'site/api/?action=get-channels',{
 				success: function(d){
 					if(d.log){
@@ -562,18 +563,20 @@ $(function(){
 						location.reload();
 					}
 					var i,
-						n;
+						n,
+						div = $('<div>');
 					if(d.channels){
 						for(i in d.channels){
 							n = d.channels[i];
 							d.channels[i] = n;
 						}
 					}
-					$('#channels').html(templates.channels(d)).find('button').button();
-					translate('#channels');
-					$('#channels').find('.tree').treegrid({
+					div.append(templates.channels(d)).find('button').button();
+					translate(div);
+					div.find('.tree').treegrid({
 						initialState: 'collapsed'
 					});
+					$('#channels').html(div.children());
 					$('body').resize();
 				},
 				error: function(xhr,msg,e){
@@ -587,6 +590,7 @@ $(function(){
 		window.DeleteChannel = function(channel){
 			if(confirm(_('Are you sure you want to delete channel')+' '+channel)){
 				console.log(_("Deleting channel")+": "+channel);
+				$('#channels').prepend(loadingHTML);
 				$.ajax(__HOSTNAME__+'site/api/?action=delete-channel',{
 					data: {
 						channel: channel
@@ -605,6 +609,7 @@ $(function(){
 						if(typeof callback != 'undefined'){
 							callback();
 						}
+						$('#channels>.loading').remove();
 					},
 					error: function(xhr,msg,e){
 						console.error(e);
@@ -617,29 +622,31 @@ $(function(){
 		};
 		window.RegisterChannel = function(channel){
 			console.log(_("Registering channel")+": "+channel);
-				$.ajax(__HOSTNAME__+'site/api/?action=register-channel',{
-					data: {
-						channel: channel
-					},
-					success: function(d){
-						if(d.log){
-							console.log(d.log);
-						}
-						if(d.message){
-							alert(d.message);
-						}
-						if(d.code!==0){
-							location.reload();
-						}
-						window.FetchChannels(true);
-					},
-					error: function(xhr,msg,e){
-						console.error(e);
-						alert(_("Could not ping server")+": "+msg);
+			$('#channels').prepend(loadingHTML);
+			$.ajax(__HOSTNAME__+'site/api/?action=register-channel',{
+				data: {
+					channel: channel
+				},
+				success: function(d){
+					if(d.log){
+						console.log(d.log);
+					}
+					if(d.message){
+						alert(d.message);
+					}
+					if(d.code!==0){
 						location.reload();
-					},
-					dataType: 'json'
-				});
+					}
+					window.FetchChannels(true);
+					$('#channels>.loading').remove();
+				},
+				error: function(xhr,msg,e){
+					console.error(e);
+					alert(_("Could not ping server")+": "+msg);
+					location.reload();
+				},
+				dataType: 'json'
+			});
 		};
 		window.ModifyChannelAccess = function(channel,user,id){
 			var d = $('#channel-flags-diag');
