@@ -174,21 +174,19 @@
 											</td>
 											<td>
 												{{#if ../canaccess}}
-													<a onclick="window.ModifyChannelAccess('{{../../name}}','{{this.name}}',{{this.id}});" style="cursor:pointer;">
+													<a onclick="window.ModifyChannelAccess('{{../name}}','{{this.name}}',{{this.id}});" style="cursor:pointer;">
 														<?php echo __('Modify'); ?>
 													</a>
 												{{/if}}
 											</td>
 										</tr>
 										{{#each this.flags}}
-											{{#if this.flag}}
-												<tr class='treegrid-{{this.flag}} treegrid-parent-{{../id}}'>
-													<td></td>
-													<td>
-														{{this.name}}
-													</td>
-												</tr>
-											{{/if}}
+											<tr class='treegrid-{{this.flag}} treegrid-parent-{{../id}}'>
+												<td></td>
+												<td>
+													{{this.name}}
+												</td>
+											</tr>
 										{{/each}}
 									{{/each}}
 									</table>

@@ -563,12 +563,28 @@ $(function(){
 						location.reload();
 					}
 					var i,
+						j,
+						f,
 						n,
+						u,
 						div = $('<div>');
-					if(d.channels){
+					if(d.channels && d.flags){
 						for(i in d.channels){
 							n = d.channels[i];
-							d.channels[i] = n;
+							if(n.users){
+								for(j in n.users){
+									u = n.users[j];
+									if(u.flags){
+										for(f in u.flags){
+											u.flags[f] = {
+												flag: u.flags[f],
+												name: d.flags[u.flags[f]]
+											};
+										}
+									}
+								}
+								d.channels[i] = n;
+							}
 						}
 					}
 					div.append(templates.channels(d)).find('button').button();
