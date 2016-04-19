@@ -17,6 +17,7 @@ $(function(){
 		dialogs = $('#dialogs').children('div'),
 		memos,
 		news,
+		channels,
 		templates = [],
 		logout = function(){
 			$.removeCookie('user',{
@@ -592,6 +593,7 @@ $(function(){
 					div.find('.tree').treegrid({
 						initialState: 'collapsed'
 					});
+					channels = d.channels;
 					$('#channels').html(div.children());
 					$('body').resize();
 				},
