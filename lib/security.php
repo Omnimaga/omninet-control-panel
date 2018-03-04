@@ -112,7 +112,7 @@
 						$_SESSION['secret_key'] = $u['secret_key'];
 						$r = true;
 					}else{
-						$r = __("Token didn't match ").$u['secret_key'];
+						$r = __("Token didn't match");
 					}
 				break;
 				default:
